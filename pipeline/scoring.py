@@ -368,8 +368,11 @@ def run_cards() -> list[Card]:
 
 
 def rank(cards: list[Card]) -> list[Card]:
-    """Ранг 1 = самая перспективная. Непроверенные — без ранга, в конце."""
-    scored = sorted([c for c in cards if c.verdict != "not_verified"], key=lambda c: -c.internal["score"])
+    """Ранг 1 = самая перспективная. Сначала по вердикту, внутри — по оценке: модель «сначала проверить вручную»
+    с высоким баллом не должна стоять выше той, что можно запускать. Непроверенные — без ранга, в конце."""
+    tier = {"launch": 0, "check_manually": 1, "park": 2, "skip": 3}
+    scored = sorted([c for c in cards if c.verdict != "not_verified"],
+                    key=lambda c: (tier[c.verdict], -c.internal["score"]))
     for i, c in enumerate(scored, 1):
         c.rank = i
     return scored + [c for c in cards if c.verdict == "not_verified"]

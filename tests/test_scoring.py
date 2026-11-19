@@ -142,3 +142,10 @@ def test_too_big_analog_and_contradicted_risk():
     assert card.analog_source.mark == "?" and card.first_steps[0].startswith("Проверить аналог Big")
     assert card.risks == []                                       # опровергнутый риск на карточку не идёт
     assert card.internal["scorer_out"]["idea"] == "i"            # сохранён для пересборки без LLM
+
+
+def test_rank_by_verdict_then_score():
+    mk = lambda n, v, s: sc.Card(model_id=n, name=n, one_liner="", website=None, verdict=v, verdict_label="",
+                                 chance="", weeks=None, internal={"score": s})
+    out = sc.rank([mk("a", "check_manually", 90), mk("b", "launch", 72), mk("c", "park", 60), mk("d", "not_verified", 0)])
+    assert [c.name for c in out] == ["b", "a", "c", "d"] and out[-1].rank is None
