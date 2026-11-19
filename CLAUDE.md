@@ -47,4 +47,4 @@ YC Directory → 15 моделей → фильтр по 5 критериям з
 2. ~~Полный прогон~~ — 19.11: 15 моделей, 4 прошли, 11 отсеяны, $0.28 (`logs/20261119T140959-af937c`, закоммичен).
 3. ~~Заглушки в `KNOWN_ISSUES.md` / `VIDEO_SCRIPT.md`~~ — заполнены по прогону на 3 моделях.
 4. ~~Публичный репозиторий~~ — сделано 19.11: https://github.com/BazzS/bizpipe (`.env` не в истории).
-5. ~~Видео~~ — `video/bizpipe_demo.mp4` (не в git), собрано из кадров отчёта и TTS. Отчёт: https://bazzs.github.io/bizpipe/
+5. ~~Видео~~ — `video/bizpipe_demo.mp4` (в git, ссылка в README через Pages), собрано из кадров отчёта и TTS. Отчёт: https://bazzs.github.io/bizpipe/
