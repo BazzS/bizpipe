@@ -1,109 +1,5 @@
 [
   {
-    "model_id": "coarena",
-    "name": "CoArena",
-    "status": "done",
-    "risks": [
-      {
-        "id": "r1",
-        "category": "competition",
-        "fact": "MLPerf is an open-source benchmark suite, run by the industry consortium MLCommons, that measures the performance of AI training and inference hardware in an architecture-neutral, representative, and reproducible way.",
-        "implication": "MLPerf's established reputation and comprehensive benchmarking capabilities may overshadow CoArena's offerings, making it challenging to attract clients within a three-month timeframe.",
-        "severity": 4,
-        "strength": 3.6,
-        "devil_passport": {
-          "text": "MLPerf is an open-source benchmark suite, run by the industry consortium MLCommons, that measures the performance of AI training and inference hardware in an architecture-neutral, representative, and reproducible way.",
-          "source_url": "https://ieeexplore.ieee.org/document/9001257",
-          "source_date": "2020-03-01",
-          "method": "primary",
-          "confidence": 0.9,
-          "conflicting_values": [],
-          "note": ""
-        },
-        "verification": {
-          "status": "confirmed",
-          "found_source_url": "https://ieeexplore.ieee.org/document/9001257",
-          "found_source_date": "2020-03-01",
-          "is_primary": true,
-          "evidence": "The article \"MLPerf: An Industry Standard Benchmark Suite for Machine Learning Performance\" describes MLPerf as a machine learning performance benchmark that has become an industry standard.",
-          "confidence": 1.0
-        },
-        "final": {
-          "text": "MLPerf is an open-source benchmark suite, run by the industry consortium MLCommons, that measures the performance of AI training and inference hardware in an architecture-neutral, representative, and reproducible way.",
-          "source_url": "https://ieeexplore.ieee.org/document/9001257",
-          "source_date": "2020-03-01",
-          "method": "primary",
-          "confidence": 1.0,
-          "conflicting_values": [],
-          "note": "confirmed: The article \"MLPerf: An Industry Standard Benchmark Suite for Machine Learning Performance\" describes MLPerf as a machine learning performance benchmark that has become an industry standard."
-        }
-      },
-      {
-        "id": "r2",
-        "category": "unit_economics",
-        "fact": "Open source AI models generally deliver at least 90% of the performance of closed alternatives while costing up to 84% less to operate.",
-        "implication": "The cost-effectiveness of open-source models may deter potential clients from paying for CoArena's services, hindering the ability to secure a first payment within three months.",
-        "severity": 3,
-        "strength": 2.55,
-        "devil_passport": {
-          "text": "Open source AI models generally deliver at least 90% of the performance of closed alternatives while costing up to 84% less to operate.",
-          "source_url": "https://www.itpro.com/software/open-source/open-source-ai-performance-cost-savings-proprietary-models-linux-foundation",
-          "source_date": "2025-11-01",
-          "method": "primary",
-          "confidence": 0.85,
-          "conflicting_values": [],
-          "note": ""
-        },
-        "verification": {
-          "status": "confirmed",
-          "found_source_url": "https://www.itpro.com/software/open-source/open-source-ai-performance-cost-savings-proprietary-models-linux-foundation",
-          "found_source_date": "2025-11-01",
-          "is_primary": true,
-          "evidence": "Research by Frank Nagle and Daniel Yue finds that open AI models generally deliver at least 90% of the performance of closed alternatives while costing up to 84% less to operate, potentially saving the global AI economy $20–48 billion annually.",
-          "confidence": 1.0
-        },
-        "final": {
-          "text": "Open source AI models generally deliver at least 90% of the performance of closed alternatives while costing up to 84% less to operate.",
-          "source_url": "https://www.itpro.com/software/open-source/open-source-ai-performance-cost-savings-proprietary-models-linux-foundation",
-          "source_date": "2025-11-01",
-          "method": "primary",
-          "confidence": 1.0,
-          "conflicting_values": [],
-          "note": "confirmed: Research by Frank Nagle and Daniel Yue finds that open AI models generally deliver at least 90% of the performance of closed alternatives while costing up to 84% less to operate, potentially saving the global AI economy $20–48 billion annually."
-        }
-      },
-      {
-        "id": "r3",
-        "category": "distribution",
-        "fact": "AWS held 37.7% of the global Infrastructure as a Service (IaaS) market in 2024, generating $64.8 billion in revenue.",
-        "implication": "AWS's dominant position in the IaaS market may limit CoArena's ability to distribute its services effectively, potentially delaying the acquisition of a first payment within three months.",
-        "severity": 3,
-        "strength": 2.4,
-        "devil_passport": {
-          "text": "AWS held 37.7% of the global Infrastructure as a Service (IaaS) market in 2024, generating $64.8 billion in revenue.",
-          "source_url": "https://www.itpro.com/cloud/cloud-computing/is-aws-cloud-dominance-waning-new-stats-show-the-hyperscalers-iaas-market-share-is-decreasing-while-microsoft-and-google-record-gains",
-          "source_date": "2025-11-01",
-          "method": "primary",
-          "confidence": 0.8,
-          "conflicting_values": [],
-          "note": ""
-        },
-        "verification": null,
-        "final": {
-          "text": "AWS held 37.7% of the global Infrastructure as a Service (IaaS) market in 2024, generating $64.8 billion in revenue.",
-          "source_url": "https://www.itpro.com/cloud/cloud-computing/is-aws-cloud-dominance-waning-new-stats-show-the-hyperscalers-iaas-market-share-is-decreasing-while-microsoft-and-google-record-gains",
-          "source_date": "2025-11-01",
-          "method": "model_judgment",
-          "confidence": 0.5,
-          "conflicting_values": [],
-          "note": "not verified (outside top_k); source from agent A's search"
-        }
-      }
-    ],
-    "isolation_ok": true,
-    "error": null
-  },
-  {
     "model_id": "tinfoil",
     "name": "Tinfoil",
     "status": "done",
@@ -111,14 +7,14 @@
       {
         "id": "r1",
         "category": "competition",
-        "fact": "Anthropic, a leading AI safety and research company, has raised approximately $965 million in funding as of 2023.",
-        "implication": "Anthropic's substantial funding and established presence in the AI safety and research sector may make it challenging for Tinfoil to gain traction and secure its first paying client within three months.",
+        "fact": "Major cloud providers like Microsoft and Google offer confidential computing services integrated into their platforms, such as Azure Confidential Compute and Google Cloud's Confidential GKE Nodes.",
+        "implication": "Tinfoil faces significant competition from established cloud providers with integrated confidential computing services, making it challenging to attract clients within a short timeframe.",
         "severity": 4,
         "strength": 3.6,
         "devil_passport": {
-          "text": "Anthropic, a leading AI safety and research company, has raised approximately $965 million in funding as of 2023.",
-          "source_url": "https://www.crunchbase.com/organization/anthropic",
-          "source_date": "2023",
+          "text": "Major cloud providers like Microsoft and Google offer confidential computing services integrated into their platforms, such as Azure Confidential Compute and Google Cloud's Confidential GKE Nodes.",
+          "source_url": "https://www.emergenresearch.com/industry-report/confidential-computing-market",
+          "source_date": "2026-10-12",
           "method": "primary",
           "confidence": 0.9,
           "conflicting_values": [],
@@ -126,33 +22,33 @@
         },
         "verification": {
           "status": "confirmed",
-          "found_source_url": "https://www.crunchbase.com/organization/anthropic",
-          "found_source_date": "2023",
+          "found_source_url": "https://www.emergenresearch.com/industry-report/confidential-computing-market",
+          "found_source_date": "2026-10-12",
           "is_primary": true,
-          "evidence": "Anthropic has raised approximately $965 million in funding as of 2023.",
+          "evidence": "The global confidential computing market size was USD 4.82 Billion in 2025 and is expected to register a revenue CAGR of 38.2% during the forecast period.",
           "confidence": 1.0
         },
         "final": {
-          "text": "Anthropic, a leading AI safety and research company, has raised approximately $965 million in funding as of 2023.",
-          "source_url": "https://www.crunchbase.com/organization/anthropic",
-          "source_date": "2023",
+          "text": "Major cloud providers like Microsoft and Google offer confidential computing services integrated into their platforms, such as Azure Confidential Compute and Google Cloud's Confidential GKE Nodes.",
+          "source_url": "https://www.emergenresearch.com/industry-report/confidential-computing-market",
+          "source_date": "2026-10-12",
           "method": "primary",
           "confidence": 1.0,
           "conflicting_values": [],
-          "note": "confirmed: Anthropic has raised approximately $965 million in funding as of 2023."
+          "note": "confirmed: The global confidential computing market size was USD 4.82 Billion in 2025 and is expected to register a revenue CAGR of 38.2% during the forecast period."
         }
       },
       {
         "id": "r2",
-        "category": "regulation",
-        "fact": "The European Union's General Data Protection Regulation (GDPR) imposes strict requirements on data processing and storage, including the need for explicit consent from individuals for data collection and processing.",
-        "implication": "Tinfoil's AI workloads may face significant regulatory hurdles in the EU, potentially delaying the acquisition of its first paying client within three months due to compliance requirements.",
-        "severity": 5,
-        "strength": 4.5,
+        "category": "unit_economics",
+        "fact": "The confidential computing market is projected to reach $48.3 billion by 2035, growing at a CAGR of 30.0% from 2025 to 2035, indicating a highly competitive and rapidly evolving market.",
+        "implication": "The rapid growth and competitiveness of the market may lead to pricing pressures and challenges in achieving sustainable unit economics within a short period.",
+        "severity": 3,
+        "strength": 2.7,
         "devil_passport": {
-          "text": "The European Union's General Data Protection Regulation (GDPR) imposes strict requirements on data processing and storage, including the need for explicit consent from individuals for data collection and processing.",
-          "source_url": "https://gdpr.eu/what-is-gdpr/",
-          "source_date": "2023",
+          "text": "The confidential computing market is projected to reach $48.3 billion by 2035, growing at a CAGR of 30.0% from 2025 to 2035, indicating a highly competitive and rapidly evolving market.",
+          "source_url": "https://www.market-reports.com/reports/confidential-computing",
+          "source_date": "2026-10-12",
           "method": "primary",
           "confidence": 0.9,
           "conflicting_values": [],
@@ -160,33 +56,33 @@
         },
         "verification": {
           "status": "confirmed",
-          "found_source_url": "https://gdpr.eu/what-is-gdpr/",
-          "found_source_date": "2023",
+          "found_source_url": "https://www.market-reports.com/reports/confidential-computing",
+          "found_source_date": "2026-10-12",
           "is_primary": true,
-          "evidence": "The GDPR requires explicit consent from individuals for the collection and processing of their personal data, ensuring that they have control over their information.",
+          "evidence": "The Confidential Computing market is estimated at $3.5 billion in 2025 and is forecast to reach $48.3 billion in 2035, growing at a CAGR of 30.0% from 2025 to 2035.",
           "confidence": 1.0
         },
         "final": {
-          "text": "The European Union's General Data Protection Regulation (GDPR) imposes strict requirements on data processing and storage, including the need for explicit consent from individuals for data collection and processing.",
-          "source_url": "https://gdpr.eu/what-is-gdpr/",
-          "source_date": "2023",
+          "text": "The confidential computing market is projected to reach $48.3 billion by 2035, growing at a CAGR of 30.0% from 2025 to 2035, indicating a highly competitive and rapidly evolving market.",
+          "source_url": "https://www.market-reports.com/reports/confidential-computing",
+          "source_date": "2026-10-12",
           "method": "primary",
           "confidence": 1.0,
           "conflicting_values": [],
-          "note": "confirmed: The GDPR requires explicit consent from individuals for the collection and processing of their personal data, ensuring that they have control over their information."
+          "note": "confirmed: The Confidential Computing market is estimated at $3.5 billion in 2025 and is forecast to reach $48.3 billion in 2035, growing at a CAGR of 30.0% from 2025 to 2035."
         }
       },
       {
         "id": "r3",
-        "category": "unit_economics",
-        "fact": "NVIDIA's A100 Tensor Core GPUs, commonly used for AI workloads, have a list price of approximately $11,000 per unit as of 2023.",
-        "implication": "The high cost of NVIDIA GPUs may significantly impact Tinfoil's unit economics, making it challenging to offer competitive pricing and secure its first paying client within three months.",
-        "severity": 4,
-        "strength": 3.6,
+        "category": "time_to_first_payment",
+        "fact": "Implementing confidential computing solutions often requires significant integration efforts, including software refactoring for memory and threading constraints, adding 4-12 weeks of engineering time.",
+        "implication": "The substantial integration efforts required may delay the time to first payment, making it challenging to secure a client within a three-month timeframe.",
+        "severity": 3,
+        "strength": 2.7,
         "devil_passport": {
-          "text": "NVIDIA's A100 Tensor Core GPUs, commonly used for AI workloads, have a list price of approximately $11,000 per unit as of 2023.",
-          "source_url": "https://www.nvidia.com/en-us/data-center/a100/",
-          "source_date": "2023",
+          "text": "Implementing confidential computing solutions often requires significant integration efforts, including software refactoring for memory and threading constraints, adding 4-12 weeks of engineering time.",
+          "source_url": "https://www.datainsightsreports.com/reports/confidential-computing-market-15223",
+          "source_date": "2026-06-15",
           "method": "primary",
           "confidence": 0.9,
           "conflicting_values": [],
@@ -194,13 +90,13 @@
         },
         "verification": null,
         "final": {
-          "text": "NVIDIA's A100 Tensor Core GPUs, commonly used for AI workloads, have a list price of approximately $11,000 per unit as of 2023.",
-          "source_url": "https://www.nvidia.com/en-us/data-center/a100/",
-          "source_date": "2023",
+          "text": "Implementing confidential computing solutions often requires significant integration efforts, including software refactoring for memory and threading constraints, adding 4-12 weeks of engineering time.",
+          "source_url": "https://www.datainsightsreports.com/reports/confidential-computing-market-15223",
+          "source_date": "2026-06-15",
           "method": "model_judgment",
           "confidence": 0.5,
           "conflicting_values": [],
-          "note": "not verified; source not in agent's search results"
+          "note": "not verified (outside top_k); source from agent A's search"
         }
       }
     ],
@@ -214,15 +110,15 @@
     "risks": [
       {
         "id": "r1",
-        "category": "competition",
-        "fact": "Ashby reported more than 4,400 customers in May 2026, up from 2,400 a year earlier, with revenue more than doubling.",
-        "implication": "Ashby's rapid growth and extensive customer base indicate strong market penetration, making it challenging for a new entrant like Contrario to secure its first paying client within three months.",
-        "severity": 4,
-        "strength": 3.6,
+        "category": "demand",
+        "fact": "In 2024, 28% of UK job seekers stated that AI-based assessments would make them less likely to apply for a job.",
+        "implication": "This significant reluctance among potential candidates to engage with AI-driven hiring processes could severely limit the pool of applicants, making it challenging to validate demand and secure the first payment within three months.",
+        "severity": 5,
+        "strength": 4.5,
         "devil_passport": {
-          "text": "Ashby reported more than 4,400 customers in May 2026, up from 2,400 a year earlier, with revenue more than doubling.",
-          "source_url": "https://newmarketpitch.com/blogs/news/ai-recruiting-top-startups",
-          "source_date": "2026-10-16",
+          "text": "In 2024, 28% of UK job seekers stated that AI-based assessments would make them less likely to apply for a job.",
+          "source_url": "https://www.techradar.com/pro/over-half-of-firms-are-still-holding-off-using-ai-for-recruitment-as-human-fears-persist",
+          "source_date": "2026-09-29",
           "method": "primary",
           "confidence": 0.9,
           "conflicting_values": [],
@@ -230,80 +126,230 @@
         },
         "verification": {
           "status": "confirmed",
-          "found_source_url": "https://newmarketpitch.com/blogs/news/ai-recruiting-top-startups",
-          "found_source_date": "2026-10-16",
-          "is_primary": false,
-          "evidence": "Ashby has some of the clearest commercial evidence. Its customer base exceeded 4,400 in May 2026, up from 2,400 a year earlier, while revenue more than doubled.",
+          "found_source_url": "https://www.techradar.com/pro/over-half-of-firms-are-still-holding-off-using-ai-for-recruitment-as-human-fears-persist",
+          "found_source_date": "2026-09-29",
+          "is_primary": true,
+          "evidence": "More than a quarter (28%) of UK jobseekers say AI-based assessments would make them less likely to apply for a job.",
           "confidence": 1.0
         },
         "final": {
-          "text": "Ashby reported more than 4,400 customers in May 2026, up from 2,400 a year earlier, with revenue more than doubling.",
-          "source_url": "https://newmarketpitch.com/blogs/news/ai-recruiting-top-startups",
-          "source_date": "2026-10-16",
-          "method": "model_judgment",
+          "text": "In 2024, 28% of UK job seekers stated that AI-based assessments would make them less likely to apply for a job.",
+          "source_url": "https://www.techradar.com/pro/over-half-of-firms-are-still-holding-off-using-ai-for-recruitment-as-human-fears-persist",
+          "source_date": "2026-09-29",
+          "method": "primary",
           "confidence": 1.0,
           "conflicting_values": [],
-          "note": "confirmed: Ashby has some of the clearest commercial evidence. Its customer base exceeded 4,400 in May 2026, up from 2,400 a year earlier, while revenue more than doubled."
+          "note": "confirmed: More than a quarter (28%) of UK jobseekers say AI-based assessments would make them less likely to apply for a job."
         }
       },
       {
         "id": "r2",
-        "category": "unit_economics",
-        "fact": "GoPerfect charges $250–$300 per open role with unlimited seats, offering end-to-end autonomous recruiting services.",
-        "implication": "Contrario's pricing strategy must be competitive to attract clients, but matching GoPerfect's pricing could strain profit margins, hindering the ability to secure a paying client within three months.",
-        "severity": 3,
-        "strength": 2.4,
+        "category": "competition",
+        "fact": "Mercer International Inc. (MERC) is a competitor in the AI recruitment market, with a market capitalization of approximately $14.14 billion.",
+        "implication": "The presence of large, established competitors like Mercer International Inc. with substantial resources and market share could make it exceedingly difficult for a small, fully online team without a license to gain traction and secure the first payment within three months.",
+        "severity": 5,
+        "strength": 4.5,
         "devil_passport": {
-          "text": "GoPerfect charges $250–$300 per open role with unlimited seats, offering end-to-end autonomous recruiting services.",
-          "source_url": "https://www.youtube.com/watch?v=xS_IKp1u124",
-          "source_date": "2026-07-30",
+          "text": "Mercer International Inc. (MERC) is a competitor in the AI recruitment market, with a market capitalization of approximately $14.14 billion.",
+          "source_url": "https://finance.yahoo.com/quote/MERC",
+          "source_date": "2026-11-19",
           "method": "primary",
-          "confidence": 0.8,
+          "confidence": 0.9,
           "conflicting_values": [],
           "note": ""
         },
         "verification": {
-          "status": "partially",
-          "found_source_url": "https://www.goperfect.com/pricing",
-          "found_source_date": "2026-10-21",
+          "status": "contradicted",
+          "found_source_url": "https://finance.yahoo.com/quote/MERC",
+          "found_source_date": "2026-11-19",
           "is_primary": true,
-          "evidence": "GoPerfect charges $300 per open position per month, with unlimited seats included. [code: numbers differ from the statement: 250]",
+          "evidence": "Mercer International Inc. (MERC) has a market capitalization of approximately $14.14 million, not $14.14 billion.",
           "confidence": 1.0
         },
         "final": {
-          "text": "GoPerfect charges $250–$300 per open role with unlimited seats, offering end-to-end autonomous recruiting services.",
-          "source_url": "https://www.goperfect.com/pricing",
-          "source_date": "2026-10-21",
+          "text": "Mercer International Inc. (MERC) is a competitor in the AI recruitment market, with a market capitalization of approximately $14.14 billion.",
+          "source_url": "https://finance.yahoo.com/quote/MERC",
+          "source_date": "2026-11-19",
           "method": "needs_human",
-          "confidence": 0.5,
+          "confidence": 0.0,
           "conflicting_values": [
-            "agent A: https://www.youtube.com/watch?v=xS_IKp1u124",
-            "agent B: https://www.goperfect.com/pricing"
+            "agent A: https://finance.yahoo.com/quote/MERC",
+            "agent B: https://finance.yahoo.com/quote/MERC"
           ],
-          "note": "partially: GoPerfect charges $300 per open position per month, with unlimited seats included. [code: numbers differ from the statement: 250]"
+          "note": "contradicted: Mercer International Inc. (MERC) has a market capitalization of approximately $14.14 million, not $14.14 billion."
         }
       },
       {
         "id": "r3",
-        "category": "time_to_first_payment",
-        "fact": "The global Internet Recruiting Platform market is projected to reach US$ million by 2029 from an estimated US$ million in 2023, at a CAGR of % during 2024 and 2029.",
-        "implication": "The projected growth of the Internet Recruiting Platform market suggests a highly competitive environment, potentially delaying Contrario's ability to secure its first paying client within three months.",
-        "severity": 3,
-        "strength": 2.1,
+        "category": "regulation",
+        "fact": "In 2024, the global AI recruitment market was valued at $734 million and is projected to reach $709.8 million by 2030, indicating a decline.",
+        "implication": "The projected decline in the AI recruitment market suggests potential regulatory challenges or market saturation, which could impede the ability to launch a test of the business model and secure the first payment within three months.",
+        "severity": 4,
+        "strength": 3.6,
         "devil_passport": {
-          "text": "The global Internet Recruiting Platform market is projected to reach US$ million by 2029 from an estimated US$ million in 2023, at a CAGR of % during 2024 and 2029.",
-          "source_url": "https://marketpublishers.com/r/IC80C7EB9F3EEN.html",
-          "source_date": "2023-08",
+          "text": "In 2024, the global AI recruitment market was valued at $734 million and is projected to reach $709.8 million by 2030, indicating a decline.",
+          "source_url": "https://www.globenewswire.com/news-release/2024/07/29/2920058/0/en/Global-Artificial-Intelligence-AI-Market-in-Recruitment-Strategic-Research-Report-2023-2030-Regulatory-Compliance-and-AI-Navigating-Through-Recruitment-s-Legal-Landscape.html",
+          "source_date": "2024-07-29",
           "method": "primary",
-          "confidence": 0.7,
+          "confidence": 0.9,
           "conflicting_values": [],
           "note": ""
         },
         "verification": null,
         "final": {
-          "text": "The global Internet Recruiting Platform market is projected to reach US$ million by 2029 from an estimated US$ million in 2023, at a CAGR of % during 2024 and 2029.",
-          "source_url": "https://marketpublishers.com/r/IC80C7EB9F3EEN.html",
-          "source_date": "2023-08",
+          "text": "In 2024, the global AI recruitment market was valued at $734 million and is projected to reach $709.8 million by 2030, indicating a decline.",
+          "source_url": "https://www.globenewswire.com/news-release/2024/07/29/2920058/0/en/Global-Artificial-Intelligence-AI-Market-in-Recruitment-Strategic-Research-Report-2023-2030-Regulatory-Compliance-and-AI-Navigating-Through-Recruitment-s-Legal-Landscape.html",
+          "source_date": "2024-07-29",
+          "method": "model_judgment",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": "not verified (outside top_k); source from agent A's search"
+        }
+      }
+    ],
+    "isolation_ok": true,
+    "error": null
+  },
+  {
+    "model_id": "keiki",
+    "name": "Keiki",
+    "status": "done",
+    "risks": [
+      {
+        "id": "r1",
+        "category": "competition",
+        "fact": "Sinch Engage offers a comprehensive multichannel messaging platform with plans starting at $99 per month, including SMS, WhatsApp, Facebook Messenger, and Instagram Messenger integration, along with features like unified inbox, advanced reporting, and 24/7 global support.",
+        "implication": "The presence of established competitors like Sinch Engage, offering extensive features at competitive prices, makes it challenging for a small, fully online team without a license to gain traction and secure the first payment within three months.",
+        "severity": 5,
+        "strength": 4.5,
+        "devil_passport": {
+          "text": "Sinch Engage offers a comprehensive multichannel messaging platform with plans starting at $99 per month, including SMS, WhatsApp, Facebook Messenger, and Instagram Messenger integration, along with features like unified inbox, advanced reporting, and 24/7 global support.",
+          "source_url": "https://sinch.com/engage/pricing/",
+          "source_date": null,
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        },
+        "verification": {
+          "status": "confirmed",
+          "found_source_url": "https://sinch.com/engage/pricing/",
+          "found_source_date": "2026-11-19",
+          "is_primary": true,
+          "evidence": "Sinch Engage offers a 'Basics' plan at $99 per month, which includes SMS, WhatsApp, Facebook Messenger, and Instagram Messenger integration, along with features like unified inbox, advanced reporting, and 24/7 global support.",
+          "confidence": 1.0
+        },
+        "final": {
+          "text": "Sinch Engage offers a comprehensive multichannel messaging platform with plans starting at $99 per month, including SMS, WhatsApp, Facebook Messenger, and Instagram Messenger integration, along with features like unified inbox, advanced reporting, and 24/7 global support.",
+          "source_url": "https://sinch.com/engage/pricing/",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 1.0,
+          "conflicting_values": [],
+          "note": "confirmed: Sinch Engage offers a 'Basics' plan at $99 per month, which includes SMS, WhatsApp, Facebook Messenger, and Instagram Messenger integration, along with features like unified inbox, advanced reporting, and 24/7 global support."
+        }
+      }
+    ],
+    "isolation_ok": true,
+    "error": null
+  },
+  {
+    "model_id": "text-ai",
+    "name": "Text.ai",
+    "status": "done",
+    "risks": [
+      {
+        "id": "r1",
+        "category": "competition",
+        "fact": "Anthropic's IPO valued the company at $1.5 trillion, with Amazon and Google together owning nearly 30% of the shares, providing substantial infrastructure support.",
+        "implication": "The dominance of major tech companies like Amazon and Google in the AI space, exemplified by Anthropic's valuation and backing, makes it challenging for smaller, fully online teams without licenses to compete effectively in launching a new AI-driven group chat service within three months.",
+        "severity": 5,
+        "strength": 5.0,
+        "devil_passport": {
+          "text": "Anthropic's IPO valued the company at $1.5 trillion, with Amazon and Google together owning nearly 30% of the shares, providing substantial infrastructure support.",
+          "source_url": "https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 1.0,
+          "conflicting_values": [],
+          "note": ""
+        },
+        "verification": {
+          "status": "partially",
+          "found_source_url": "https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c",
+          "found_source_date": "2026-11-19",
+          "is_primary": true,
+          "evidence": "Anthropic priced its IPO at $83 per share, valuing the Claude maker at $1.5 trillion and raising $81 billion—making it the largest public offering ever, ahead of SpaceX’s June IPO. [code: numbers differ from the statement: 30]",
+          "confidence": 1.0
+        },
+        "final": {
+          "text": "Anthropic's IPO valued the company at $1.5 trillion, with Amazon and Google together owning nearly 30% of the shares, providing substantial infrastructure support.",
+          "source_url": "https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [
+            "agent A: https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c",
+            "agent B: https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c"
+          ],
+          "note": "partially: Anthropic priced its IPO at $83 per share, valuing the Claude maker at $1.5 trillion and raising $81 billion—making it the largest public offering ever, ahead of SpaceX’s June IPO. [code: numbers differ from the statement: 30]"
+        }
+      },
+      {
+        "id": "r2",
+        "category": "unit_economics",
+        "fact": "Nvidia has secured $530 billion in financial guarantees to dominate the AI market, including substantial commitments to cloud and data-center firms, potentially limiting access to necessary hardware for new entrants.",
+        "implication": "The immense financial commitments by Nvidia to secure AI hardware resources could lead to hardware shortages or inflated prices, making it difficult for a small, fully online team without licenses to procure the necessary infrastructure to launch an AI-driven group chat service within three months.",
+        "severity": 4,
+        "strength": 4.0,
+        "devil_passport": {
+          "text": "Nvidia has secured $530 billion in financial guarantees to dominate the AI market, including substantial commitments to cloud and data-center firms, potentially limiting access to necessary hardware for new entrants.",
+          "source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-amassed-usd530-billion-in-financial-guarantees-to-corner-the-ai-market-supply-commitments-rose-by-nearly-a-quarter-of-a-trillion-dollars-in-a-single-quarter",
+          "source_date": "2026-11-16",
+          "method": "primary",
+          "confidence": 1.0,
+          "conflicting_values": [],
+          "note": ""
+        },
+        "verification": {
+          "status": "confirmed",
+          "found_source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-amassed-usd530-billion-in-financial-guarantees-to-corner-the-ai-market-supply-commitments-rose-by-nearly-a-quarter-of-a-trillion-dollars-in-a-single-quarter",
+          "found_source_date": "2026-11-16",
+          "is_primary": true,
+          "evidence": "Nvidia's financial commitments have increased to $530 billion, up from $184 billion a quarter earlier, with $366 billion in future commitments, including $279 billion in supply and capacity commitments, mainly for memory and manufacturing.",
+          "confidence": 1.0
+        },
+        "final": {
+          "text": "Nvidia has secured $530 billion in financial guarantees to dominate the AI market, including substantial commitments to cloud and data-center firms, potentially limiting access to necessary hardware for new entrants.",
+          "source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-amassed-usd530-billion-in-financial-guarantees-to-corner-the-ai-market-supply-commitments-rose-by-nearly-a-quarter-of-a-trillion-dollars-in-a-single-quarter",
+          "source_date": "2026-11-16",
+          "method": "primary",
+          "confidence": 1.0,
+          "conflicting_values": [],
+          "note": "confirmed: Nvidia's financial commitments have increased to $530 billion, up from $184 billion a quarter earlier, with $366 billion in future commitments, including $279 billion in supply and capacity commitments, mainly for memory and manufacturing."
+        }
+      },
+      {
+        "id": "r3",
+        "category": "regulation",
+        "fact": "The Federal Trade Commission has previously flagged Big Tech’s relationships with Anthropic and OpenAI, raising concerns about competition and market dominance.",
+        "implication": "Regulatory scrutiny and potential interventions due to perceived monopolistic behaviors by major AI companies could lead to delays or restrictions in launching new AI-driven services, especially for smaller teams without licenses, hindering the ability to secure the first payment within three months.",
+        "severity": 4,
+        "strength": 4.0,
+        "devil_passport": {
+          "text": "The Federal Trade Commission has previously flagged Big Tech’s relationships with Anthropic and OpenAI, raising concerns about competition and market dominance.",
+          "source_url": "https://www.axios.com/2026/11/19/anthropics-ipo-signals-a-new-old-tech-era",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 1.0,
+          "conflicting_values": [],
+          "note": ""
+        },
+        "verification": null,
+        "final": {
+          "text": "The Federal Trade Commission has previously flagged Big Tech’s relationships with Anthropic and OpenAI, raising concerns about competition and market dominance.",
+          "source_url": "https://www.axios.com/2026/11/19/anthropics-ipo-signals-a-new-old-tech-era",
+          "source_date": "2026-11-19",
           "method": "model_judgment",
           "confidence": 0.5,
           "conflicting_values": [],

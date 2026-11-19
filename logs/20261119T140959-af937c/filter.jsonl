@@ -1,0 +1,15 @@
+{"ts": "2026-11-19T14:10:23.289700+00:00", "run_id": "20261119T140959-af937c", "subject_id": "coarena", "status": "rejected", "failed": ["big_analog"], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:10:39.411547+00:00", "run_id": "20261119T140959-af937c", "subject_id": "tinfoil", "status": "passed", "failed": [], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:10:53.932364+00:00", "run_id": "20261119T140959-af937c", "subject_id": "contrario", "status": "passed", "failed": [], "flagged": []}
+{"ts": "2026-11-19T14:11:02.409526+00:00", "run_id": "20261119T140959-af937c", "subject_id": "cranston-ai", "status": "rejected", "failed": ["online_no_license", "no_balance_sheet_risk"], "flagged": []}
+{"ts": "2026-11-19T14:11:09.668908+00:00", "run_id": "20261119T140959-af937c", "subject_id": "vulcan-technologies", "status": "rejected", "failed": ["online_no_license", "no_balance_sheet_risk", "not_trading_or_gov"], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:11:20.788900+00:00", "run_id": "20261119T140959-af937c", "subject_id": "foresight", "status": "rejected", "failed": ["big_analog"], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:11:36.607609+00:00", "run_id": "20261119T140959-af937c", "subject_id": "keiki", "status": "passed", "failed": [], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:11:51.268885+00:00", "run_id": "20261119T140959-af937c", "subject_id": "text-ai", "status": "passed", "failed": [], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:12:03.224087+00:00", "run_id": "20261119T140959-af937c", "subject_id": "quippy", "status": "rejected", "failed": ["big_analog"], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:12:11.448483+00:00", "run_id": "20261119T140959-af937c", "subject_id": "vassar-robotics", "status": "rejected", "failed": ["online_no_license", "no_balance_sheet_risk"], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:12:20.329894+00:00", "run_id": "20261119T140959-af937c", "subject_id": "oasive", "status": "rejected", "failed": ["online_no_license", "no_balance_sheet_risk", "not_trading_or_gov"], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:12:27.921702+00:00", "run_id": "20261119T140959-af937c", "subject_id": "valctrl", "status": "rejected", "failed": ["online_no_license", "no_balance_sheet_risk", "not_trading_or_gov"], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:12:37.495470+00:00", "run_id": "20261119T140959-af937c", "subject_id": "edexia", "status": "rejected", "failed": ["big_analog"], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:12:43.879252+00:00", "run_id": "20261119T140959-af937c", "subject_id": "toothy-ai", "status": "rejected", "failed": ["online_no_license", "no_balance_sheet_risk"], "flagged": ["recurring_revenue"]}
+{"ts": "2026-11-19T14:12:53.836685+00:00", "run_id": "20261119T140959-af937c", "subject_id": "waypoint-transit", "status": "rejected", "failed": ["online_no_license", "no_balance_sheet_risk", "not_trading_or_gov"], "flagged": ["recurring_revenue"]}

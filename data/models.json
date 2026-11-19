@@ -53,5 +53,189 @@
     ],
     "locations": "San Francisco, CA, USA",
     "batch": "Winter 2025"
+  },
+  {
+    "id": "cranston-ai",
+    "name": "Cranston AI",
+    "one_liner": "AI Tax prep and accounting software for CPA firms",
+    "description": "Cranston is AI tax prep and bookkeeping for CPA firms.\r\n\r\nOur tax agents prepare returns the way a strong staff accountant would: they read the source documents, work the return in your tax software, and hand your reviewer a return that holds up, with workpapers attached. Our bookkeeping agents keep client books current all year, so tax season starts from clean numbers instead of cleanup.\r\n\r\nPrep and books are the start. We're building Cranston into the system a firm runs on: the place where prep, review, client requests, and the rest of the practice get done.",
+    "website": "https://www.cranston.ai",
+    "source_url": "https://www.ycombinator.com/companies/cranston-ai",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "B2B",
+    "tags": [],
+    "locations": "San Francisco, CA, USA",
+    "batch": "Fall 2025"
+  },
+  {
+    "id": "vulcan-technologies",
+    "name": "Vulcan Technologies",
+    "one_liner": "Secure frontier AI for government & adjacent knowledge work",
+    "description": "Vulcan builds agents for government and government-adjacent work. We currently sell two agents: Justinian and Trajan.\r\n\r\nJustinian is an AI agent coworker for people who work in and adjacent to American government. To power Justinian, we created the world’s largest legal and policy database and knowledge graph, accessible to our customers via our platform, email, and Slack.\r\n\r\nTrajan is a public-facing AI concierge built to help governments modernize service delivery. Hosted on a government website, Trajan helps businesses and citizens automatically complete permits, licenses, applications, and answer regulatory and legal questions.\r\n\r\nIn addition to government customers, Vulcan's agents serve regulatory, legal, policy, and government relations teams at major U.S. enterprises.",
+    "website": "https://vulcan.ai/",
+    "source_url": "https://www.ycombinator.com/companies/vulcan-technologies",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "B2B",
+    "tags": [],
+    "locations": "Austin, TX, USA",
+    "batch": "Summer 2025"
+  },
+  {
+    "id": "foresight",
+    "name": "Foresight",
+    "one_liner": "Consumer simulations for CPG market research",
+    "description": "Foresight builds AI-powered simulations of human behavior to help companies predict how people will think, react, and choose before making real-world decisions. It lets organizations test countless possible moves in advance, see how each one is likely to play out, and choose the strongest path forward.",
+    "website": "https://foresight.tt/",
+    "source_url": "https://www.ycombinator.com/companies/foresight",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "B2B",
+    "tags": [],
+    "locations": "New York City, NY, USA",
+    "batch": "Spring 2026"
+  },
+  {
+    "id": "keiki",
+    "name": "Keiki",
+    "one_liner": "Put your products on iMessage",
+    "description": "Keiki takes the product you already have and puts it in your users’ messages. They can use it on iMessage, WhatsApp, SMS or Slack, right next to their friends and coworkers. There’s no new app to download and no login.\r\n\r\nYou keep your product as it is and Keiki adds the messaging channel. It handles the phone numbers, delivery and the back-and-forth, so your users can reach you by texting.",
+    "website": "https://onkeiki.com",
+    "source_url": "https://www.ycombinator.com/companies/keiki",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "B2B",
+    "tags": [
+      "Infrastructure",
+      "AI"
+    ],
+    "locations": "San Francisco, CA, USA",
+    "batch": "Spring 2025"
+  },
+  {
+    "id": "text-ai",
+    "name": "Text.ai",
+    "one_liner": "Alfi - your group chat with social skills to bring friends closer",
+    "description": "We're building the first group chat with social skills.\r\n\r\nWhile everyone else is stuck with boring individual chatbots, we've cracked the impossible: Alfi reads the room, understands each person, and creates custom intelligence for every group chat.\r\n\r\nAlfi is your new social friend. The one who remembers everything, plans effortlessly, and keeps the crew together.\r\n\r\nHere's what that looks like:\r\n\r\n- Book restaurants together, with Yelp built in, directly in the chat. No more \"where should we go?\" spirals. Reserve instantly.\r\n- Create images with your friends: drop your crew into funny hats, wild scenes, anything you can dream up. Multiplayer image gen, first of its kind.\r\n- Social calendar: upcoming hangs, all in one place. Everyone on the same page.\r\n- Group Wrapped: who's the chattiest? Top inside jokes? Now you'll know.\r\n- Reminders & Memory: Alfi remembers your spots, your preferences, and nudges you to actually hang out.\r\n\r\nWe're in the middle of a quiet shift. Gen Z is leaving broadcast social media. They're retreating to group chats, smaller, more intentional and personal spaces where they're honestly themselves.\r\n\r\nBut group chats are also where plans go to die. Someone has to be \"the planner\" or nothing happens.\r\n\r\nWe believe the group chat is the real social network. Where the funniest moments and real conversations happen in real time. With Alfi, we hope to bring you together more expressively, a lot more often.\r\n\r\nThis technology will bring humanity closer than it's ever been before. Not replace connection, deepen it. That's the future we're building toward.\r\n",
+    "website": "https://www.text.ai/",
+    "source_url": "https://www.ycombinator.com/companies/text-ai",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "Consumer",
+    "tags": [
+      "Consumer",
+      "Social",
+      "Social Network",
+      "AI"
+    ],
+    "locations": "San Francisco, CA, USA",
+    "batch": "Spring 2025"
+  },
+  {
+    "id": "quippy",
+    "name": "Quippy",
+    "one_liner": "Helps build social skills through daily practice",
+    "description": "Quippy is a daily practice app for your social life. You run short, realistic practice conversations, like pushing back on a boss or talking during a first date, and get line-by-line feedback on what landed and what backfired. The curriculum adapts to each person's patterns, reshaping itself around their weak spots, ensuring steady improvement in the conversations that matter most.",
+    "website": "https://quippyapp.com",
+    "source_url": "https://www.ycombinator.com/companies/quippy",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "Consumer",
+    "tags": [
+      "AI-Enhanced Learning",
+      "Social",
+      "Health & Wellness"
+    ],
+    "locations": "San Francisco, CA, USA",
+    "batch": "Fall 2026"
+  },
+  {
+    "id": "vassar-robotics",
+    "name": "Vassar Robotics",
+    "one_liner": "Gearless robot joints for better embodied AI.",
+    "description": "Vassar Robotics is building gearless robot joints and arms using high-torque transverse-flux motors. Eliminating gearboxes makes robots more precise, reliable, affordable, and easier to simulate. We’re starting with AI research labs and robot developers, helping them collect better training data and transfer learned skills from simulation to the real world.",
+    "website": "https://www.vassarrobotics.com",
+    "source_url": "https://www.ycombinator.com/companies/vassar-robotics",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "Consumer",
+    "tags": [],
+    "locations": "Boston, MA, USA",
+    "batch": "Spring 2025"
+  },
+  {
+    "id": "oasive",
+    "name": "Oasive",
+    "one_liner": "AI credit research for municipal bond investors",
+    "description": "Oasive is an AI research platform that helps municipal bond investors decide which bonds to buy.\n\nBefore a fund buys a bond from a city, school district, hospital or airport, its analysts spend hours digging through PDFs, board meetings and local news. Oasive brings a borrower's audited financials, debt, board meetings and local news into one page built around what matters for that sector, with every number linked to its source.\n\nBuilt by a former bond portfolio manager at Google Treasury and quant analyst at Wells Fargo.",
+    "website": "https://www.oasive.ai",
+    "source_url": "https://www.ycombinator.com/companies/oasive",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "Fintech",
+    "tags": [
+      "FinOps",
+      "Fintech",
+      "Investments"
+    ],
+    "locations": "San Francisco, CA, USA",
+    "batch": "Fall 2026"
+  },
+  {
+    "id": "valctrl",
+    "name": "ValCtrl",
+    "one_liner": "ValCtrl is building the only intelligent prediction market",
+    "description": "ValCtrl is building the intelligent prediction market: users type any public, resolvable belief about the future, ValCtrl structures it, prices it, and lets them trade it. Today’s prediction markets only support pre-listed questions, leaving user beliefs fragmented across venues, contract wording, rules, and proxy markets. ValCtrl’s world model maps typed beliefs to relevant market signals, evaluates basis risk, prices the claim, and moves toward model-priced liquidity where ValCtrl can take the other side with risk and compliance controls. We are starting from hard belief-to-market queries and building toward a market where anything that can be resolved can be priced.",
+    "website": "https://valctrl.com",
+    "source_url": "https://www.ycombinator.com/companies/valctrl",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "Fintech",
+    "tags": [],
+    "locations": "New York City, NY, USA",
+    "batch": "Spring 2026"
+  },
+  {
+    "id": "edexia",
+    "name": "Edexia",
+    "one_liner": "AI Teacher Assistant for Grading Essays",
+    "description": "Edexia is an AI Teacher Assistant for grading essays. It can be trained and controlled by the teacher and can grade assignments from any curriculum, year level, subject, or format. \r\n\r\nLearning like a teacher, Edexia visually breaks down its understanding of the rubric, and updates this as a teacher corrects it.\r\n\r\nOur vision is to transform education by facilitating AI’s safe and effective integration across all institutions and applications. Not using AI to replace teachers but rather to empower them—providing them with all the time and resources they need to develop their students.",
+    "website": "https://www.edexia.com/",
+    "source_url": "https://www.ycombinator.com/companies/edexia",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "Education",
+    "tags": [
+      "AI-Enhanced Learning",
+      "Education",
+      "SaaS",
+      "AI",
+      "AI Assistant"
+    ],
+    "locations": "Brisbane, QLD, Australia",
+    "batch": "Winter 2025"
+  },
+  {
+    "id": "toothy-ai",
+    "name": "Toothy AI",
+    "one_liner": "AI for insurance verification & billing at dental clinics",
+    "description": "We’re Toothy.ai.  We’re building AI agents for dental practices that handle everything related to patient insurance. The average dental clinic spends over 160 hours a month on insurance tasks like verifying patient policies, billing, and claims processing. Our AI agents automate this entire workflow—including making insurance calls with voice AI—saving clinics time, reducing costs, and ensuring faster reimbursements.",
+    "website": "https://www.toothy.ai/",
+    "source_url": "https://www.ycombinator.com/companies/toothy-ai",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "Healthcare",
+    "tags": [
+      "Health Tech",
+      "Healthcare",
+      "Dental",
+      "AI",
+      "Conversational AI"
+    ],
+    "locations": "San Francisco, CA, USA",
+    "batch": "Winter 2025"
+  },
+  {
+    "id": "waypoint-transit",
+    "name": "Waypoint Transit",
+    "one_liner": "We automate urban planning so cities can build cheaper and faster.",
+    "description": "Waypoint Transit is an AI city planner that generates civil infrastructure studies. Cities spend $50B/year on planning. With Waypoint, cities can generate reports in months rather than years, and at 30% of the cost.\r\n\r\nVarun and Ryan met at Stanford, where they graduated with degrees in CS and EE respectively. Before founding Waypoint, Varun worked on AI at Microsoft and Ryan worked on chip design at Apple.\r\n\r\nUS cities are facing three major crises: congestion, budget deficits, and climate change. At the same time, city governments are understaffed and frequently need to contract work out to expensive consultants. Leveraging recent advancements in AI, we empower cities to reduce their costs, build infrastructure, and respond to problems quickly.\r\n\r\nIn the United States, state and local governments spend $50B/year on planning. Through automation, we can redefine the existing transportation and urban planning consulting markets.\r\n\r\nFor more information, visit waypointtransit.com or contact us at contact@waypointtransit.com.",
+    "website": "https://waypointtransit.com",
+    "source_url": "https://www.ycombinator.com/companies/waypoint-transit",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "Government",
+    "tags": [],
+    "locations": "",
+    "batch": "Winter 2025"
   }
 ]

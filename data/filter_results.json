@@ -2,15 +2,17 @@
   {
     "model_id": "coarena",
     "name": "CoArena",
-    "status": "passed",
-    "failed_criteria": [],
+    "status": "rejected",
+    "failed_criteria": [
+      "big_analog"
+    ],
     "results": [
       {
         "criterion_id": "online_no_license",
         "verdict": "pass",
         "passed": true,
         "flagged": false,
-        "reason": "The description indicates that the service is fully online and does not require a license to operate.",
+        "reason": "The business model operates fully online and does not require any specific licenses to reach paying clients.",
         "claim": {
           "text": "CoArena is a live arena where anyone can use the world's top computer-use models.",
           "source_url": "https://www.ycombinator.com/companies/coarena",
@@ -26,7 +28,7 @@
         "verdict": "uncertain",
         "passed": true,
         "flagged": true,
-        "reason": "The description does not specify how revenue is generated or if it is recurring.",
+        "reason": "The description does not specify whether the revenue model is based on subscriptions or repeat commissions.",
         "claim": {
           "text": "Every battle becomes something the AI labs can't build themselves.",
           "source_url": "https://www.ycombinator.com/companies/coarena",
@@ -42,9 +44,9 @@
         "verdict": "pass",
         "passed": true,
         "flagged": false,
-        "reason": "The model does not involve taking on credit risk, insurance risk, or custody of money.",
+        "reason": "The model does not involve taking on credit risk, insurance risk, or custody of funds.",
         "claim": {
-          "text": "an honest test of their agents on real work, and the data to make them better.",
+          "text": "an honest test of their agents on real work.",
           "source_url": "https://www.ycombinator.com/companies/coarena",
           "source_date": "2026-11-19",
           "method": "primary",
@@ -58,9 +60,9 @@
         "verdict": "pass",
         "passed": true,
         "flagged": false,
-        "reason": "The service is not involved in trading or providing government services.",
+        "reason": "The business model does not involve trading or government services.",
         "claim": {
-          "text": "the biggest crowdsourced benchmark for Computer-Use",
+          "text": "CoArena is a live arena where anyone can use the world's top computer-use models.",
           "source_url": "https://www.ycombinator.com/companies/coarena",
           "source_date": "2026-11-19",
           "method": "primary",
@@ -71,53 +73,35 @@
       },
       {
         "criterion_id": "big_analog",
-        "verdict": "pass",
-        "passed": true,
+        "verdict": "fail",
+        "passed": false,
         "flagged": false,
-        "reason": "conservative valuation $500M ≥ $240M",
+        "reason": "conservative valuation $100M < $240M",
         "claim": {
-          "text": "MLPerf: $500M (market_cap)",
-          "source_url": "https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
-          "source_date": "2023-05-15",
-          "method": "needs_human",
-          "confidence": 0.5,
-          "conflicting_values": [
-            "$1,000M market_cap https://www.crn.com/news/mlperf-raises-100m-to-expand-ai-benchmarking-efforts",
-            "$500M market_cap https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
-            "$1,200M market_cap https://www.businessinsider.com/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts-2023-5"
-          ],
-          "note": "sources disagree >2.0x; conservative value used"
+          "text": "Arena: $100M (market_cap)",
+          "source_url": "https://superintelligencenews.com/ai-fields/large-language-models/ai-leaderboard-arena-100m-revenue/",
+          "source_date": "2026-06-30",
+          "method": "calculation",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
         }
       }
     ],
     "analog": {
-      "analog_name": "MLPerf",
-      "same_model_reason": "MLPerf is a benchmarking platform for AI models, similar to CoArena's focus on evaluating computer-use models through live competitions.",
+      "analog_name": "Arena",
+      "same_model_reason": "Arena operates a crowdsourced benchmarking platform for AI models, similar to CoArena's live arena for computer-use agents.",
       "values": [
         {
-          "value_usd": 1000000000.0,
+          "value_usd": 100000000.0,
           "kind": "market_cap",
-          "source_url": "https://www.crn.com/news/mlperf-raises-100m-to-expand-ai-benchmarking-efforts",
-          "source_date": "2023-05-15",
-          "in_search_results": null
-        },
-        {
-          "value_usd": 500000000.0,
-          "kind": "market_cap",
-          "source_url": "https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
-          "source_date": "2023-05-15",
-          "in_search_results": null
-        },
-        {
-          "value_usd": 1200000000.0,
-          "kind": "market_cap",
-          "source_url": "https://www.businessinsider.com/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts-2023-5",
-          "source_date": "2023-05-15",
-          "in_search_results": null
+          "source_url": "https://superintelligencenews.com/ai-fields/large-language-models/ai-leaderboard-arena-100m-revenue/",
+          "source_date": "2026-06-30",
+          "in_search_results": true
         }
       ],
-      "conservative_usd": 500000000.0,
-      "conflict": true,
+      "conservative_usd": 100000000.0,
+      "conflict": false,
       "threshold_usd": 240000000.0
     },
     "error": null
@@ -133,7 +117,7 @@
         "verdict": "pass",
         "passed": true,
         "flagged": false,
-        "reason": "The business model operates fully online and does not require obtaining a license for financial, medical, legal, or telecom services.",
+        "reason": "The business model operates fully online and does not require obtaining its own license for financial, medical, legal, or telecom services.",
         "claim": {
           "text": "Tinfoil makes it easy to make your AI workloads secure and provably private.",
           "source_url": "https://www.ycombinator.com/companies/tinfoil",
@@ -181,7 +165,7 @@
         "verdict": "pass",
         "passed": true,
         "flagged": false,
-        "reason": "The business model does not involve trading or providing services primarily to government bodies.",
+        "reason": "The business model does not involve trading or providing government services.",
         "claim": {
           "text": "Tinfoil promises to unlock significantly deeper AI adoption and integrations by making it easy to obtain true privacy.",
           "source_url": "https://www.ycombinator.com/companies/tinfoil",
@@ -211,10 +195,10 @@
     ],
     "analog": {
       "analog_name": "Anthropic",
-      "same_model_reason": "Anthropic offers AI solutions with verifiable privacy, similar to Tinfoil's encrypted AI platform.",
+      "same_model_reason": "Anthropic's AI assistant, Claude, emphasizes user privacy and data security, aligning with Tinfoil's mission to provide secure and private AI solutions.",
       "values": [
         {
-          "value_usd": 1000000000000.0,
+          "value_usd": 1500000000000.0,
           "kind": "market_cap",
           "source_url": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
           "source_date": "2026-11-18",
@@ -245,9 +229,9 @@
         "verdict": "pass",
         "passed": true,
         "flagged": false,
-        "reason": "The platform operates fully online and does not require its own license for recruiting services.",
+        "reason": "The platform operates fully online and does not require its own license for financial, medical, legal, or telecom services.",
         "claim": {
-          "text": "Contrario is an AI recruiting and hiring platform on a mission to help companies build generational teams.",
+          "text": "Contrario is an AI recruiting and hiring platform.",
           "source_url": "https://www.ycombinator.com/companies/contrario",
           "source_date": "2026-11-19",
           "method": "primary",
@@ -261,9 +245,9 @@
         "verdict": "pass",
         "passed": true,
         "flagged": false,
-        "reason": "The business model involves ongoing placements and payments to recruiters, indicating a recurring revenue stream.",
+        "reason": "The description indicates that Contrario has crossed $6M in annualized revenue, suggesting a recurring revenue model.",
         "claim": {
-          "text": "Contrario has crossed $6M in annualized revenue, paid out $1M+ to recruiters, and placed 150+ candidates.",
+          "text": "In under six months, Contrario has crossed $6M in annualized revenue.",
           "source_url": "https://www.ycombinator.com/companies/contrario",
           "source_date": "2026-11-19",
           "method": "primary",
@@ -277,9 +261,9 @@
         "verdict": "pass",
         "passed": true,
         "flagged": false,
-        "reason": "The platform does not take on credit risk or custody of funds, focusing instead on recruitment services.",
+        "reason": "The platform does not take on credit risk, insurance risk, or custody of other people's money.",
         "claim": {
-          "text": "Contrario is an AI recruiting and hiring platform.",
+          "text": "paid out $1M+ to recruiters",
           "source_url": "https://www.ycombinator.com/companies/contrario",
           "source_date": "2026-11-19",
           "method": "model_judgment",
@@ -293,12 +277,12 @@
         "verdict": "pass",
         "passed": true,
         "flagged": false,
-        "reason": "Contrario is a recruiting platform and does not engage in trading or government services.",
+        "reason": "Contrario is not involved in trading or government services, focusing instead on recruiting.",
         "claim": {
           "text": "Contrario is an AI recruiting and hiring platform.",
           "source_url": "https://www.ycombinator.com/companies/contrario",
           "source_date": "2026-11-19",
-          "method": "model_judgment",
+          "method": "primary",
           "confidence": 0.9,
           "conflicting_values": [],
           "note": ""
@@ -312,7 +296,7 @@
         "reason": "conservative valuation $2,000M ≥ $240M",
         "claim": {
           "text": "Mercor: $2,000M (last_round)",
-          "source_url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/?trk=article-ssr-frontend-pulse_little-text-block",
+          "source_url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/",
           "source_date": "2025-02-20",
           "method": "calculation",
           "confidence": 0.8,
@@ -323,12 +307,12 @@
     ],
     "analog": {
       "analog_name": "Mercor",
-      "same_model_reason": "Mercor is an AI recruiting platform that leverages expert recruiters, similar to Contrario's business model.",
+      "same_model_reason": "Mercor operates an AI-powered recruiting platform that leverages expert recruiters to enhance the recruitment process, similar to Contrario's business model.",
       "values": [
         {
           "value_usd": 2000000000.0,
           "kind": "last_round",
-          "source_url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/?trk=article-ssr-frontend-pulse_little-text-block",
+          "source_url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/",
           "source_date": "2025-02-20",
           "in_search_results": true
         }
@@ -337,6 +321,1093 @@
       "conflict": false,
       "threshold_usd": 240000000.0
     },
+    "error": null
+  },
+  {
+    "model_id": "cranston-ai",
+    "name": "Cranston AI",
+    "status": "rejected",
+    "failed_criteria": [
+      "online_no_license",
+      "no_balance_sheet_risk"
+    ],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business involves tax preparation and bookkeeping, which typically requires licenses for financial services.",
+        "claim": {
+          "text": "AI tax prep and bookkeeping for CPA firms.",
+          "source_url": "https://www.ycombinator.com/companies/cranston-ai",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The service provides ongoing bookkeeping, which implies a recurring revenue model.",
+        "claim": {
+          "text": "Our bookkeeping agents keep client books current all year.",
+          "source_url": "https://www.ycombinator.com/companies/cranston-ai",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business involves handling client financial data and potentially managing funds, which introduces credit risk.",
+        "claim": {
+          "text": "Our tax agents prepare returns the way a strong staff accountant would.",
+          "source_url": "https://www.ycombinator.com/companies/cranston-ai",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.85,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The primary service provided is tax preparation and bookkeeping, which does not involve trading or government services.",
+        "claim": {
+          "text": "AI tax prep and bookkeeping for CPA firms.",
+          "source_url": "https://www.ycombinator.com/companies/cranston-ai",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": null,
+    "error": null
+  },
+  {
+    "model_id": "vulcan-technologies",
+    "name": "Vulcan Technologies",
+    "status": "rejected",
+    "failed_criteria": [
+      "online_no_license",
+      "no_balance_sheet_risk",
+      "not_trading_or_gov"
+    ],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model involves providing services to government entities, which typically require specific licenses.",
+        "claim": {
+          "text": "Vulcan builds agents for government and government-adjacent work.",
+          "source_url": "https://www.ycombinator.com/companies/vulcan-technologies",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify whether the revenue model is based on subscriptions or one-time payments.",
+        "claim": {
+          "text": "We currently sell two agents: Justinian and Trajan.",
+          "source_url": "https://www.ycombinator.com/companies/vulcan-technologies",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.7,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model involves working with government entities, which may entail custody of sensitive information.",
+        "claim": {
+          "text": "Justinian is an AI agent coworker for people who work in and adjacent to American government.",
+          "source_url": "https://www.ycombinator.com/companies/vulcan-technologies",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The primary customers are government entities, which disqualifies it from this criterion.",
+        "claim": {
+          "text": "Vulcan builds agents for government and government-adjacent work.",
+          "source_url": "https://www.ycombinator.com/companies/vulcan-technologies",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": null,
+    "error": null
+  },
+  {
+    "model_id": "foresight",
+    "name": "Foresight",
+    "status": "rejected",
+    "failed_criteria": [
+      "big_analog"
+    ],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The business model is fully online and does not require a license to operate.",
+        "claim": {
+          "text": "Foresight builds AI-powered simulations of human behavior to help companies predict how people will think, react, and choose before making real-world decisions.",
+          "source_url": "https://www.ycombinator.com/companies/foresight",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify whether the revenue model is based on subscriptions or repeat commissions.",
+        "claim": {
+          "text": "It lets organizations test countless possible moves in advance, see how each one is likely to play out, and choose the strongest path forward.",
+          "source_url": "https://www.ycombinator.com/companies/foresight",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The business model does not involve taking on credit risk, insurance risk, or custody of funds.",
+        "claim": {
+          "text": "Foresight builds AI-powered simulations of human behavior to help companies predict how people will think, react, and choose before making real-world decisions.",
+          "source_url": "https://www.ycombinator.com/companies/foresight",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The primary customer base is companies in the CPG sector, not government bodies or trading platforms.",
+        "claim": {
+          "text": "Foresight builds AI-powered simulations of human behavior to help companies predict how people will think, react, and choose before making real-world decisions.",
+          "source_url": "https://www.ycombinator.com/companies/foresight",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "big_analog",
+        "verdict": "uncertain",
+        "passed": false,
+        "flagged": false,
+        "reason": "no analog with a valuation found",
+        "claim": {
+          "text": "No comparable company with a valuation figure found",
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.3,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": {
+      "analog_name": null,
+      "same_model_reason": "",
+      "values": []
+    },
+    "error": null
+  },
+  {
+    "model_id": "keiki",
+    "name": "Keiki",
+    "status": "passed",
+    "failed_criteria": [],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The service operates fully online without requiring a license, as it integrates existing products into messaging platforms.",
+        "claim": {
+          "text": "Keiki takes the product you already have and puts it in your users’ messages.",
+          "source_url": "https://www.ycombinator.com/companies/keiki",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify whether the revenue model is based on subscriptions or repeat commissions.",
+        "claim": {
+          "text": "There’s no new app to download and no login.",
+          "source_url": "https://www.ycombinator.com/companies/keiki",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The model does not involve taking on credit risk or custody of funds, as it facilitates communication rather than financial transactions.",
+        "claim": {
+          "text": "It handles the phone numbers, delivery and the back-and-forth.",
+          "source_url": "https://www.ycombinator.com/companies/keiki",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "Keiki is not involved in trading or government services, focusing instead on enhancing communication for products.",
+        "claim": {
+          "text": "They can use it on iMessage, WhatsApp, SMS or Slack.",
+          "source_url": "https://www.ycombinator.com/companies/keiki",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "big_analog",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "conservative valuation $1,000M ≥ $240M",
+        "claim": {
+          "text": "Sinch Engage: $1,000M (market_cap)",
+          "source_url": "https://www.sinch.com/investors/",
+          "source_date": "2025-06-30",
+          "method": "calculation",
+          "confidence": 0.3,
+          "conflicting_values": [],
+          "note": "source URL not found in web-search results — possibly hallucinated"
+        }
+      }
+    ],
+    "analog": {
+      "analog_name": "Sinch Engage",
+      "same_model_reason": "Sinch Engage provides multichannel messaging services, including SMS, MMS, RCS, and WhatsApp, enabling businesses to communicate with customers via various messaging platforms, similar to Keiki's model of integrating products into messaging apps.",
+      "values": [
+        {
+          "value_usd": 1000000000.0,
+          "kind": "market_cap",
+          "source_url": "https://www.sinch.com/investors/",
+          "source_date": "2025-06-30",
+          "in_search_results": false
+        },
+        {
+          "value_usd": 1200000000.0,
+          "kind": "market_cap",
+          "source_url": "https://www.sinch.com/investors/",
+          "source_date": "2025-09-30",
+          "in_search_results": false
+        },
+        {
+          "value_usd": 1100000000.0,
+          "kind": "market_cap",
+          "source_url": "https://www.sinch.com/investors/",
+          "source_date": "2025-12-31",
+          "in_search_results": false
+        }
+      ],
+      "conservative_usd": 1000000000.0,
+      "conflict": false,
+      "threshold_usd": 240000000.0
+    },
+    "error": null
+  },
+  {
+    "model_id": "text-ai",
+    "name": "Text.ai",
+    "status": "passed",
+    "failed_criteria": [],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The description indicates that the service operates fully online without the need for a specific license.",
+        "claim": {
+          "text": "We're building the first group chat with social skills.",
+          "source_url": "https://www.ycombinator.com/companies/text-ai",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify how revenue will be generated or if it will be recurring.",
+        "claim": {
+          "text": "The one who remembers everything, plans effortlessly, and keeps the crew together.",
+          "source_url": "https://www.ycombinator.com/companies/text-ai",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The business model does not involve taking on credit risk, insurance risk, or custody of other people's money.",
+        "claim": {
+          "text": "Alfi reads the room, understands each person, and creates custom intelligence for every group chat.",
+          "source_url": "https://www.ycombinator.com/companies/text-ai",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The service is not related to trading or government services, focusing instead on enhancing social interactions.",
+        "claim": {
+          "text": "We believe the group chat is the real social network.",
+          "source_url": "https://www.ycombinator.com/companies/text-ai",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "big_analog",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "conservative valuation $250,000M ≥ $240M",
+        "claim": {
+          "text": "xAI: $250,000M (market_cap)",
+          "source_url": "https://finance.yahoo.com/news/musks-xai-talks-raise-4-134414489.html",
+          "source_date": "2025-06-17",
+          "method": "calculation",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": {
+      "analog_name": "xAI",
+      "same_model_reason": "xAI operates a group chat with social skills, similar to Alfi's model.",
+      "values": [
+        {
+          "value_usd": 250000000000.0,
+          "kind": "market_cap",
+          "source_url": "https://finance.yahoo.com/news/musks-xai-talks-raise-4-134414489.html",
+          "source_date": "2025-06-17",
+          "in_search_results": true
+        },
+        {
+          "value_usd": 250000000000.0,
+          "kind": "market_cap",
+          "source_url": "https://www.investing.com/news/stock-market-news/musks-xai-in-talks-for-43-billion-equity-funding-bloomberg-news-reports-4099512",
+          "source_date": "2025-06-17",
+          "in_search_results": false
+        },
+        {
+          "value_usd": 250000000000.0,
+          "kind": "market_cap",
+          "source_url": "https://kwsn.com/2025/06/17/musks-xai-in-talks-for-4-3-billion-equity-funding-bloomberg-news-reports/",
+          "source_date": "2025-06-17",
+          "in_search_results": true
+        },
+        {
+          "value_usd": 250000000000.0,
+          "kind": "market_cap",
+          "source_url": "https://gvwire.com/2025/06/17/musks-xai-in-talks-for-4-3-billion-equity-funding-bloomberg-news-reports/",
+          "source_date": "2025-06-17",
+          "in_search_results": true
+        }
+      ],
+      "conservative_usd": 250000000000.0,
+      "conflict": false,
+      "threshold_usd": 240000000.0
+    },
+    "error": null
+  },
+  {
+    "model_id": "quippy",
+    "name": "Quippy",
+    "status": "rejected",
+    "failed_criteria": [
+      "big_analog"
+    ],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The app operates fully online and does not require any licenses for financial, medical, legal, or telecom services.",
+        "claim": {
+          "text": "Quippy is a daily practice app for your social life.",
+          "source_url": "https://www.ycombinator.com/companies/quippy",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify the revenue model, whether it includes subscriptions or other recurring payments.",
+        "claim": {
+          "text": "The description does not provide details on revenue generation.",
+          "source_url": "https://www.ycombinator.com/companies/quippy",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.7,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The app does not involve credit risk, insurance risk, or custody of funds.",
+        "claim": {
+          "text": "Quippy is a daily practice app for your social life.",
+          "source_url": "https://www.ycombinator.com/companies/quippy",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The app is focused on personal development and does not involve trading or government services.",
+        "claim": {
+          "text": "Quippy helps build social skills through daily practice.",
+          "source_url": "https://www.ycombinator.com/companies/quippy",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "big_analog",
+        "verdict": "uncertain",
+        "passed": false,
+        "flagged": false,
+        "reason": "no analog with a valuation found",
+        "claim": {
+          "text": "No comparable company with a valuation figure found",
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.3,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": {
+      "analog_name": null,
+      "same_model_reason": "",
+      "values": []
+    },
+    "error": null
+  },
+  {
+    "model_id": "vassar-robotics",
+    "name": "Vassar Robotics",
+    "status": "rejected",
+    "failed_criteria": [
+      "online_no_license",
+      "no_balance_sheet_risk"
+    ],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business involves physical hardware and robotics, which typically requires licenses for manufacturing and safety compliance.",
+        "claim": {
+          "text": "Vassar Robotics is building gearless robot joints and arms using high-torque transverse-flux motors.",
+          "source_url": "https://www.ycombinator.com/companies/vassar-robotics",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify whether the revenue model is based on subscriptions or repeat commissions.",
+        "claim": {
+          "text": "We’re starting with AI research labs and robot developers, helping them collect better training data.",
+          "source_url": "https://www.ycombinator.com/companies/vassar-robotics",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model likely involves manufacturing and selling hardware, which can entail credit and inventory risks.",
+        "claim": {
+          "text": "Vassar Robotics is building gearless robot joints and arms.",
+          "source_url": "https://www.ycombinator.com/companies/vassar-robotics",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The business model focuses on robotics for AI research and development, not trading or government services.",
+        "claim": {
+          "text": "We’re starting with AI research labs and robot developers.",
+          "source_url": "https://www.ycombinator.com/companies/vassar-robotics",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": null,
+    "error": null
+  },
+  {
+    "model_id": "oasive",
+    "name": "Oasive",
+    "status": "rejected",
+    "failed_criteria": [
+      "online_no_license",
+      "no_balance_sheet_risk",
+      "not_trading_or_gov"
+    ],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model involves analyzing municipal bonds, which typically requires regulatory compliance and licensing.",
+        "claim": {
+          "text": "Oasive is an AI research platform that helps municipal bond investors decide which bonds to buy.",
+          "source_url": "https://www.ycombinator.com/companies/oasive",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify if the revenue model is based on subscriptions or one-time fees.",
+        "claim": {
+          "text": "Oasive is an AI research platform that helps municipal bond investors decide which bonds to buy.",
+          "source_url": "https://www.ycombinator.com/companies/oasive",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.7,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model involves advising on bond purchases, which implies taking on some level of financial risk.",
+        "claim": {
+          "text": "Oasive brings a borrower's audited financials, debt, board meetings and local news into one page.",
+          "source_url": "https://www.ycombinator.com/companies/oasive",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model is focused on municipal bonds, which are often tied to government entities.",
+        "claim": {
+          "text": "Oasive is an AI research platform that helps municipal bond investors decide which bonds to buy.",
+          "source_url": "https://www.ycombinator.com/companies/oasive",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.85,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": null,
+    "error": null
+  },
+  {
+    "model_id": "valctrl",
+    "name": "ValCtrl",
+    "status": "rejected",
+    "failed_criteria": [
+      "online_no_license",
+      "no_balance_sheet_risk",
+      "not_trading_or_gov"
+    ],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model involves trading in prediction markets, which typically requires regulatory licenses.",
+        "claim": {
+          "text": "ValCtrl structures it, prices it, and lets them trade it.",
+          "source_url": "https://www.ycombinator.com/companies/valctrl",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify whether the revenue model is based on subscriptions or repeat transactions.",
+        "claim": {
+          "text": "ValCtrl structures it, prices it, and lets them trade it.",
+          "source_url": "https://www.ycombinator.com/companies/valctrl",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.7,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The model involves taking the other side of trades, which implies exposure to financial risk.",
+        "claim": {
+          "text": "ValCtrl can take the other side with risk and compliance controls.",
+          "source_url": "https://www.ycombinator.com/companies/valctrl",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model is centered around a prediction market, which is a form of trading.",
+        "claim": {
+          "text": "ValCtrl structures it, prices it, and lets them trade it.",
+          "source_url": "https://www.ycombinator.com/companies/valctrl",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": null,
+    "error": null
+  },
+  {
+    "model_id": "edexia",
+    "name": "Edexia",
+    "status": "rejected",
+    "failed_criteria": [
+      "big_analog"
+    ],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The business model operates fully online and does not require a license for grading essays.",
+        "claim": {
+          "text": "Edexia is an AI Teacher Assistant for grading essays.",
+          "source_url": "https://www.ycombinator.com/companies/edexia",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify whether the revenue model is based on subscriptions or one-time payments.",
+        "claim": {
+          "text": "Not specified in the description.",
+          "source_url": "https://www.ycombinator.com/companies/edexia",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.7,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The business model does not involve taking on credit risk, insurance risk, or custody of funds.",
+        "claim": {
+          "text": "Not specified in the description.",
+          "source_url": "https://www.ycombinator.com/companies/edexia",
+          "source_date": "2026-11-19",
+          "method": "model_judgment",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The primary customer is not a government body, but rather educational institutions and teachers.",
+        "claim": {
+          "text": "Our vision is to transform education by facilitating AI’s safe and effective integration across all institutions.",
+          "source_url": "https://www.ycombinator.com/companies/edexia",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "big_analog",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "conservative valuation $80M < $240M",
+        "claim": {
+          "text": "EssayGrader: $80M (press_estimate)",
+          "source_url": "https://www.printcashwithai.com/stacks/ai-essay-grading-for-teachers-essaygrader/",
+          "source_date": "2025-07-01",
+          "method": "calculation",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": {
+      "analog_name": "EssayGrader",
+      "same_model_reason": "EssayGrader provides AI-powered essay grading with teacher control and rubric-based feedback, similar to Edexia's model.",
+      "values": [
+        {
+          "value_usd": 80000000.0,
+          "kind": "press_estimate",
+          "source_url": "https://www.printcashwithai.com/stacks/ai-essay-grading-for-teachers-essaygrader/",
+          "source_date": "2025-07-01",
+          "in_search_results": true
+        }
+      ],
+      "conservative_usd": 80000000.0,
+      "conflict": false,
+      "threshold_usd": 240000000.0
+    },
+    "error": null
+  },
+  {
+    "model_id": "toothy-ai",
+    "name": "Toothy AI",
+    "status": "rejected",
+    "failed_criteria": [
+      "online_no_license",
+      "no_balance_sheet_risk"
+    ],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model involves handling insurance verification, which typically requires compliance with regulations and potentially obtaining licenses.",
+        "claim": {
+          "text": "We’re building AI agents for dental practices that handle everything related to patient insurance.",
+          "source_url": "https://www.ycombinator.com/companies/toothy-ai",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify whether the revenue model is subscription-based or based on one-time fees for services.",
+        "claim": {
+          "text": "Our AI agents automate this entire workflow.",
+          "source_url": "https://www.ycombinator.com/companies/toothy-ai",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business involves handling insurance claims, which may expose it to credit and custody risks.",
+        "claim": {
+          "text": "handling everything related to patient insurance.",
+          "source_url": "https://www.ycombinator.com/companies/toothy-ai",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The business model focuses on providing services to dental clinics and does not involve trading or government services.",
+        "claim": {
+          "text": "AI agents for dental practices.",
+          "source_url": "https://www.ycombinator.com/companies/toothy-ai",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": null,
+    "error": null
+  },
+  {
+    "model_id": "waypoint-transit",
+    "name": "Waypoint Transit",
+    "status": "rejected",
+    "failed_criteria": [
+      "online_no_license",
+      "no_balance_sheet_risk",
+      "not_trading_or_gov"
+    ],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model involves providing services to government entities, which typically requires specific licenses or compliance with regulations.",
+        "claim": {
+          "text": "we empower cities to reduce their costs, build infrastructure, and respond to problems quickly.",
+          "source_url": "https://www.ycombinator.com/companies/waypoint-transit",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify whether the revenue model is based on subscriptions or one-time payments for services.",
+        "claim": {
+          "text": "Cities spend $50B/year on planning.",
+          "source_url": "https://www.ycombinator.com/companies/waypoint-transit",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.7,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The business model involves working with government contracts, which may expose the company to credit and operational risks.",
+        "claim": {
+          "text": "city governments are understaffed and frequently need to contract work out to expensive consultants.",
+          "source_url": "https://www.ycombinator.com/companies/waypoint-transit",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "fail",
+        "passed": false,
+        "flagged": false,
+        "reason": "The primary customer is city governments, which categorizes it as a government service.",
+        "claim": {
+          "text": "we empower cities to reduce their costs, build infrastructure, and respond to problems quickly.",
+          "source_url": "https://www.ycombinator.com/companies/waypoint-transit",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": null,
     "error": null
   }
 ]
