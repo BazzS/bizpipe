@@ -8,7 +8,8 @@
 **Отчёт: https://bazzs.github.io/bizpipe/** (рейтинг и карточки, [демо на вымышленных данных](https://bazzs.github.io/bizpipe/reports/demo_report.html)).
 
 Прогон 19.11.2026 на реальном API (gpt-4o-mini, оценщик — gpt-4o), $0.28: собрано 15 моделей, прошли 4, отсеяно 11.
-Рейтинг: Keiki, Text.ai, Contrario — «Запускать тест»; Tinfoil — «Отложить».
+Рейтинг: Keiki, Contrario — «Запускать тест»; Text.ai — «Сначала проверить вручную» (аналог xAI несопоставим,
+оценщик выдумал ссылки); Tinfoil — «Отложить». Карточки пересобраны по исправленным правилам без новых вызовов LLM.
 Почему отсеяны — в отчёте и в `logs/20261119T140959-af937c/rejected.jsonl`; изоляция агентов — в `agents.jsonl` там же.
 
 ## Запуск
@@ -22,6 +23,7 @@ python run.py collect       # шаг 1: сбор моделей → data/models.
 python run.py filter        # шаг 2: критерии → data/filter_results.json, logs/<run>/rejected.jsonl
 python run.py agents        # шаг 3: агенты А и Б → data/agents_results.json, logs/<run>/agents.jsonl
 python run.py score         # шаг 4: оценщик → data/cards.json
+python run.py cards         # пересобрать карточки после правки config.yaml, без LLM
 python run.py report        # → reports/report.html
 python run.py all           # всё подряд
 python scripts/make_demo.py # вид отчёта на вымышленных данных, без ключа

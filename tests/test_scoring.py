@@ -96,3 +96,49 @@ def test_needs_ru():
     assert needs_ru("Major cloud providers offer confidential computing") and needs_ru("conservative valuation $80M < $240M")
     assert not needs_ru("Подписка ~$30/мес за преподавателя") and not needs_ru("https://a.com/x") and not needs_ru("Keiki")
     assert needs_ru("Уточнить: «The one who remembers everything, plans effortlessly» — не удалось проверить")
+
+
+def test_source_tag_downgrades_weak_sources():
+    # «первоисточник» без ссылки — оценка модели; ссылка не из поиска — нужен человек
+    assert sc.source_tag(Claim(text="t", method=Method.primary, confidence=0.9)).mark == "≈"
+    assert sc.source_tag(Claim(text="t", source_url="https://a.com", method=Method.calculation, confidence=0.3)).mark == "?"
+    assert sc.source_tag(Claim(text="t", source_url="https://a.com", method=Method.calculation, confidence=0.8,
+                               note="source URL not found in web-search results — possibly hallucinated")).mark == "?"
+
+
+def _assemble(factor_url, analog_usd=1e9, risk_status="confirmed"):
+    from pipeline import agents as ag
+    from pipeline.filter import CriterionResult, FilterResult
+    from pipeline.schemas import BusinessModel
+
+    m = BusinessModel(id="x", name="X", one_liner="o", description="d", source_url="https://yc.com/x",
+                      fetched_at="2026-11-19T00:00:00", industry="B2B")
+    ac = Claim(text="Big: $1 млрд", source_url="https://big.com", method=Method.calculation, confidence=0.8)
+    f = FilterResult(model_id="x", name="X", status="passed", analog={"analog_name": "Big", "conservative_usd": analog_usd},
+                     results=[CriterionResult(criterion_id="big_analog", verdict="pass", passed=True, reason="r", claim=ac)])
+    c = Claim(text="risk", source_url="https://r.com", method=Method.primary, confidence=1)
+    risks = [ag.CheckedRisk(id="r1", category="competition", fact="risk", implication="i", severity=3, strength=3,
+                            devil_passport=c, final=c, verification=ag.VerifierOutput(status=risk_status, confidence=1))]
+    a = ag.AgentsResult(model_id="x", name="X", status="done", risks=risks)
+    fl = fs(**{k: 4 for k in ALL})
+    for fx in fl:
+        fx.claim = Claim(text="same", source_url=factor_url, method=Method.primary, confidence=0.9)
+    out = sc.ScorerOutput(idea="i", why_pay="w", revenue="r", analog_growth="g", first_client="f", channel="c",
+                          stages=[sc.Stage(name="s", weeks_min=2, weeks_max=4)], factors=fl,
+                          test_steps=[sc.TestStep(action="a", success="b")])
+    return sc.assemble_card(m, f, a, out)
+
+
+def test_invented_scorer_url_is_model_judgment():
+    card = _assemble("https://www.statista.com/statistics/1234567/x")
+    fac = [p for p in card.passport if p.claim.text == "same"]
+    assert len(fac) == 1                                          # одинаковые утверждения — одна строка паспорта
+    assert fac[0].mark == "≈" and fac[0].url is None and "statista" in fac[0].claim.note
+    assert _assemble("https://yc.com/x/").passport[-2].mark == "✓"   # ссылка из входных данных — остаётся
+
+
+def test_too_big_analog_and_contradicted_risk():
+    card = _assemble(None, analog_usd=250e9, risk_status="contradicted")
+    assert card.analog_source.mark == "?" and card.first_steps[0].startswith("Проверить аналог Big")
+    assert card.risks == []                                       # опровергнутый риск на карточку не идёт
+    assert card.internal["scorer_out"]["idea"] == "i"            # сохранён для пересборки без LLM

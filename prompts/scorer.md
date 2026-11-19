@@ -9,17 +9,23 @@ independent fact-checker (with status). Use the checked facts; do not repeat unv
 Fields:
 - idea: what the product does and what is the core value (the "trick"), one sentence.
 - why_pay: who exactly pays and why it is worth money for THEM, one sentence.
-- revenue: model and price point, e.g. "Подписка ~£30–50/мес за преподавателя".
-- analog_growth: how the analog grew / what made it big, one short phrase.
+- revenue: model and price point in US dollars, e.g. "Подписка ~$30–50/мес за преподавателя".
+- analog_growth: how the analog grew / what made it big, one short phrase. If you do not actually know, write what the
+  analog sells and to whom (e.g. "SaaS для отделов продаж, продажи через партнёров") — never invent a growth story.
 - first_client: concrete first customer segment (who, where, size).
 - channel: how we reach the first 10 clients.
 - stages: 2–4 stages until the first payment, each {name, weeks_min, weeks_max} (short Russian name).
+  The LAST stage must end with the first payment received (e.g. "Первые продажи").
 - factors: for EACH factor id below give {id, score 1..5, line, claim}:
     score by the rubric. Be strict: default is 3. Give 5 ONLY if you can name concrete evidence in claim.
     If buyers are enterprises, regulated companies or governments → sales_cycle ≤ 2.
     If the product needs security certification, integrations or proprietary data → test_speed ≤ 2.
     line = 2–5 Russian words explaining the score,
     claim = passport of the fact the score rests on (source_url, source_date, method, confidence).
+    You have NO web search. source_url may only be a URL that appears in the input (company page, analog source,
+    risk sources); otherwise source_url = null and method = "model_judgment". Never make up a URL — the code
+    checks every link and marks invented ones.
+    Use facts from the description: revenue, customers or growth the company reports ARE demand evidence.
 - risk_takeaways: for EACH risk id given, {id, takeaway, severity}:
     takeaway = what it means for US / what we do, ≤10 words.
     severity = how much THIS fact hurts the 3-month first-payment goal, judged from the fact and its check status:

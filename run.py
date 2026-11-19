@@ -4,6 +4,7 @@
     python run.py filter                # шаг 2: фильтр по критериям
     python run.py agents                # шаг 3: агент А + агент Б
     python run.py score                 # шаг 4: оценщик → карточки → data/cards.json
+    python run.py cards                 # пересобрать карточки из сохранённого ответа оценщика, без LLM
     python run.py report                # HTML-отчёт → reports/report.html
     python run.py all                   # всё по порядку
 """
@@ -17,7 +18,7 @@ from pipeline.filter import run_filter
 from pipeline.llm import COST
 from pipeline.logger import LOG_DIR
 from pipeline.render import run_render
-from pipeline.scoring import run_scoring
+from pipeline.scoring import run_cards, run_scoring
 
 
 def main() -> None:
@@ -28,6 +29,7 @@ def main() -> None:
     sub.add_parser("filter", help="прогнать модели через критерии отбора")
     sub.add_parser("agents", help="агент А ищет риски, агент Б проверяет источники")
     sub.add_parser("score", help="оценщик + карточки + рейтинг")
+    sub.add_parser("cards", help="пересобрать карточки без LLM (после правки правил в config.yaml)")
     sub.add_parser("report", help="HTML-отчёт из data/cards.json")
     a = sub.add_parser("all", help="collect → filter → agents → score → report")
     a.add_argument("--refresh", action="store_true")
@@ -71,10 +73,11 @@ def step(cmd: str, args) -> None:
                 st = k.verification.status if k.verification else "—"
                 print(f"    {k.id} sev={k.severity} [{st:18}] {k.fact[:90]}")
         print("Результаты → data/agents_results.json")
-    elif cmd == "score":
-        for c in run_scoring():
+    elif cmd in ("score", "cards"):
+        for c in (run_scoring() if cmd == "score" else run_cards()):
             w = f"{c.weeks[0]}–{c.weeks[1]} нед." if c.weeks else "—"
-            print(f"  #{c.rank or '-'} {c.name}: {c.verdict_label} · {w} · шанс {c.chance}  {c.internal}")
+            brief = {k: v for k, v in c.internal.items() if k not in ("scorer_out", "severity")}
+            print(f"  #{c.rank or '-'} {c.name}: {c.verdict_label} · {w} · шанс {c.chance}  {brief}")
         print("Карточки → data/cards.json")
     elif cmd == "report":
         print(f"Отчёт → {run_render()}")

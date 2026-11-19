@@ -118,6 +118,10 @@ def judge_analog(out: AnalogOutput, citations: list[dict], cfg: dict) -> tuple[V
     if lo["in_search_results"] is False:
         note.append("source URL not found in web-search results — possibly hallucinated")
         conf = 0.3
+    too_big = lo["value_usd"] > cfg.get("max_comparable_usd", float("inf"))
+    if too_big:
+        note.append(f"аналог крупнее {fmt_usd(cfg['max_comparable_usd'])} — компания другого масштаба, сравнение под вопросом")
+        conf = min(conf, 0.3)
     if conflict:
         conf = min(conf, load_config()["conflicts"]["confidence_cap"])
         note.append(f"sources disagree >{cfg['conflict_ratio']}x; conservative value used")
@@ -125,7 +129,7 @@ def judge_analog(out: AnalogOutput, citations: list[dict], cfg: dict) -> tuple[V
     claim = Claim(
         text=f"{out.analog_name}: {fmt_usd(lo['value_usd'])} ({VALUE_KIND_RU.get(lo['kind'], lo['kind'])})",
         source_url=lo["source_url"], source_date=lo["source_date"],
-        method=Method.needs_human if conflict else Method.calculation,
+        method=Method.needs_human if conflict or too_big else Method.calculation,
         confidence=conf,
         conflicting_values=[f"{fmt_usd(p['value_usd'])} {VALUE_KIND_RU.get(p['kind'], p['kind'])} {p['source_url']}" for p in points] if conflict else [],
         note="; ".join(note),
@@ -133,7 +137,8 @@ def judge_analog(out: AnalogOutput, citations: list[dict], cfg: dict) -> tuple[V
     info.update(conservative_usd=lo["value_usd"], conflict=conflict, threshold_usd=threshold)
     verdict: Verdict = "pass" if passed else "fail"
     reason = (f"аналог {out.analog_name}: {fmt_usd(lo['value_usd'])} {'≥' if passed else '<'} порога {fmt_usd(threshold)}"
-              + (" (консервативная из расходящихся оценок)" if conflict else ""))
+              + (" (консервативная из расходящихся оценок)" if conflict else "")
+              + (" — аналог под вопросом: другой масштаб" if too_big else ""))
     return verdict, reason, claim, info
 
 

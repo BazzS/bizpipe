@@ -82,3 +82,10 @@ def test_llm_outage_is_not_verified_not_rejected(monkeypatch):
     fake, _ = _fake(_verdicts(**ALL_PASS), analog=None)
     monkeypatch.setattr(flt, "call_json", fake)
     assert flt.screen_model(M).status == "not_verified"
+
+
+def test_too_big_analog_passes_but_needs_human():
+    # xAI как аналог группового чата: порог пройден, но сравнение под вопросом
+    v, reason, claim, _ = flt.judge_analog(_analog((250e9, "https://a.com/x")), [{"url": "https://a.com/x"}],
+                                           {**CFG, "max_comparable_usd": 50e9})
+    assert v == "pass" and claim.method == Method.needs_human and claim.confidence <= 0.3 and "другой масштаб" in reason

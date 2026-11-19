@@ -9,7 +9,7 @@
     "chance": "высокий",
     "weeks": [
       4,
-      12
+      13
     ],
     "rank": 1,
     "idea": "Keiki добавляет ваш продукт в мессенджеры пользователей без установки новых приложений.",
@@ -18,7 +18,7 @@
     "analog": "Sinch Engage ~$1 млрд",
     "analog_source": {
       "label": "sinch.com, 2025",
-      "mark": "✓",
+      "mark": "?",
       "url": "https://www.sinch.com/investors/",
       "claim": {
         "text": "Sinch Engage: $1,000M (market_cap)",
@@ -112,7 +112,7 @@
       }
     ],
     "first_steps": [
-      "Уточнить: «There’s no new app to download and no login.» — не удалось проверить",
+      "Проверить аналог Sinch Engage (~$1 млрд): источник оценки не подтвердился",
       "Создать лендинг → ≥100 посетителей за 2 недели",
       "Запустить email-кампанию → ≥5 ответов из 100 писем",
       "Провести демо → ≥3 демо из 5 ответов"
@@ -176,7 +176,7 @@
       },
       {
         "label": "sinch.com, 2025",
-        "mark": "✓",
+        "mark": "?",
         "url": "https://www.sinch.com/investors/",
         "claim": {
           "text": "Sinch Engage: $1,000M (market_cap)",
@@ -274,20 +274,139 @@
       }
     ],
     "passport_counts": {
-      "✓": 5,
+      "✓": 4,
       "≈": 5,
-      "?": 1
+      "?": 2
     },
     "internal": {
-      "score": 88.0,
+      "score": 82.0,
       "base": 94.0,
-      "risk_penalty": 6.0,
-      "reliability": 0.64,
+      "risk_penalty": 12.0,
+      "missing_risks": 2,
+      "reliability": 0.5,
       "severity": {
         "r1": {
           "devil": 5,
           "scorer": 3
         }
+      },
+      "scorer_out": {
+        "idea": "Keiki добавляет ваш продукт в мессенджеры пользователей без установки новых приложений.",
+        "why_pay": "Малый бизнес платит за удобство общения с клиентами через популярные мессенджеры.",
+        "revenue": "Подписка ~£50–100/мес за бизнес.",
+        "analog_growth": "Синхронизация с популярными мессенджерами.",
+        "first_client": "Малый бизнес, онлайн-магазины, до 10 сотрудников.",
+        "channel": "Холодные email-рассылки и LinkedIn.",
+        "stages": [
+          {
+            "name": "Исследование рынка",
+            "weeks_min": 1.0,
+            "weeks_max": 2.0
+          },
+          {
+            "name": "Создание MVP",
+            "weeks_min": 2.0,
+            "weeks_max": 4.0
+          },
+          {
+            "name": "Тестирование и обратная связь",
+            "weeks_min": 2.0,
+            "weeks_max": 4.0
+          }
+        ],
+        "factors": [
+          {
+            "id": "client_access",
+            "score": 5,
+            "line": "Четкий сегмент, доступен онлайн",
+            "claim": {
+              "text": "Малый бизнес легко доступен через онлайн-каталоги и соцсети.",
+              "source_url": null,
+              "source_date": null,
+              "method": "model_judgment",
+              "confidence": 0.9,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "sales_cycle",
+            "score": 5,
+            "line": "Малый бизнес, быстрое принятие решений",
+            "claim": {
+              "text": "Малый бизнес принимает решения быстро, оплата картой возможна.",
+              "source_url": null,
+              "source_date": null,
+              "method": "model_judgment",
+              "confidence": 0.9,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "test_speed",
+            "score": 5,
+            "line": "Лендинг и ручной сервис за 1–2 недели",
+            "claim": {
+              "text": "Возможность быстрого запуска с минимальными затратами.",
+              "source_url": null,
+              "source_date": null,
+              "method": "model_judgment",
+              "confidence": 0.9,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "demand_evidence",
+            "score": 5,
+            "line": "Конкуренты уже успешно продают",
+            "claim": {
+              "text": "Существуют конкуренты, которые уже успешно продают подобные услуги.",
+              "source_url": null,
+              "source_date": null,
+              "method": "model_judgment",
+              "confidence": 0.9,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "newcomer_room",
+            "score": 3,
+            "line": "Рынок насыщен, но есть ниши",
+            "claim": {
+              "text": "Рынок насыщен, но есть возможности для новых игроков.",
+              "source_url": null,
+              "source_date": null,
+              "method": "model_judgment",
+              "confidence": 0.8,
+              "conflicting_values": [],
+              "note": ""
+            }
+          }
+        ],
+        "risk_takeaways": [
+          {
+            "id": "r1",
+            "takeaway": "Конкуренция с Sinch Engage",
+            "severity": 3
+          }
+        ],
+        "test_steps": [
+          {
+            "action": "Создать лендинг",
+            "success": "≥100 посетителей за 2 недели"
+          },
+          {
+            "action": "Запустить email-кампанию",
+            "success": "≥5 ответов из 100 писем"
+          },
+          {
+            "action": "Провести демо",
+            "success": "≥3 демо из 5 ответов"
+          }
+        ]
       }
     },
     "error": null
@@ -297,12 +416,12 @@
     "name": "Text.ai",
     "one_liner": "Alfi - your group chat with social skills to bring friends closer",
     "website": "https://www.text.ai/",
-    "verdict": "launch",
-    "verdict_label": "Запускать тест",
-    "chance": "высокий",
+    "verdict": "check_manually",
+    "verdict_label": "Сначала проверить вручную",
+    "chance": "средний",
     "weeks": [
-      5,
-      15
+      4,
+      17
     ],
     "rank": 2,
     "idea": "Alfi — групповой чат с социальными навыками для сближения друзей.",
@@ -311,7 +430,7 @@
     "analog": "xAI ~$250 млрд",
     "analog_source": {
       "label": "finance.yahoo.com, 2025",
-      "mark": "✓",
+      "mark": "?",
       "url": "https://finance.yahoo.com/news/musks-xai-talks-raise-4-134414489.html",
       "claim": {
         "text": "xAI: $250,000M (market_cap)",
@@ -320,7 +439,7 @@
         "method": "calculation",
         "confidence": 0.8,
         "conflicting_values": [],
-        "note": ""
+        "note": "аналог крупнее $50 млрд — компания другого масштаба, сравнение под вопросом"
       }
     },
     "analog_growth": "xAI вырос благодаря уникальным социальным функциям.",
@@ -457,8 +576,8 @@
       }
     ],
     "first_steps": [
-      "Уточнить: «The one who remembers everything, plans effortlessly, and keeps the crew together.» — не удалось проверить",
-      "Уточнить: «Anthropic's IPO valued the company at $1.5 trillion, with Amazon and Google together owning nearly 30% of the shares, providing substantial infrastructure support.» — источники расходятся",
+      "Проверить аналог xAI (~$250 млрд): слишком крупная компания для сравнения, нужен аналог масштаба стартапа",
+      "Проверить вручную: Anthropic's IPO valued the company at $1.5 trillion, with Amazon and Google together owning nearly 30% of the shares, providing substantial infrastructure support.",
       "Создать лендинг → ≥100 регистраций на сайте",
       "Запустить рекламу → ≥50 кликов в день",
       "Провести демо → ≥5 демо из 20 встреч"
@@ -522,7 +641,7 @@
       },
       {
         "label": "finance.yahoo.com, 2025",
-        "mark": "✓",
+        "mark": "?",
         "url": "https://finance.yahoo.com/news/musks-xai-talks-raise-4-134414489.html",
         "claim": {
           "text": "xAI: $250,000M (market_cap)",
@@ -531,77 +650,77 @@
           "method": "calculation",
           "confidence": 0.8,
           "conflicting_values": [],
-          "note": ""
+          "note": "аналог крупнее $50 млрд — компания другого масштаба, сравнение под вопросом"
         }
       },
       {
-        "label": "pewresearch.org, 2021",
-        "mark": "✓",
-        "url": "https://www.pewresearch.org/internet/2021/04/07/social-media-use-in-2021/",
+        "label": "оценка модели",
+        "mark": "≈",
+        "url": null,
         "claim": {
           "text": "Молодежные группы активно используют социальные сети и мессенджеры.",
-          "source_url": "https://www.pewresearch.org/internet/2021/04/07/social-media-use-in-2021/",
-          "source_date": "2021-04-07",
-          "method": "primary",
-          "confidence": 0.9,
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.5,
           "conflicting_values": [],
-          "note": ""
+          "note": "ссылку дал оценщик без поиска, не проверена: https://www.pewresearch.org/internet/2021/04/07/social-media-use-in-2021/"
         }
       },
       {
-        "label": "statista.com, 2022",
-        "mark": "✓",
-        "url": "https://www.statista.com/statistics/1234567/online-payment-preferences/",
+        "label": "оценка модели",
+        "mark": "≈",
+        "url": null,
         "claim": {
           "text": "Молодежь предпочитает быстрые и простые платежи онлайн.",
-          "source_url": "https://www.statista.com/statistics/1234567/online-payment-preferences/",
-          "source_date": "2022-05-01",
-          "method": "primary",
-          "confidence": 0.8,
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.5,
           "conflicting_values": [],
-          "note": ""
+          "note": "ссылку дал оценщик без поиска, не проверена: https://www.statista.com/statistics/1234567/online-payment-preferences/"
         }
       },
       {
-        "label": "techcrunch.com, 2023",
+        "label": "оценка модели",
         "mark": "≈",
-        "url": "https://www.techcrunch.com/2023/01/15/mvp-development-timeline/",
+        "url": null,
         "claim": {
           "text": "Разработка MVP занимает 4-6 недель.",
-          "source_url": "https://www.techcrunch.com/2023/01/15/mvp-development-timeline/",
-          "source_date": "2023-01-15",
+          "source_url": null,
+          "source_date": null,
           "method": "model_judgment",
-          "confidence": 0.7,
+          "confidence": 0.5,
           "conflicting_values": [],
-          "note": ""
+          "note": "ссылку дал оценщик без поиска, не проверена: https://www.techcrunch.com/2023/01/15/mvp-development-timeline/"
         }
       },
       {
-        "label": "forbes.com, 2023",
-        "mark": "✓",
-        "url": "https://www.forbes.com/sites/forbestechcouncil/2023/02/10/ai-chat-apps-market-growth/",
+        "label": "оценка модели",
+        "mark": "≈",
+        "url": null,
         "claim": {
           "text": "Существуют успешные аналоги с платными функциями.",
-          "source_url": "https://www.forbes.com/sites/forbestechcouncil/2023/02/10/ai-chat-apps-market-growth/",
-          "source_date": "2023-02-10",
-          "method": "primary",
-          "confidence": 0.85,
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.5,
           "conflicting_values": [],
-          "note": ""
+          "note": "ссылку дал оценщик без поиска, не проверена: https://www.forbes.com/sites/forbestechcouncil/2023/02/10/ai-chat-apps-market-growth/"
         }
       },
       {
-        "label": "gartner.com, 2023",
-        "mark": "✓",
-        "url": "https://www.gartner.com/en/newsroom/press-releases/2023-03-20-ai-chat-market-trends",
+        "label": "оценка модели",
+        "mark": "≈",
+        "url": null,
         "claim": {
           "text": "Рынок AI-чатов насыщен, но есть ниши для новых игроков.",
-          "source_url": "https://www.gartner.com/en/newsroom/press-releases/2023-03-20-ai-chat-market-trends",
-          "source_date": "2023-03-20",
-          "method": "primary",
-          "confidence": 0.75,
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.5,
           "conflicting_values": [],
-          "note": ""
+          "note": "ссылку дал оценщик без поиска, не проверена: https://www.gartner.com/en/newsroom/press-releases/2023-03-20-ai-chat-market-trends"
         }
       },
       {
@@ -651,15 +770,16 @@
       }
     ],
     "passport_counts": {
-      "✓": 9,
-      "≈": 2,
-      "?": 2
+      "✓": 4,
+      "≈": 6,
+      "?": 3
     },
     "internal": {
       "score": 77.0,
       "base": 87.0,
       "risk_penalty": 10.0,
-      "reliability": 0.78,
+      "missing_risks": 0,
+      "reliability": 0.44,
       "severity": {
         "r1": {
           "devil": 5,
@@ -673,6 +793,139 @@
           "devil": 4,
           "scorer": 2
         }
+      },
+      "scorer_out": {
+        "idea": "Alfi — групповой чат с социальными навыками для сближения друзей.",
+        "why_pay": "Молодежные группы платят за улучшение общения и планирования.",
+        "revenue": "Подписка ~£10–20/мес за группу.",
+        "analog_growth": "xAI вырос благодаря уникальным социальным функциям.",
+        "first_client": "Молодежные группы в США, 3-10 человек.",
+        "channel": "Социальные сети и таргетированная реклама.",
+        "stages": [
+          {
+            "name": "Исследование рынка",
+            "weeks_min": 1.0,
+            "weeks_max": 2.0
+          },
+          {
+            "name": "Создание MVP",
+            "weeks_min": 2.0,
+            "weeks_max": 4.0
+          },
+          {
+            "name": "Тестирование и обратная связь",
+            "weeks_min": 2.0,
+            "weeks_max": 4.0
+          },
+          {
+            "name": "Первый платеж",
+            "weeks_min": 1.0,
+            "weeks_max": 3.0
+          }
+        ],
+        "factors": [
+          {
+            "id": "client_access",
+            "score": 5,
+            "line": "Четкий сегмент, доступный онлайн",
+            "claim": {
+              "text": "Молодежные группы активно используют социальные сети и мессенджеры.",
+              "source_url": "https://www.pewresearch.org/internet/2021/04/07/social-media-use-in-2021/",
+              "source_date": "2021-04-07",
+              "method": "primary",
+              "confidence": 0.9,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "sales_cycle",
+            "score": 5,
+            "line": "Платят по карте быстро",
+            "claim": {
+              "text": "Молодежь предпочитает быстрые и простые платежи онлайн.",
+              "source_url": "https://www.statista.com/statistics/1234567/online-payment-preferences/",
+              "source_date": "2022-05-01",
+              "method": "primary",
+              "confidence": 0.8,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "test_speed",
+            "score": 4,
+            "line": "Нужен работающий MVP",
+            "claim": {
+              "text": "Разработка MVP занимает 4-6 недель.",
+              "source_url": "https://www.techcrunch.com/2023/01/15/mvp-development-timeline/",
+              "source_date": "2023-01-15",
+              "method": "model_judgment",
+              "confidence": 0.7,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "demand_evidence",
+            "score": 4,
+            "line": "Существуют конкуренты с платными услугами",
+            "claim": {
+              "text": "Существуют успешные аналоги с платными функциями.",
+              "source_url": "https://www.forbes.com/sites/forbestechcouncil/2023/02/10/ai-chat-apps-market-growth/",
+              "source_date": "2023-02-10",
+              "method": "primary",
+              "confidence": 0.85,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "newcomer_room",
+            "score": 3,
+            "line": "Рынок насыщен, но есть ниши",
+            "claim": {
+              "text": "Рынок AI-чатов насыщен, но есть ниши для новых игроков.",
+              "source_url": "https://www.gartner.com/en/newsroom/press-releases/2023-03-20-ai-chat-market-trends",
+              "source_date": "2023-03-20",
+              "method": "primary",
+              "confidence": 0.75,
+              "conflicting_values": [],
+              "note": ""
+            }
+          }
+        ],
+        "risk_takeaways": [
+          {
+            "id": "r2",
+            "takeaway": "Ограниченный доступ к оборудованию",
+            "severity": 3
+          },
+          {
+            "id": "r1",
+            "takeaway": "Конкуренция с крупными игроками",
+            "severity": 3
+          },
+          {
+            "id": "r3",
+            "takeaway": "Регуляторные риски не подтверждены",
+            "severity": 2
+          }
+        ],
+        "test_steps": [
+          {
+            "action": "Создать лендинг",
+            "success": "≥100 регистраций на сайте"
+          },
+          {
+            "action": "Запустить рекламу",
+            "success": "≥50 кликов в день"
+          },
+          {
+            "action": "Провести демо",
+            "success": "≥5 демо из 20 встреч"
+          }
+        ]
       }
     },
     "error": null
@@ -684,7 +937,7 @@
     "website": "https://contrario.ai",
     "verdict": "launch",
     "verdict_label": "Запускать тест",
-    "chance": "высокий",
+    "chance": "средний",
     "weeks": [
       4,
       16
@@ -814,35 +1067,9 @@
           }
         },
         "penalty": 1.5
-      },
-      {
-        "id": "r2",
-        "level": "Терпимо",
-        "status": "опровергнуто",
-        "fact": "Mercer International Inc. (MERC) is a competitor in the AI recruitment market, with a market capitalization of approximately $14.14 billion.",
-        "takeaway": "Конкуренция меньше, чем казалось.",
-        "source": {
-          "label": "finance.yahoo.com, 2026",
-          "mark": "?",
-          "url": "https://finance.yahoo.com/quote/MERC",
-          "claim": {
-            "text": "Mercer International Inc. (MERC) is a competitor in the AI recruitment market, with a market capitalization of approximately $14.14 billion.",
-            "source_url": "https://finance.yahoo.com/quote/MERC",
-            "source_date": "2026-11-19",
-            "method": "needs_human",
-            "confidence": 0.0,
-            "conflicting_values": [
-              "agent A: https://finance.yahoo.com/quote/MERC",
-              "agent B: https://finance.yahoo.com/quote/MERC"
-            ],
-            "note": "contradicted: Mercer International Inc. (MERC) has a market capitalization of approximately $14.14 million, not $14.14 billion."
-          }
-        },
-        "penalty": 0.0
       }
     ],
     "first_steps": [
-      "Уточнить: «Mercer International Inc. (MERC) is a competitor in the AI recruitment market, with a market capitalization of approximately $14.14 billion.» — источники расходятся",
       "Отправить 100 писем → ≥5 демо из 100 писем",
       "Провести демо → ≥3 положительных отзыва",
       "Заключить контракт → ≥1 платёж от клиента"
@@ -891,20 +1118,6 @@
         }
       },
       {
-        "label": "ycombinator.com, 2026",
-        "mark": "✓",
-        "url": "https://www.ycombinator.com/companies/contrario",
-        "claim": {
-          "text": "Contrario is an AI recruiting and hiring platform.",
-          "source_url": "https://www.ycombinator.com/companies/contrario",
-          "source_date": "2026-11-19",
-          "method": "primary",
-          "confidence": 0.9,
-          "conflicting_values": [],
-          "note": ""
-        }
-      },
-      {
         "label": "techcrunch.com, 2025",
         "mark": "✓",
         "url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/",
@@ -919,73 +1132,73 @@
         }
       },
       {
-        "label": "example.com, 2023",
+        "label": "оценка модели",
         "mark": "≈",
-        "url": "https://example.com",
+        "url": null,
         "claim": {
           "text": "Стартапы легко найти через онлайн-каталоги и сообщества.",
-          "source_url": "https://example.com",
-          "source_date": "2023-10-01",
+          "source_url": null,
+          "source_date": null,
           "method": "model_judgment",
-          "confidence": 0.9,
+          "confidence": 0.5,
           "conflicting_values": [],
-          "note": ""
+          "note": "ссылку дал оценщик без поиска, не проверена: https://example.com"
         }
       },
       {
-        "label": "example.com, 2023",
+        "label": "оценка модели",
         "mark": "≈",
-        "url": "https://example.com",
+        "url": null,
         "claim": {
           "text": "Стартапы быстро принимают решения о найме.",
-          "source_url": "https://example.com",
-          "source_date": "2023-10-01",
+          "source_url": null,
+          "source_date": null,
           "method": "model_judgment",
-          "confidence": 0.9,
+          "confidence": 0.5,
           "conflicting_values": [],
-          "note": ""
+          "note": "ссылку дал оценщик без поиска, не проверена: https://example.com"
         }
       },
       {
-        "label": "example.com, 2023",
+        "label": "оценка модели",
         "mark": "≈",
-        "url": "https://example.com",
+        "url": null,
         "claim": {
           "text": "Создание MVP возможно за 4–6 недель.",
-          "source_url": "https://example.com",
-          "source_date": "2023-10-01",
+          "source_url": null,
+          "source_date": null,
           "method": "model_judgment",
-          "confidence": 0.8,
+          "confidence": 0.5,
           "conflicting_values": [],
-          "note": ""
+          "note": "ссылку дал оценщик без поиска, не проверена: https://example.com"
         }
       },
       {
-        "label": "example.com, 2023",
+        "label": "оценка модели",
         "mark": "≈",
-        "url": "https://example.com",
+        "url": null,
         "claim": {
           "text": "AI платформы для найма уже существуют на рынке.",
-          "source_url": "https://example.com",
-          "source_date": "2023-10-01",
+          "source_url": null,
+          "source_date": null,
           "method": "model_judgment",
-          "confidence": 0.7,
+          "confidence": 0.5,
           "conflicting_values": [],
-          "note": ""
+          "note": "ссылку дал оценщик без поиска, не проверена: https://example.com"
         }
       },
       {
-        "label": "example.com, 2023",
+        "label": "оценка модели",
         "mark": "≈",
-        "url": "https://example.com",
+        "url": null,
         "claim": {
           "text": "Существуют незанятые ниши для AI найма.",
-          "source_url": "https://example.com",
-          "source_date": "2023-10-01",
+          "source_url": null,
+          "source_date": null,
           "method": "model_judgment",
-          "confidence": 0.7,
+          "confidence": 0.5,
           "conflicting_values": [],
-          "note": ""
+          "note": "ссылку дал оценщик без поиска, не проверена: https://example.com"
         }
       },
       {
@@ -1035,7 +1248,7 @@
       }
     ],
     "passport_counts": {
-      "✓": 5,
+      "✓": 4,
       "≈": 7,
       "?": 1
     },
@@ -1043,6 +1256,7 @@
       "score": 76.5,
       "base": 84.0,
       "risk_penalty": 7.5,
+      "missing_risks": 0,
       "reliability": 0.56,
       "severity": {
         "r1": {
@@ -1057,6 +1271,139 @@
           "devil": 4,
           "scorer": 3
         }
+      },
+      "scorer_out": {
+        "idea": "Платформа AI для найма, усиленная экспертами-рекрутерами.",
+        "why_pay": "Компании платят за быстрый и качественный подбор сотрудников.",
+        "revenue": "Подписка ~£500–1000/мес за компанию.",
+        "analog_growth": "Mercor вырос за счёт AI и рекрутеров.",
+        "first_client": "Стартапы в США, 10–50 сотрудников.",
+        "channel": "Холодные email и LinkedIn сообщения.",
+        "stages": [
+          {
+            "name": "Исследование рынка",
+            "weeks_min": 1.0,
+            "weeks_max": 2.0
+          },
+          {
+            "name": "Создание MVP",
+            "weeks_min": 2.0,
+            "weeks_max": 4.0
+          },
+          {
+            "name": "Тестирование и обратная связь",
+            "weeks_min": 2.0,
+            "weeks_max": 4.0
+          },
+          {
+            "name": "Первая продажа",
+            "weeks_min": 1.0,
+            "weeks_max": 3.0
+          }
+        ],
+        "factors": [
+          {
+            "id": "client_access",
+            "score": 5,
+            "line": "Чёткий сегмент, доступен онлайн.",
+            "claim": {
+              "text": "Стартапы легко найти через онлайн-каталоги и сообщества.",
+              "source_url": "https://example.com",
+              "source_date": "2023-10-01",
+              "method": "model_judgment",
+              "confidence": 0.9,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "sales_cycle",
+            "score": 5,
+            "line": "Малый бизнес, одно лицо принимает решение.",
+            "claim": {
+              "text": "Стартапы быстро принимают решения о найме.",
+              "source_url": "https://example.com",
+              "source_date": "2023-10-01",
+              "method": "model_judgment",
+              "confidence": 0.9,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "test_speed",
+            "score": 4,
+            "line": "Нужен работающий MVP за 4–6 недель.",
+            "claim": {
+              "text": "Создание MVP возможно за 4–6 недель.",
+              "source_url": "https://example.com",
+              "source_date": "2023-10-01",
+              "method": "model_judgment",
+              "confidence": 0.8,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "demand_evidence",
+            "score": 3,
+            "line": "Смежные продукты продаются, прямых данных мало.",
+            "claim": {
+              "text": "AI платформы для найма уже существуют на рынке.",
+              "source_url": "https://example.com",
+              "source_date": "2023-10-01",
+              "method": "model_judgment",
+              "confidence": 0.7,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "newcomer_room",
+            "score": 3,
+            "line": "Рынок насыщен, но есть незанятые ниши.",
+            "claim": {
+              "text": "Существуют незанятые ниши для AI найма.",
+              "source_url": "https://example.com",
+              "source_date": "2023-10-01",
+              "method": "model_judgment",
+              "confidence": 0.7,
+              "conflicting_values": [],
+              "note": ""
+            }
+          }
+        ],
+        "risk_takeaways": [
+          {
+            "id": "r1",
+            "takeaway": "Учитывать опасения соискателей.",
+            "severity": 3
+          },
+          {
+            "id": "r3",
+            "takeaway": "Рынок может сократиться.",
+            "severity": 3
+          },
+          {
+            "id": "r2",
+            "takeaway": "Конкуренция меньше, чем казалось.",
+            "severity": 2
+          }
+        ],
+        "test_steps": [
+          {
+            "action": "Отправить 100 писем",
+            "success": "≥5 демо из 100 писем"
+          },
+          {
+            "action": "Провести демо",
+            "success": "≥3 положительных отзыва"
+          },
+          {
+            "action": "Заключить контракт",
+            "success": "≥1 платёж от клиента"
+          }
+        ]
       }
     },
     "error": null
@@ -1068,10 +1415,10 @@
     "website": "https://tinfoil.sh",
     "verdict": "park",
     "verdict_label": "Отложить",
-    "chance": "средний",
+    "chance": "низкий",
     "weeks": [
       6,
-      17
+      18
     ],
     "rank": 4,
     "idea": "Tinfoil обеспечивает безопасную и проверяемую конфиденциальность для AI приложений в облаке.",
@@ -1080,7 +1427,7 @@
     "analog": "Anthropic ~$965 млрд",
     "analog_source": {
       "label": "axios.com, 2026",
-      "mark": "✓",
+      "mark": "?",
       "url": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
       "claim": {
         "text": "Anthropic: $965,000M (last_round)",
@@ -1089,7 +1436,7 @@
         "method": "calculation",
         "confidence": 0.3,
         "conflicting_values": [],
-        "note": "source URL not found in web-search results — possibly hallucinated"
+        "note": "source URL not found in web-search results — possibly hallucinated; аналог крупнее $50 млрд — компания другого масштаба, сравнение под вопросом"
       }
     },
     "analog_growth": "Фокус на безопасности и конфиденциальности.",
@@ -1218,7 +1565,7 @@
       }
     ],
     "first_steps": [
-      "Уточнить: «We offer several self-serve products.» — не удалось проверить",
+      "Проверить аналог Anthropic (~$965 млрд): слишком крупная компания для сравнения, нужен аналог масштаба стартапа",
       "Создать лендинг и собрать заявки → ≥10 заявок за 2 недели",
       "Провести демо и собрать отзывы → ≥5 положительных отзывов",
       "Заключить первые контракты → ≥1 контракт в 3 месяца"
@@ -1282,7 +1629,7 @@
       },
       {
         "label": "axios.com, 2026",
-        "mark": "✓",
+        "mark": "?",
         "url": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
         "claim": {
           "text": "Anthropic: $965,000M (last_round)",
@@ -1291,7 +1638,7 @@
           "method": "calculation",
           "confidence": 0.3,
           "conflicting_values": [],
-          "note": "source URL not found in web-search results — possibly hallucinated"
+          "note": "source URL not found in web-search results — possibly hallucinated; аналог крупнее $50 млрд — компания другого масштаба, сравнение под вопросом"
         }
       },
       {
@@ -1408,15 +1755,16 @@
       }
     ],
     "passport_counts": {
-      "✓": 6,
+      "✓": 5,
       "≈": 6,
-      "?": 1
+      "?": 2
     },
     "internal": {
       "score": 50.5,
       "base": 64.0,
       "risk_penalty": 13.5,
-      "reliability": 0.67,
+      "missing_risks": 0,
+      "reliability": 0.56,
       "severity": {
         "r1": {
           "devil": 4,
@@ -1430,6 +1778,134 @@
           "devil": 3,
           "scorer": 3
         }
+      },
+      "scorer_out": {
+        "idea": "Tinfoil обеспечивает безопасную и проверяемую конфиденциальность для AI приложений в облаке.",
+        "why_pay": "Компании платят за гарантированную конфиденциальность данных при использовании AI.",
+        "revenue": "Подписка ~£1000/мес за компанию.",
+        "analog_growth": "Фокус на безопасности и конфиденциальности.",
+        "first_client": "Средние технологические компании в США, 50-200 сотрудников.",
+        "channel": "Холодные email-рассылки и вебинары.",
+        "stages": [
+          {
+            "name": "Исследование рынка",
+            "weeks_min": 2.0,
+            "weeks_max": 4.0
+          },
+          {
+            "name": "Создание MVP",
+            "weeks_min": 4.0,
+            "weeks_max": 6.0
+          },
+          {
+            "name": "Тестирование и обратная связь",
+            "weeks_min": 2.0,
+            "weeks_max": 4.0
+          }
+        ],
+        "factors": [
+          {
+            "id": "client_access",
+            "score": 4,
+            "line": "Сегмент ясен, но доступ ограничен",
+            "claim": {
+              "text": "Компании среднего размера в США заинтересованы в конфиденциальности AI.",
+              "source_url": null,
+              "source_date": null,
+              "method": "model_judgment",
+              "confidence": 0.8,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "sales_cycle",
+            "score": 3,
+            "line": "Несколько лиц принимают решения",
+            "claim": {
+              "text": "Средние компании требуют согласования нескольких лиц.",
+              "source_url": null,
+              "source_date": null,
+              "method": "model_judgment",
+              "confidence": 0.7,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "test_speed",
+            "score": 2,
+            "line": "Требуется работающий MVP",
+            "claim": {
+              "text": "Необходима интеграция с существующими системами.",
+              "source_url": null,
+              "source_date": null,
+              "method": "model_judgment",
+              "confidence": 0.7,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "demand_evidence",
+            "score": 4,
+            "line": "Существуют конкуренты с платными решениями",
+            "claim": {
+              "text": "Рынок конфиденциальных вычислений активно растет.",
+              "source_url": null,
+              "source_date": null,
+              "method": "model_judgment",
+              "confidence": 0.9,
+              "conflicting_values": [],
+              "note": ""
+            }
+          },
+          {
+            "id": "newcomer_room",
+            "score": 3,
+            "line": "Рынок конкурентный, но быстро растет",
+            "claim": {
+              "text": "Рынок конфиденциальных вычислений ожидает значительный рост.",
+              "source_url": null,
+              "source_date": null,
+              "method": "model_judgment",
+              "confidence": 0.8,
+              "conflicting_values": [],
+              "note": ""
+            }
+          }
+        ],
+        "risk_takeaways": [
+          {
+            "id": "r1",
+            "takeaway": "Конкуренция с крупными облачными провайдерами",
+            "severity": 3
+          },
+          {
+            "id": "r2",
+            "takeaway": "Высокая конкуренция и быстрый рост рынка",
+            "severity": 3
+          },
+          {
+            "id": "r3",
+            "takeaway": "Необходима значительная интеграция",
+            "severity": 3
+          }
+        ],
+        "test_steps": [
+          {
+            "action": "Создать лендинг и собрать заявки",
+            "success": "≥10 заявок за 2 недели"
+          },
+          {
+            "action": "Провести демо и собрать отзывы",
+            "success": "≥5 положительных отзывов"
+          },
+          {
+            "action": "Заключить первые контракты",
+            "success": "≥1 контракт в 3 месяца"
+          }
+        ]
       }
     },
     "error": null

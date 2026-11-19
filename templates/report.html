@@ -64,7 +64,7 @@
     <td>{% if c.weeks %}{{ c.weeks[0] }}–{{ c.weeks[1] }} нед.{% endif %}</td>
     {% set fm = {} %}{% for x in c.factors %}{% set _ = fm.update({x.id: x.mark}) %}{% endfor %}
     {% for fid in factors %}<td class="m f-{{ fm.get(fid, '') }}">{{ fm.get(fid, '—') }}</td>{% endfor %}
-    <td class="note">{% if c.risks %}{{ c.risks[0].level }}: {{ c.risks[0].fact|ru }}{% endif %}</td></tr>
+    <td class="note">{% if c.risks %}{{ c.risks[0].level }}: {{ (c.risks[0].takeaway or c.risks[0].fact)|ru }}{% endif %}</td></tr>
   {% endfor %}
 </table></div>
 <p class="note">✔ сильная сторона · ● средне · ✖ слабое место.</p>

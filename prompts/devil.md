@@ -32,6 +32,10 @@ Return at most {max_risks} risks, the strongest first. For each risk, SEPARATE t
   Most real risks are 2–3. Do NOT hand out 5, 4, 3 just because the risks are sorted — two risks can share a score,
   and a model may have no 5 at all. Use 5 only if you would bet the model dies on this fact alone.
 
+Relevance: the fact must be about THIS model's buyers, competitors, price, channel or rules. News about giants'
+finances (Nvidia deals, an AI lab's IPO or valuation) is not a risk for a small product unless those giants sell
+the same thing to the same buyers — then name that product.
+
 Diversity: each risk must come from a DIFFERENT mechanism. At most one risk per competitor or per source —
 three facts about the same company are one risk, not three. Prefer fewer strong risks over padding to {max_risks}.
 - passport.text: same as fact

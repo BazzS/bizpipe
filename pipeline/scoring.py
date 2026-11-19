@@ -131,8 +131,29 @@ STATUS_LABELS = {"confirmed": "подтверждено", "partially": "подт
 
 # ------------------------------------------------------------ чистые функции (тестируются)
 
+# пометки, при которых «первоисточник» на деле не подтверждён
+WEAK_NOTES = ("hallucinated", "not found in web-search", "другого масштаба")
+
+
+def effective_method(c: Claim) -> str:
+    """Метод, которому можно верить: «первоисточник» без ссылки — это оценка модели,
+    со ссылкой, которой не было в поиске, или с уверенностью <0.5 — нужен человек."""
+    m = c.method.value
+    if m in ("primary", "calculation"):
+        if not c.source_url:
+            return "model_judgment"
+        if c.confidence < 0.5 or any(w in (c.note or "") for w in WEAK_NOTES):
+            return "needs_human"
+    return m
+
+
+def _norm(url: str) -> str:
+    u = urlparse(url)
+    return u.netloc.removeprefix("www.") + u.path.rstrip("/")
+
+
 def source_tag(c: Claim) -> SourceTag:
-    mark = {"primary": "✓", "calculation": "✓", "model_judgment": "≈", "needs_human": "?"}[c.method.value]
+    mark = {"primary": "✓", "calculation": "✓", "model_judgment": "≈", "needs_human": "?"}[effective_method(c)]
     host = urlparse(c.source_url).netloc.removeprefix("www.") if c.source_url else ""
     year = (c.source_date or "")[:4]
     label = f"{host}, {year}" if host and year else host or ("оценка модели" if c.method == Method.model_judgment else "без источника")
@@ -155,7 +176,7 @@ def reliability(claims: list[Claim], cfg: dict) -> float:
     if not claims:
         return 0.0
     w = cfg["method_reliability"]
-    return sum(w[c.method.value] for c in claims) / len(claims)
+    return sum(w[effective_method(c)] for c in claims) / len(claims)
 
 
 def weeks_range(stages: list[Stage], rel: float, cfg: dict) -> tuple[int, int]:
@@ -190,10 +211,11 @@ def factor_mark(score: int, cfg: dict) -> str:
 def _scorer_input(m: BusinessModel, f: FilterResult, a: AgentsResult) -> str:
     an = f.analog or {}
     risks = "\n".join(
-        f"- {k.id} [{k.category}] {k.fact} — check: {k.verification.status if k.verification else 'unverified'}"
+        f"- {k.id} [{k.category}] {k.fact} — source: {k.final.source_url or 'none'}"
+        f" — check: {k.verification.status if k.verification else 'unverified'}"
         + (f" ({k.verification.evidence})" if k.verification and k.verification.evidence else "")
         for k in a.risks)
-    return (f"Business model: {m.name} — {m.one_liner}\n{m.description}\nWebsite: {m.website}\n"
+    return (f"Business model: {m.name} — {m.one_liner}\n{m.description}\nWebsite: {m.website}\nCompany page: {m.source_url}\n"
             f"Largest analog: {an.get('analog_name')} ~${(an.get('conservative_usd') or 0) / 1e6:,.0f}M "
             f"({an.get('same_model_reason', '')})\n\nChecked risk facts:\n{risks or '- none'}")
 
@@ -213,13 +235,44 @@ def build_card(m: BusinessModel, f: FilterResult, a: AgentsResult) -> Card:
               .replace("{factors}", factors_txt).replace("{max_steps}", str(cfg["max_test_steps"])))
     try:
         r = call_json(task="score", system=system, user=_scorer_input(m, f, a), schema=ScorerOutput,
-                      input_fields=["name", "one_liner", "description", "website", "analog",
-                                    "risk.fact", "risk.category", "risk.verification"],
+                      input_fields=["name", "one_liner", "description", "website", "source_url", "analog",
+                                    "risk.fact", "risk.category", "risk.source_url", "risk.verification"],
                       subject_id=m.id)
     except LLMUnavailable as e:
         return Card(**base, verdict="not_verified", verdict_label=VERDICT_LABELS["not_verified"],
                     chance="—", weeks=None, error=str(e))
-    s: ScorerOutput = r.data
+    return assemble_card(m, f, a, r.data)
+
+
+def assemble_card(m: BusinessModel, f: FilterResult, a: AgentsResult, s: ScorerOutput) -> Card:
+    """Всё, что после оценщика, — без LLM. Ответ оценщика хранится в internal.scorer_out,
+    поэтому правила (веса, пороги, пометки) можно поменять и пересобрать карточки бесплатно: run.py cards."""
+    full = load_config()
+    cfg = full["scoring"]
+    base = dict(model_id=m.id, name=m.name, one_liner=m.one_liner, website=m.website)
+    raw = s.model_dump()
+
+    # --- оценщик работает без веб-поиска: ссылка у его утверждения настоящая, только если она уже была
+    # в данных (страница компании, источник аналога, источники рисков). Иначе он её придумал
+    # (в прогоне 19.11: statista.com/statistics/1234567, example.com) — это оценка модели, а не первоисточник
+    known = {_norm(u) for u in [m.source_url, m.website] + [x.claim.source_url for x in f.results]
+             + [k.final.source_url for k in a.risks] if u}
+    for fx in s.factors:
+        c = fx.claim
+        if c.source_url and _norm(c.source_url) not in known:
+            fx.claim = c.model_copy(update={"method": Method.model_judgment, "confidence": min(c.confidence, 0.5),
+                                            "source_url": None, "source_date": None,
+                                            "note": f"ссылку дал оценщик без поиска, не проверена: {c.source_url}"})
+        elif not c.source_url and c.method != Method.model_judgment:
+            fx.claim = c.model_copy(update={"method": Method.model_judgment, "confidence": min(c.confidence, 0.5)})
+
+    # --- аналог: несопоставимо крупный (xAI, Anthropic для стартапа) → под вопросом
+    an = f.analog or {}
+    analog_claim = next((x.claim for x in f.results if x.criterion_id == "big_analog"), None)
+    too_big = (an.get("conservative_usd") or 0) > full["big_analog"]["max_comparable_usd"]
+    if analog_claim and too_big and "другого масштаба" not in (analog_claim.note or ""):
+        analog_claim = analog_claim.model_copy(update={
+            "note": "; ".join(filter(None, [analog_claim.note, ANALOG_TOO_BIG.format(fmt_usd(full["big_analog"]["max_comparable_usd"]))]))})
 
     # --- риски: штраф по статусу проверки, на карточку — самые тяжёлые
     takeaways = {t.id: t for t in s.risk_takeaways}
@@ -239,10 +292,12 @@ def build_card(m: BusinessModel, f: FilterResult, a: AgentsResult) -> Card:
     penalty = min(sum(x.penalty for x in card_risks) + missing * cfg["risk_penalty"]["missing_risk_penalty"],
                   cfg["risk_penalty"]["max_total"])
     card_risks.sort(key=lambda x: (-x.penalty, x.id))
+    # опровергнутый риск не риск: на карточке не показываем (в паспорте остаётся)
+    shown_risks = [x for x in card_risks if x.status != STATUS_LABELS["contradicted"]]
 
     # --- все утверждения карточки → паспорт и надёжность
-    analog_claim = next((x.claim for x in f.results if x.criterion_id == "big_analog"), None)
-    claims = [x.claim for x in f.results] + [fx.claim for fx in s.factors] + [k.final for k in a.risks]
+    claims = [x.claim if x.criterion_id != "big_analog" else analog_claim for x in f.results] \
+        + [fx.claim for fx in s.factors] + [k.final for k in a.risks]
     # надёжность — только по утверждениям, на которых стоит решение (критерии 1–4 взяты из описания
     # самой компании и почти всегда «первоисточник» — они бы её завышали)
     decision_claims = ([analog_claim] if analog_claim else []) + [fx.claim for fx in s.factors] + [k.final for k in a.risks]
@@ -252,15 +307,24 @@ def build_card(m: BusinessModel, f: FilterResult, a: AgentsResult) -> Card:
     weeks = weeks_range(s.stages, rel, cfg)
     verdict, chance = decide(score, rel, weeks, cfg)
 
-    # --- первые шаги: сначала то, что должен проверить человек, затем план теста
-    human = [c for c in claims if c.method == Method.needs_human]
-    steps = [f"Уточнить: «{c.text}» — " + ("источники расходятся" if c.conflicting_values else "не удалось проверить")
-             for c in human[:2]]
-    steps += [f"{t.action} → {t.success}" for t in s.test_steps[: cfg["max_test_steps"]]]
+    # --- первые шаги: сначала то, на чём стоит решение и что должен проверить человек, затем план теста.
+    # Фразы из описания самой компании («не нужно скачивать приложение») сюда не идут — от них решение не зависит.
+    checks = []
+    if analog_claim and effective_method(analog_claim) == "needs_human":
+        why = ("слишком крупная компания для сравнения, нужен аналог масштаба стартапа" if too_big
+               else "источники расходятся" if analog_claim.conflicting_values else "источник оценки не подтвердился")
+        checks.append(f"Проверить аналог {an.get('analog_name')} (~{fmt_usd(an.get('conservative_usd'))}): {why}")
+    for x in shown_risks:
+        if x.source.mark == "?":
+            checks.append(f"Проверить вручную: {x.fact}")
+    steps = checks[:2] + [f"{t.action} → {t.success}" for t in s.test_steps[: cfg["max_test_steps"]]]
 
     labels = {fid: spec["label"] for fid, spec in cfg["factors"].items()}
-    passport = [source_tag(c) for c in claims]
-    an = f.analog or {}
+    seen, passport = set(), []
+    for c in claims:                      # одно утверждение — одна строка паспорта
+        if c.text.strip().lower() not in seen:
+            seen.add(c.text.strip().lower())
+            passport.append(source_tag(c))
     card = Card(
         **base, verdict=verdict, verdict_label=VERDICT_LABELS[verdict], chance=chance, weeks=weeks,
         idea=s.idea, why_pay=s.why_pay, revenue=s.revenue,
@@ -269,16 +333,38 @@ def build_card(m: BusinessModel, f: FilterResult, a: AgentsResult) -> Card:
         first_client=s.first_client, channel=s.channel, stages=s.stages,
         factors=[CardFactor(id=fx.id, label=labels.get(fx.id, fx.id), line=fx.line,
                             mark=factor_mark(fx.score, cfg), score=fx.score) for fx in s.factors if fx.id in labels],
-        risks=card_risks[: cfg["max_risks_on_card"]],
+        risks=shown_risks[: cfg["max_risks_on_card"]],
         first_steps=steps,
         passport=passport,
         passport_counts={m_: sum(1 for p in passport if p.mark == m_) for m_ in ("✓", "≈", "?")},
         internal={"score": round(score, 1), "base": round(base_score(s.factors, cfg), 1),
                   "risk_penalty": round(penalty, 1), "missing_risks": missing, "reliability": round(rel, 2),
-                  "severity": severities},
+                  "severity": severities, "scorer_out": raw},
     )
     log_event("score", subject_id=m.id, **card.internal, verdict=verdict, weeks=weeks)
     return card
+
+
+ANALOG_TOO_BIG = "аналог крупнее {} — компания другого масштаба, сравнение под вопросом"
+
+
+def run_cards() -> list[Card]:
+    """Пересобрать карточки из сохранённого ответа оценщика — без вызовов LLM."""
+    load = lambda name: json.loads((ROOT / "data" / name).read_text(encoding="utf-8"))
+    models = {d["id"]: BusinessModel(**d) for d in load("models.json")}
+    filtered = {d["model_id"]: FilterResult(**d) for d in load("filter_results.json")}
+    agents = {d["model_id"]: AgentsResult(**d) for d in load("agents_results.json")}
+    cards = []
+    for old in load("cards.json"):
+        raw = (old.get("internal") or {}).get("scorer_out")
+        if not raw:
+            raise SystemExit(f"{old['model_id']}: нет сохранённого ответа оценщика — нужен run.py score")
+        mid = old["model_id"]
+        cards.append(assemble_card(models[mid], filtered[mid], agents[mid], ScorerOutput(**raw)))
+    cards = rank(cards)
+    (ROOT / "data" / "cards.json").write_text(
+        json.dumps([c.model_dump() for c in cards], ensure_ascii=False, indent=2), encoding="utf-8")
+    return cards
 
 
 def rank(cards: list[Card]) -> list[Card]:
