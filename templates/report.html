@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Рейтинг бизнес-моделей</title>
+<style>
+  :root { --ink:#1c1c1c; --muted:#6b6b6b; --line:#e4e2dc; --bg:#faf9f6; --card:#fff;
+          --go:#1f7a4d; --park:#a76a00; --stop:#a33a2b; --check:#3a5ea8; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); }
+  main { max-width:1400px; margin:0 auto; padding:28px 24px 60px; }
+  h1 { font-size:24px; margin:0 0 4px; } h2 { font-size:18px; margin:36px 0 12px; }
+  .sub { color:var(--muted); margin:0 0 18px; }
+  .demo { background:#fff3cd; border:1px solid #e0c36b; padding:8px 12px; border-radius:6px; margin-bottom:16px; }
+  .stats { display:flex; gap:28px; margin:12px 0 4px; } .stats b { font-size:22px; display:block; }
+  table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:12px; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); font-weight:600; }
+  td.m { text-align:center; font-size:16px; }
+  .v { font-weight:600; white-space:nowrap; }
+  .v-launch { color:var(--go); } .v-park { color:var(--park); } .v-skip { color:var(--stop); } .v-check_manually { color:var(--check); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(420px, 1fr)); gap:18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
+  .card h3 { margin:0; font-size:17px; } .card .rank { color:var(--muted); font-weight:400; }
+  .head { border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:12px; }
+  .verdict { margin-top:6px; font-size:14px; }
+  .row { display:grid; grid-template-columns:118px 1fr; gap:10px; margin:7px 0; }
+  .k { font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); padding-top:3px; }
+  .src { font-size:12px; color:var(--muted); white-space:nowrap; text-decoration:none; border-bottom:1px dotted var(--muted); cursor:help; }
+  a.src:hover { color:var(--ink); }
+  .factors { display:flex; flex-wrap:wrap; gap:4px 14px; }
+  .f-✔ { color:var(--go); } .f-✖ { color:var(--stop); } .f-● { color:var(--park); }
+  .risk { margin:0 0 8px; } .risk .lvl { font-weight:600; } .risk .so { color:var(--muted); font-size:13px; margin-left:16px; }
+  ul.steps { list-style:none; padding:0; margin:0; } ul.steps li::before { content:"☐  "; color:var(--muted); }
+  details { margin-top:12px; border-top:1px solid var(--line); padding-top:8px; font-size:13px; }
+  summary { cursor:pointer; color:var(--muted); }
+  details table { margin-top:8px; font-size:12px; }
+  .note { color:var(--muted); font-size:13px; }
+  .stages { color:var(--muted); font-size:13px; }
+</style>
+</head>
+<body><main>
+{% if demo %}<div class="demo">ДЕМО-ДАННЫЕ: страница собрана на вымышленных примерах, чтобы показать вид карточек. Это не результат реального прогона.</div>{% endif %}
+<h1>Какую бизнес-модель запускать следующей</h1>
+<p class="sub">Критерий рейтинга: шанс за 3 месяца запустить тест, проверить спрос и получить первую оплату. Сформировано {{ generated }}.</p>
+<div class="stats">
+  <div><b>{{ n_collected }}</b>собрано</div>
+  <div><b>{{ n_passed }}</b>прошли отбор</div>
+  <div><b>{{ n_rejected }}</b>отсеяно</div>
+  {% if not_verified %}<div><b>{{ not_verified|length }}</b>не проверено</div>{% endif %}
+</div>
+
+<h2>Рейтинг — от слабой к перспективной</h2>
+<table>
+  <tr><th>#</th><th>Модель</th><th>Вердикт</th><th>Шанс</th><th>Первая оплата</th>
+    {% for fid, f in factors.items() %}<th>{{ f.label }}</th>{% endfor %}<th>Главный риск</th></tr>
+  {% for c in ranked_weak_first %}
+  <tr><td>{{ c.rank }}</td><td><a href="#{{ c.model_id }}">{{ c.name }}</a></td>
+    <td class="v v-{{ c.verdict }}">{{ c.verdict_label }}</td><td>{{ c.chance }}</td>
+    <td>{% if c.weeks %}{{ c.weeks[0] }}–{{ c.weeks[1] }} нед.{% endif %}</td>
+    {% set fm = {} %}{% for x in c.factors %}{% set _ = fm.update({x.id: x.mark}) %}{% endfor %}
+    {% for fid in factors %}<td class="m f-{{ fm.get(fid, '') }}">{{ fm.get(fid, '—') }}</td>{% endfor %}
+    <td class="note">{% if c.risks %}{{ c.risks[0].level }}: {{ c.risks[0].fact }}{% endif %}</td></tr>
+  {% endfor %}
+</table>
+<p class="note">✔ сильная сторона · ● средне · ✖ слабое место.</p>
+
+{% macro src(tag) %}{% if tag %}{% if tag.url %}<a class="src" href="{{ tag.url }}" target="_blank" title="{{ tag|tip }}">{{ tag.label }} {{ tag.mark }}</a>{% else %}<span class="src" title="{{ tag|tip }}">{{ tag.label }} {{ tag.mark }}</span>{% endif %}{% endif %}{% endmacro %}
+
+<h2>Карточки</h2>
+<div class="grid">
+{% for c in ranked_weak_first|reverse %}
+<article class="card" id="{{ c.model_id }}">
+  <div class="head">
+    <h3><span class="rank">#{{ c.rank }} из {{ ranked_weak_first|length }} ·</span> {{ c.name }}</h3>
+    <div class="note">{{ c.one_liner }}</div>
+    <div class="verdict"><span class="v v-{{ c.verdict }}">▶ {{ c.verdict_label }}</span>
+      · первая оплата через {{ c.weeks[0] }}–{{ c.weeks[1] }} недель · шанс {{ c.chance }}</div>
+  </div>
+  <div class="row"><div class="k">Идея</div><div>{{ c.idea }}</div></div>
+  <div class="row"><div class="k">Заплатят</div><div>{{ c.why_pay }}</div></div>
+  <div class="row"><div class="k">Деньги</div><div>{{ c.revenue }}<br>
+    Аналог: {{ c.analog }} {{ src(c.analog_source) }} — {{ c.analog_growth }}</div></div>
+  <div class="row"><div class="k">Путь к оплате</div><div>{{ c.first_client }} · {{ c.channel }}<br>
+    <span class="stages">{{ c.weeks[0] }}–{{ c.weeks[1] }} нед.:
+    {% for s in c.stages %}{{ s.name }} {{ s.weeks_min|round|int }}–{{ s.weeks_max|round|int }}{% if not loop.last %} → {% endif %}{% endfor %}</span></div></div>
+  <div class="row"><div class="k">Оценка</div><div class="factors">
+    {% for f in c.factors %}<span class="f-{{ f.mark }}" title="{{ f.label }}">{{ f.mark }} {{ f.line }}</span>{% endfor %}</div></div>
+  <div class="row"><div class="k">Риски<br>(проверены<br>независимо)</div><div>
+    {% for r in c.risks %}<div class="risk"><span class="lvl">▲ {{ r.level }}</span> · {{ r.status }} — {{ r.fact }} {{ src(r.source) }}
+      {% if r.takeaway %}<div class="so">→ {{ r.takeaway }}</div>{% endif %}</div>{% endfor %}</div></div>
+  <div class="row"><div class="k">Первые шаги</div><div><ul class="steps">
+    {% for s in c.first_steps %}<li>{{ s }}</li>{% endfor %}</ul></div></div>
+  <details><summary>Источники и проверка ({{ c.passport|length }}: {{ c.passport_counts['✓'] }} ✓ · {{ c.passport_counts['≈'] }} ≈ · {{ c.passport_counts['?'] }} ?)</summary>
+    <table><tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Уверенность</th></tr>
+    {% for p in c.passport %}<tr><td>{{ p.claim.text }}{% if p.claim.note %}<div class="note">{{ p.claim.note }}</div>{% endif %}</td>
+      <td>{% if p.url %}<a href="{{ p.url }}" target="_blank">{{ p.label }}</a>{% else %}—{% endif %}</td>
+      <td>{{ p.claim.source_date or '—' }}</td><td>{{ p.mark }} {{ p.claim.method.value }}</td><td>{{ '%.1f'|format(p.claim.confidence) }}</td></tr>{% endfor %}
+    </table></details>
+</article>
+{% endfor %}
+</div>
+
+<h2>Отсеяно на отборе</h2>
+<table><tr><th>Модель</th><th>Сработавший критерий</th><th>Причина</th></tr>
+{% for r in rejected %}<tr><td>{{ r.name }}</td><td>{{ r.criterion }}{% if r.all|length > 1 %}<div class="note">также: {{ r.all[1:]|join(', ') }}</div>{% endif %}</td><td>{{ r.reason }}</td></tr>{% endfor %}
+</table>
+
+{% if not_verified %}<h2>Не проверено (сбой LLM-провайдера)</h2>
+<p class="note">Это не отказ: модель не удалось проверить. Перезапустите конвейер позже.</p>
+<ul>{% for x in not_verified %}<li>{{ x.name }}</li>{% endfor %}</ul>{% endif %}
+
+<h2>Как считается</h2>
+<p class="note">Шанс складывается из пяти факторов, важность которых задана в настройках:
+{% for fid, f in factors.items() %}{{ f.label }} {{ (f.weight*100)|round|int }}%{% if not loop.last %}, {% endif %}{% endfor %}.
+Риски, подтверждённые независимой проверкой, снижают шанс; опровергнутые — не влияют.
+Чем слабее источники, тем шире диапазон срока первой оплаты. Если меньше половины утверждений подкреплены источниками,
+вердикт — «сначала проверить вручную».
+Метки: ✓ первоисточник или расчёт · ≈ суждение модели · ? нужен человек. Наведите на метку, чтобы увидеть паспорт.</p>
+</main></body></html>

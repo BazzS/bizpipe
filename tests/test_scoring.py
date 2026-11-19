@@ -1,0 +1,85 @@
+"""Расчёты карточки — чистые функции, без LLM."""
+from pipeline import scoring as sc
+from pipeline.config import load_config
+from pipeline.schemas import Claim, Method
+
+CFG = load_config()["scoring"]
+
+
+def fs(**scores):
+    return [sc.FactorScore(id=k, score=v, line="x", claim=Claim(text="t", method=Method.primary, confidence=1))
+            for k, v in scores.items()]
+
+
+ALL = ["client_access", "sales_cycle", "test_speed", "demand_evidence", "newcomer_room"]
+
+
+def test_base_score_bounds_and_weights():
+    assert sc.base_score(fs(**{k: 5 for k in ALL}), CFG) == 100
+    assert sc.base_score(fs(**{k: 1 for k in ALL}), CFG) == 20
+    # продажи весят больше, чем место для новичка
+    a = sc.base_score(fs(**{**{k: 3 for k in ALL}, "sales_cycle": 5}), CFG)
+    b = sc.base_score(fs(**{**{k: 3 for k in ALL}, "newcomer_room": 5}), CFG)
+    assert a > b
+
+
+def test_penalty_depends_on_verification():
+    assert sc.risk_penalty(5, "confirmed", CFG) == 10
+    assert sc.risk_penalty(5, "partially", CFG) == 5
+    assert sc.risk_penalty(5, "contradicted", CFG) == 0
+
+
+def test_weak_sources_widen_weeks_range():
+    st = [sc.Stage(name="a", weeks_min=2, weeks_max=4), sc.Stage(name="b", weeks_min=4, weeks_max=6)]
+    assert sc.weeks_range(st, 1.0, CFG) == (6, 10)
+    lo, hi = sc.weeks_range(st, 0.0, CFG)
+    assert lo < 6 and hi > 10
+
+
+def test_low_reliability_forces_manual_check():
+    assert sc.decide(80, 0.9, (6, 10), CFG) == ("launch", "высокий")
+    assert sc.decide(80, 0.3, (6, 10), CFG)[0] == "check_manually"
+    assert sc.decide(30, 0.3, (6, 10), CFG)[0] == "skip"          # слабую не отправляем «на проверку»
+    assert sc.decide(80, 0.9, (14, 20), CFG)[1] == "низкий"       # не успеваем за 3 месяца
+
+
+def test_source_tag():
+    t = sc.source_tag(Claim(text="t", source_url="https://www.grammarly.com/edu", source_date="2026-01",
+                            method=Method.primary, confidence=0.9))
+    assert t.label == "grammarly.com, 2026" and t.mark == "✓"
+    assert sc.source_tag(Claim(text="t", method=Method.model_judgment, confidence=0.5)).label == "оценка модели"
+
+
+def test_fmt_usd():
+    assert sc.fmt_usd(1.75e9) == "$1,8 млрд" and sc.fmt_usd(450e6) == "$450 млн" and sc.fmt_usd(2e9) == "$2 млрд"
+
+
+def test_penalty_uses_scorer_severity_not_devil():
+    from pipeline import agents as ag
+    from pipeline.filter import FilterResult
+    from pipeline.llm import LLMResult
+    from pipeline.schemas import BusinessModel
+
+    m = BusinessModel(id="x", name="X", one_liner="o", description="d", source_url="u",
+                      fetched_at="2026-11-19T00:00:00", industry="B2B")
+    f = FilterResult(model_id="x", name="X", status="passed", analog={"analog_name": "Big", "conservative_usd": 1e9})
+    c = Claim(text="t", source_url="https://a.com", method=Method.primary, confidence=1)
+    risks = [ag.CheckedRisk(id=f"r{i}", category="competition", fact=f"fact {i}", implication="i", severity=5,
+                            strength=5, devil_passport=c, final=c,
+                            verification=ag.VerifierOutput(status="confirmed", confidence=1)) for i in (1, 2)]
+    a = ag.AgentsResult(model_id="x", name="X", status="done", risks=risks)
+    out = sc.ScorerOutput(idea="i", why_pay="w", revenue="r", analog_growth="g", first_client="f", channel="c",
+                          stages=[sc.Stage(name="s", weeks_min=2, weeks_max=4)], factors=fs(**{k: 3 for k in ALL}),
+                          risk_takeaways=[sc.RiskTakeaway(id="r1", takeaway="t", severity=2),
+                                          sc.RiskTakeaway(id="r2", takeaway="t")])   # r2 без оценки → у А, не выше потолка
+
+    import pytest
+    mp = pytest.MonkeyPatch()
+    mp.setattr(sc, "call_json", lambda **kw: LLMResult(out, "p", "m", 1))
+    try:
+        card = sc.build_card(m, f, a)
+    finally:
+        mp.undo()
+    pen = {r.id: r.penalty for r in card.risks}
+    assert pen == {"r1": sc.risk_penalty(2, "confirmed", CFG), "r2": sc.risk_penalty(3, "confirmed", CFG)}
+    assert card.internal["severity"]["r1"] == {"devil": 5, "scorer": 2}

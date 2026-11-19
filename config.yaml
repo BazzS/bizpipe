@@ -1,0 +1,162 @@
+# Все настраиваемые параметры конвейера. Код читает их отсюда — в коде констант нет.
+
+run:
+  seed: 42                 # фиксированный seed → одинаковая выборка при повторном запуске
+
+# --- Провайдеры LLM -------------------------------------------------------
+# Цепочка: пробуем по порядку. На каждом звене — retries попыток с backoff.
+# Если всё звено упало — переходим к следующему. Упала вся цепочка —
+# модель получает статус "not_verified" и в рейтинг не попадает.
+llm:
+  chain:
+    - provider: openai
+      model: gpt-4o
+      retries: 3
+    - provider: openai           # пока второго провайдера нет — запасная модель того же провайдера
+      model: gpt-4o-mini
+      retries: 2
+    # - provider: anthropic      # раскомментировать, когда появится ANTHROPIC_API_KEY
+    #   model: claude-sonnet-4-5
+    #   retries: 3
+  backoff_seconds: [2, 5, 15]    # пауза перед попыткой N (последнее значение повторяется)
+  timeout_seconds: 60
+  temperature: 0.2
+  task_chains: {}               # переопределить цепочку для шага: {score: [{provider: openai, model: gpt-4o, retries: 3}]}
+  max_tool_calls: null           # лимит веб-поисков на один запрос (null — на усмотрение модели)
+  # Цены для оценки стоимости в журнале, $ (проверено по openai.com/api/pricing, 2026-11)
+  prices:
+    web_search_per_call: 0.01
+    gpt-4o: {input_per_m: 2.50, output_per_m: 10.00}
+    gpt-4o-mini: {input_per_m: 0.15, output_per_m: 0.60}
+
+# --- Источник бизнес-моделей ---------------------------------------------
+source:
+  name: yc_directory
+  url: https://raw.githubusercontent.com/yc-oss/api/main/companies/all.json
+  cache_path: data/raw/yc_all.json
+  sample_size: 15
+  status: [Active]
+  batches: [Winter 2025, Spring 2025, Summer 2025, Fall 2025, Winter 2026, Spring 2026, Summer 2026, Fall 2026]
+  # Стратификация по индустриям: сколько взять из каждой.
+  # Fintech/Healthcare/Government включены намеренно — чтобы фильтр было на чём проверить.
+  industries:
+    B2B: 7
+    Consumer: 3
+    Fintech: 2
+    Education: 1
+    Healthcare: 1
+    Government: 1
+  # Рынки СНГ исключаются по полю локации компании.
+  excluded_countries: [Russia, Belarus, Kazakhstan, Armenia, Azerbaijan, Kyrgyzstan, Tajikistan, Uzbekistan, Moldova, Turkmenistan]
+  min_description_chars: 120   # слишком короткие описания модель не сможет оценить
+
+# --- Противоречивые данные ----------------------------------------------
+conflicts:
+  policy: conservative          # берём наименее благоприятное для модели значение
+  keep_all_values: true         # все версии сохраняются в паспорте
+  method_on_conflict: needs_human
+  confidence_cap: 0.5           # уверенность утверждения с конфликтом не выше этого
+
+# --- Юрисдикция для критерия «законно» -----------------------------------
+jurisdiction: [EU, US]
+
+# --- Фильтр: критерии заказчика -------------------------------------------
+# Модель проходит, если верно ВСЁ. Текст критериев уходит в промпт как есть.
+# check: llm — суждение по описанию; web_search — нужен поиск по интернету.
+# on_uncertain: что делать, если LLM не уверена: pass_flagged (пропустить с пометкой
+# «нужен человек») или fail. Пропуск дешевле ошибочного отказа: агенты потом
+# всё равно ищут слабые места.
+filter:
+  short_circuit: true            # провалила 1–4 → поиск аналога не запускаем (экономия)
+  on_uncertain: pass_flagged
+  criteria:
+    - id: online_no_license
+      label: "Законно, онлайн, без лицензии"
+      check: llm
+      text: "Legal and fully online; we can reach the first paying client without obtaining our own license (financial, medical, legal, telecom etc.). Physical hardware, offline operations or logistics = fail."
+    - id: recurring_revenue
+      label: "Повторяющиеся деньги"
+      check: llm
+      text: "Revenue is recurring: a subscription, or a commission on operations that customers repeat regularly (marketplace commissions count)."
+    - id: no_balance_sheet_risk
+      label: "Без кредита, страховки и чужих денег"
+      check: llm
+      text: "We do not take on credit risk, insurance risk, or custody of other people's money."
+    - id: not_trading_or_gov
+      label: "Не трейдинг и не госсервис"
+      check: llm
+      text: "Not trading (incl. prediction markets, investing, crypto exchange) and not a government service (the main customer is not a government body)."
+    - id: big_analog
+      label: "Есть аналог от $300 млн"
+      check: web_search
+      on_uncertain: fail         # не нашли аналог → считаем, что критерий не выполнен
+      text: "There is a company on the market with this business model whose market capitalization is roughly $300M or more (public market cap, last round valuation, or press estimate)."
+
+big_analog:
+  min_valuation_usd: 300000000
+  tolerance: 0.8                 # «порядка $300M»: проходит от $240M
+  conflict_ratio: 2.0            # оценки отличаются больше чем в 2 раза → противоречие
+
+# --- Агенты ---------------------------------------------------------------
+# А («адвокат дьявола») ищет, почему модель НЕ даст первую оплату за 3 месяца.
+# Б («проверяльщик») проверяет источники самых сильных утверждений А.
+# Б видит ТОЛЬКО поля из verifier.visible_fields — вывод, серьёзность и уверенность А скрыты.
+agents:
+  devil:
+    max_risks: 5
+    web_search: true
+    categories: [demand, competition, distribution, unit_economics, regulation, time_to_first_payment]
+  verifier:
+    top_k: 3                       # сколько самых сильных утверждений А проверять
+    web_search: true
+    visible_fields: [fact, source_url, source_date]   # белый список: что Б получает от А
+  # «Сила» утверждения для выбора top_k = severity (1–5) × confidence (0–1)
+  unverified_confidence_cap: 0.5   # потолок уверенности для неподтверждённых утверждений
+
+# --- Оценка и карточка ------------------------------------------------------
+# Единственный критерий рейтинга (от заказчика): вероятность за 3 месяца запустить тест,
+# проверить спрос и получить первую оплату. Факторы ниже — то, из чего она складывается.
+# Внутренняя оценка 0–100 нужна для сортировки; собственнику показываются вердикт,
+# уровень шанса и срок первой оплаты диапазоном.
+scoring:
+  factors:
+    client_access:
+      weight: 0.25
+      label: "клиентов легко найти"
+      rubric: {1: "unclear who the buyer is or where to find them", 3: "buyers exist but are hard to reach online", 5: "clear segment, reachable online via directories, communities, cold email"}
+    sales_cycle:
+      weight: 0.25
+      label: "быстрая продажа"
+      rubric: {1: "enterprise/government procurement, pilots 6+ months", 3: "mid-size companies, several decision makers", 5: "SMB or consumers, one decision maker, pays by card within days"}
+    test_speed:
+      weight: 0.20
+      label: "тест собирается быстро"
+      rubric: {1: "needs complex product, integrations or proprietary data", 3: "needs a working MVP in 4–6 weeks", 5: "landing page + manual/concierge service in 1–2 weeks"}
+    demand_evidence:
+      weight: 0.15
+      label: "спрос подтверждён"
+      rubric: {1: "market must be created from scratch", 3: "adjacent products sell, direct evidence thin", 5: "several competitors already charge for this"}
+    newcomer_room:
+      weight: 0.15
+      label: "есть место новичку"
+      rubric: {1: "dominated by giants with a free equivalent", 3: "crowded but with underserved segments", 5: "clear niche nobody serves well"}
+  factor_marks: {good: 4, bad: 2}       # ≥4 → ✔, ≤2 → ✖, иначе ●
+
+  # Штраф за риски агента А по итогу проверки агента Б: severity × per_severity × множитель статуса
+  risk_penalty:
+    per_severity: 2
+    max_total: 20               # риски не могут обнулить модель: потолок штрафа
+    fallback_severity_cap: 3    # если оценщик не оценил риск, берём тяжесть агента А, но не выше этого
+    status_factor: {confirmed: 1.0, partially: 0.5, not_confirmed: 0.25, source_unavailable: 0.25, unverified: 0.25, contradicted: 0.0}
+
+  # Надёжность = средний «вес» метода по всем утверждениям карточки
+  method_reliability: {primary: 1.0, calculation: 1.0, model_judgment: 0.5, needs_human: 0.0}
+  min_reliability: 0.5          # ниже → вердикт «сначала проверить вручную»
+  weeks_widening: 0.6           # при надёжности 0 диапазон срока расширяется на ±60%
+  max_weeks: 13                 # горизонт заказчика — 3 месяца
+
+  chance_levels: {high: 70, medium: 50}       # оценка ≥70 → высокий, ≥50 → средний, иначе низкий
+  verdicts: {launch: 70, park: 50}            # ≥70 запускать, ≥50 отложить, иначе не брать
+  severity_labels: {5: "Критично", 4: "Критично", 3: "Серьёзно", 2: "Терпимо", 1: "Терпимо"}
+  max_risks_on_card: 3
+  max_test_steps: 3

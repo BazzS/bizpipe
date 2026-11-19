@@ -1,0 +1,57 @@
+[
+  {
+    "id": "coarena",
+    "name": "CoArena",
+    "one_liner": "The biggest crowdsourced benchmark for Computer-Use",
+    "description": "CoArena is a live arena where anyone can use the world's top computer-use models racing two of them on the same real computer task and judging which one did it better. Every battle becomes something the AI labs can't build themselves, an honest test of their agents on real work, and the data to make them better.",
+    "website": "http://coarena.ai",
+    "source_url": "https://www.ycombinator.com/companies/coarena",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "B2B",
+    "tags": [
+      "AIOps",
+      "Machine Learning",
+      "Reinforcement Learning",
+      "Data Labeling",
+      "AI"
+    ],
+    "locations": "San Francisco, CA, USA",
+    "batch": "Summer 2026"
+  },
+  {
+    "id": "tinfoil",
+    "name": "Tinfoil",
+    "one_liner": "Encrypted AI with verifiable privacy",
+    "description": "Tinfoil makes it easy to make your AI workloads secure and provably private. You get the privacy of on-prem deployments, while running on the cloud. It's like end-to-end encrypted messaging but for your AI applications. \r\n\r\nWe’ve built a full-stack platform on top of the latest NVIDIA GPUs offering confidential computing capabilities, meaning that you don’t have to trade off performance for privacy. We integrate a suite of recent advances in secure hardware technologies, in particular NVIDIA’s confidential compute mode available on Hopper and Blackwell. When combined with Tinfoil’s software stack, companies can prove their security claims like \"we can't see and don’t log your queries.” Tinfoil guarantees that all data always stays private and cannot be accessed by anyone other than the end user -- not even by Tinfoil or the cloud provider it’s processed on. Everything can be made end-to-end encrypted and private with Tinfoil. \r\n\r\nThe founding team combines deep academic and industry experience in security and Internet protocols. Tanya was previously a systems engineer at Cloudflare, where she built Internet security protocols used by billions, and contributed to the Workers AI platform. Jules and Sacha hold PhDs from MIT, where they worked on secure hardware, cryptography, and privacy technologies. Jules has also worked at NVIDIA on their confidential computing team. Tinfoil was born from our personal frustration with the false choice between access to powerful AI and the massive data privacy implications of deeply integrated AI.\r\n\r\nAI is a universal tool that becomes part of our personal lives and business workflows. In the process, it needs access to all personal, private, and proprietary data. Right now, the only solutions are data processing agreements (i.e., \"pinky promises\"), band-aids like PII redaction that don't work in practice, or AI locally/on-prem, which doesn't scale. Tinfoil promises to unlock significantly deeper AI adoption and integrations by making it easy to obtain true privacy, just as TLS on the Internet enabled e-commerce to flourish by securing credit cards on the network.\r\n\r\nToday we offer several self-serve products: \r\n\r\n- A consumer-facing chatbot that keeps your chats end-to-end encrypted and provides zero-access inference with powerful open-source models like Kimi, Gemma, and GLM. You can try it out for free: https://chat.tinfoil.sh\r\n\r\n- A developer-friendly API that allows you to build AI applications where all user data is kept private and we as the inference provider cannot see any of the prompts. Our SDKs make sure that all relevant security measures are checked for you before even sending a single byte of data. Learn more:https://docs.tinfoil.sh \r\n\r\n- An advanced confidential computing platform we call Tinfoil Containers that allows you to secure any Docker application. We make it easy to deploy your own logic and applications inside secure enclaves and prove to the world what code is running inside. This enables attested workloads and publicly verifiable privacy policies for sensitive applications. Learn more: https://tinfoil.sh/containers ",
+    "website": "https://tinfoil.sh",
+    "source_url": "https://www.ycombinator.com/companies/tinfoil",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "B2B",
+    "tags": [
+      "Developer Tools",
+      "Security",
+      "Privacy",
+      "Cloud Computing",
+      "AI"
+    ],
+    "locations": "San Francisco, CA, USA",
+    "batch": "Spring 2025"
+  },
+  {
+    "id": "contrario",
+    "name": "Contrario",
+    "one_liner": "AI hiring platform powered by expert recruiters",
+    "description": "Contrario is an AI recruiting and hiring platform on a mission to help companies build generational teams.\r\n\r\nIn the age of AI, the best teams are still built by the best people. Recruiting has become a zero-sum game where speed and quality decide who wins.\r\n\r\nContrario is a network of expert recruiters supercharged by vertical AI agents purpose-built for hiring. Teams at Wispr Flow, Listen Labs, Slash, and 200+ of the fastest-growing companies use Contrario to power their hiring.\r\n\r\nIn under six months, Contrario has crossed $6M in annualized revenue, paid out $1M+ to recruiters, and placed 150+ candidates — making it one of the fastest-growing AI recruiting platforms on the market.\r\n\r\nBacked by Y Combinator, Nexus Venture Partners, Goodwater Capital, and Inventum Ventures, alongside angels including David Chen (ex-HRT), Abhijeet Dwivedi (OpenAI), Hank Couture (DoorDash), and Jerry Cain (Stanford CS). Built by Stanford dropouts. Headquartered in San Francisco.",
+    "website": "https://contrario.ai",
+    "source_url": "https://www.ycombinator.com/companies/contrario",
+    "fetched_at": "2026-11-19T12:46:15.040773+00:00",
+    "industry": "B2B",
+    "tags": [
+      "SaaS",
+      "Recruiting",
+      "AI"
+    ],
+    "locations": "San Francisco, CA, USA",
+    "batch": "Winter 2025"
+  }
+]

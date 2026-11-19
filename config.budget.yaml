@@ -1,0 +1,17 @@
+# Дешёвый профиль (~$0.4 за 15 моделей). Переопределяет только эти ключи config.yaml.
+#   BIZPIPE_CONFIG=config.budget.yaml python run.py all
+llm:
+  chain:
+    - provider: openai
+      model: gpt-4o-mini
+      retries: 3
+  max_tool_calls: 1        # один поиск на запрос — главный источник экономии
+  task_chains:             # оценщик решает итог — на сильной модели (вызовов мало, без поиска, ~$0.01 за модель)
+    score:
+      - {provider: openai, model: gpt-4o, retries: 2}
+      - {provider: openai, model: gpt-4o-mini, retries: 2}
+agents:
+  devil:
+    max_risks: 3
+  verifier:
+    top_k: 2

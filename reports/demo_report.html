@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Рейтинг бизнес-моделей</title>
+<style>
+  :root { --ink:#1c1c1c; --muted:#6b6b6b; --line:#e4e2dc; --bg:#faf9f6; --card:#fff;
+          --go:#1f7a4d; --park:#a76a00; --stop:#a33a2b; --check:#3a5ea8; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); }
+  main { max-width:1400px; margin:0 auto; padding:28px 24px 60px; }
+  h1 { font-size:24px; margin:0 0 4px; } h2 { font-size:18px; margin:36px 0 12px; }
+  .sub { color:var(--muted); margin:0 0 18px; }
+  .demo { background:#fff3cd; border:1px solid #e0c36b; padding:8px 12px; border-radius:6px; margin-bottom:16px; }
+  .stats { display:flex; gap:28px; margin:12px 0 4px; } .stats b { font-size:22px; display:block; }
+  table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:12px; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); font-weight:600; }
+  td.m { text-align:center; font-size:16px; }
+  .v { font-weight:600; white-space:nowrap; }
+  .v-launch { color:var(--go); } .v-park { color:var(--park); } .v-skip { color:var(--stop); } .v-check_manually { color:var(--check); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(420px, 1fr)); gap:18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
+  .card h3 { margin:0; font-size:17px; } .card .rank { color:var(--muted); font-weight:400; }
+  .head { border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:12px; }
+  .verdict { margin-top:6px; font-size:14px; }
+  .row { display:grid; grid-template-columns:118px 1fr; gap:10px; margin:7px 0; }
+  .k { font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); padding-top:3px; }
+  .src { font-size:12px; color:var(--muted); white-space:nowrap; text-decoration:none; border-bottom:1px dotted var(--muted); cursor:help; }
+  a.src:hover { color:var(--ink); }
+  .factors { display:flex; flex-wrap:wrap; gap:4px 14px; }
+  .f-✔ { color:var(--go); } .f-✖ { color:var(--stop); } .f-● { color:var(--park); }
+  .risk { margin:0 0 8px; } .risk .lvl { font-weight:600; } .risk .so { color:var(--muted); font-size:13px; margin-left:16px; }
+  ul.steps { list-style:none; padding:0; margin:0; } ul.steps li::before { content:"☐  "; color:var(--muted); }
+  details { margin-top:12px; border-top:1px solid var(--line); padding-top:8px; font-size:13px; }
+  summary { cursor:pointer; color:var(--muted); }
+  details table { margin-top:8px; font-size:12px; }
+  .note { color:var(--muted); font-size:13px; }
+  .stages { color:var(--muted); font-size:13px; }
+</style>
+</head>
+<body><main>
+<div class="demo">ДЕМО-ДАННЫЕ: страница собрана на вымышленных примерах, чтобы показать вид карточек. Это не результат реального прогона.</div>
+<h1>Какую бизнес-модель запускать следующей</h1>
+<p class="sub">Критерий рейтинга: шанс за 3 месяца запустить тест, проверить спрос и получить первую оплату. Сформировано 2026-11-19 12:58 UTC.</p>
+<div class="stats">
+  <div><b>5</b>собрано</div>
+  <div><b>3</b>прошли отбор</div>
+  <div><b>2</b>отсеяно</div>
+  
+</div>
+
+<h2>Рейтинг — от слабой к перспективной</h2>
+<table>
+  <tr><th>#</th><th>Модель</th><th>Вердикт</th><th>Шанс</th><th>Первая оплата</th>
+    <th>клиентов легко найти</th><th>быстрая продажа</th><th>тест собирается быстро</th><th>спрос подтверждён</th><th>есть место новичку</th><th>Главный риск</th></tr>
+  
+  <tr><td>3</td><td><a href="#demo-3">FleetQuote</a></td>
+    <td class="v v-skip">Не брать</td><td>низкий</td>
+    <td>11–19 нед.</td>
+    
+    <td class="m f-✖">✖</td><td class="m f-✖">✖</td><td class="m f-✖">✖</td><td class="m f-✔">✔</td><td class="m f-●">●</td>
+    <td class="note">Критично: Перевозчики заключают контракты на год вперёд</td></tr>
+  
+  <tr><td>2</td><td><a href="#demo-2">LedgerMate</a></td>
+    <td class="v v-park">Отложить</td><td>средний</td>
+    <td>5–11 нед.</td>
+    
+    <td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-✖">✖</td><td class="m f-●">●</td><td class="m f-●">●</td>
+    <td class="note">Критично: Налоговые правила различаются в каждой стране ЕС</td></tr>
+  
+  <tr><td>1</td><td><a href="#demo-1">EssayPilot</a></td>
+    <td class="v v-launch">Запускать тест</td><td>высокий</td>
+    <td>5–11 нед.</td>
+    
+    <td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-✖">✖</td>
+    <td class="note">Критично: Крупный конкурент уже включил проверку эссе в школьный тариф</td></tr>
+  
+</table>
+<p class="note">✔ сильная сторона · ● средне · ✖ слабое место.</p>
+
+
+
+<h2>Карточки</h2>
+<div class="grid">
+
+<article class="card" id="demo-1">
+  <div class="head">
+    <h3><span class="rank">#1 из 3 ·</span> EssayPilot</h3>
+    <div class="note">AI-черновик проверки эссе для преподавателей</div>
+    <div class="verdict"><span class="v v-launch">▶ Запускать тест</span>
+      · первая оплата через 5–11 недель · шанс высокий</div>
+  </div>
+  <div class="row"><div class="k">Идея</div><div>AI делает черновик проверки эссе, преподаватель только правит — минуты вместо часов.</div></div>
+  <div class="row"><div class="k">Заплатят</div><div>Владельцы репетиторских центров: тот же преподаватель ведёт больше учеников → больше выручки.</div></div>
+  <div class="row"><div class="k">Деньги</div><div>Подписка ~£30–50/мес за преподавателя<br>
+    Аналог: BigEdu Corp ~$1,8 млрд <a class="src" href="https://news.example.com/deal" target="_blank" title="метод: calculation · уверенность: 0.8 · дата: 2024">news.example.com, 2024 ✓</a> — стал стандартом проверки в университетах</div></div>
+  <div class="row"><div class="k">Путь к оплате</div><div>Частные центры подготовки к экзаменам, UK, 5–20 преподавателей · холодные письма + бесплатная проверка 10 эссе<br>
+    <span class="stages">5–11 нед.:
+    тест 2–2 → демо 2–4 → оплата 2–4</span></div></div>
+  <div class="row"><div class="k">Оценка</div><div class="factors">
+    <span class="f-✔" title="клиентов легко найти">✔ центры в открытых каталогах</span><span class="f-✔" title="быстрая продажа">✔ решает владелец</span><span class="f-✔" title="тест собирается быстро">✔ готовая LLM + форма</span><span class="f-✔" title="спрос подтверждён">✔ конкуренты берут деньги</span><span class="f-✖" title="есть место новичку">✖ тесно: крупные игроки</span></div></div>
+  <div class="row"><div class="k">Риски<br>(проверены<br>независимо)</div><div>
+    <div class="risk"><span class="lvl">▲ Критично</span> · подтверждено — Крупный конкурент уже включил проверку эссе в школьный тариф <a class="src" href="https://rival.example.com/edu" target="_blank" title="метод: primary · уверенность: 0.8 · дата: 2026">rival.example.com, 2026 ✓</a>
+      <div class="so">→ не идём в школы, начинаем с частных центров</div></div><div class="risk"><span class="lvl">▲ Терпимо</span> · не проверялось — Центры не доверят AI оценку, которую видят родители <span class="src" title="метод: model_judgment · уверенность: 0.8 · дата: 2026">оценка модели ≈</span>
+      <div class="so">→ главный вопрос для демо</div></div><div class="risk"><span class="lvl">▲ Серьёзно</span> · опровергнуто — Регулятор ЕС запрещает AI-оценку учеников <a class="src" href="https://law.example.com/ai-act" target="_blank" title="метод: needs_human · уверенность: 0.2 · дата: 2026 · contradicted: источник говорит обратное">law.example.com, 2026 ?</a>
+      <div class="so">→ в UK не действует, старту не мешает</div></div></div></div>
+  <div class="row"><div class="k">Первые шаги</div><div><ul class="steps">
+    <li>Уточнить: «Регулятор ЕС запрещает AI-оценку учеников» — не удалось проверить</li><li>100 писем владельцам центров → ≥5 демо</li><li>Демо на реальных эссе → ≥70% комментариев без правки</li><li>Бесплатная проба 2 недели → 1 оплата</li></ul></div></div>
+  <details><summary>Источники и проверка (13: 10 ✓ · 2 ≈ · 1 ?)</summary>
+    <table><tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Уверенность</th></tr>
+    <tr><td>По описанию: online_no_license</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>По описанию: recurring_revenue</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>По описанию: no_balance_sheet_risk</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>По описанию: not_trading_or_gov</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>BigEdu Corp: $1,750M</td>
+      <td><a href="https://news.example.com/deal" target="_blank">news.example.com, 2024</a></td>
+      <td>2024</td><td>✓ calculation</td><td>0.8</td></tr><tr><td>центры в открытых каталогах</td>
+      <td><a href="https://dir.example.com" target="_blank">dir.example.com, 2026</a></td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>решает владелец</td>
+      <td>—</td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>готовая LLM + форма</td>
+      <td>—</td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>конкуренты берут деньги</td>
+      <td><a href="https://rival.example.com/pricing" target="_blank">rival.example.com, 2026</a></td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>тесно: крупные игроки</td>
+      <td>—</td>
+      <td>2026</td><td>≈ model_judgment</td><td>0.7</td></tr><tr><td>Крупный конкурент уже включил проверку эссе в школьный тариф</td>
+      <td><a href="https://rival.example.com/edu" target="_blank">rival.example.com, 2026</a></td>
+      <td>2026</td><td>✓ primary</td><td>0.8</td></tr><tr><td>Регулятор ЕС запрещает AI-оценку учеников<div class="note">contradicted: источник говорит обратное</div></td>
+      <td><a href="https://law.example.com/ai-act" target="_blank">law.example.com, 2026</a></td>
+      <td>2026</td><td>? needs_human</td><td>0.2</td></tr><tr><td>Центры не доверят AI оценку, которую видят родители</td>
+      <td>—</td>
+      <td>2026</td><td>≈ model_judgment</td><td>0.8</td></tr>
+    </table></details>
+</article>
+
+<article class="card" id="demo-2">
+  <div class="head">
+    <h3><span class="rank">#2 из 3 ·</span> LedgerMate</h3>
+    <div class="note">AI-бухгалтерия для фрилансеров в ЕС</div>
+    <div class="verdict"><span class="v v-park">▶ Отложить</span>
+      · первая оплата через 5–11 недель · шанс средний</div>
+  </div>
+  <div class="row"><div class="k">Идея</div><div>Бот сам разносит банковские операции по налоговым категориям и готовит декларацию.</div></div>
+  <div class="row"><div class="k">Заплатят</div><div>Фрилансеры в Польше: бухгалтер стоит €80/мес, а здесь €15.</div></div>
+  <div class="row"><div class="k">Деньги</div><div>Подписка €15/мес<br>
+    Аналог: BooksCo ~$900 млн <a class="src" href="https://news.example.com/deal" target="_blank" title="метод: calculation · уверенность: 0.8 · дата: 2024">news.example.com, 2024 ✓</a> — вырос на малом бизнесе в одной стране, потом расширялся</div></div>
+  <div class="row"><div class="k">Путь к оплате</div><div>IT-фрилансеры B2B в Польше · сообщества фрилансеров + контент о налогах<br>
+    <span class="stages">5–11 нед.:
+    тест 3–5 → первые пользователи 3–5</span></div></div>
+  <div class="row"><div class="k">Оценка</div><div class="factors">
+    <span class="f-✔" title="клиентов легко найти">✔ живые сообщества</span><span class="f-✔" title="быстрая продажа">✔ платят картой сами</span><span class="f-✖" title="тест собирается быстро">✖ нужны банковские интеграции</span><span class="f-●" title="спрос подтверждён">● спрос сезонный</span><span class="f-●" title="есть место новичку">● локальные игроки слабые</span></div></div>
+  <div class="row"><div class="k">Риски<br>(проверены<br>независимо)</div><div>
+    <div class="risk"><span class="lvl">▲ Критично</span> · подтверждено — Налоговые правила различаются в каждой стране ЕС <a class="src" href="https://tax.example.com" target="_blank" title="метод: primary · уверенность: 0.8 · дата: 2026">tax.example.com, 2026 ✓</a>
+      <div class="so">→ стартуем только с Польши</div></div><div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено частично — Фрилансеры уходят после налогового сезона <a class="src" href="https://survey.example.com" target="_blank" title="метод: needs_human · уверенность: 0.6 · дата: 2026">survey.example.com, 2026 ?</a>
+      <div class="so">→ годовой тариф со скидкой</div></div></div></div>
+  <div class="row"><div class="k">Первые шаги</div><div><ul class="steps">
+    <li>Уточнить: «Фрилансеры уходят после налогового сезона» — не удалось проверить</li><li>Лендинг + 3 поста в сообществах → ≥50 заявок</li><li>Ручная разноска для 10 человек → ≥3 оплаты</li></ul></div></div>
+  <details><summary>Источники и проверка (12: 10 ✓ · 1 ≈ · 1 ?)</summary>
+    <table><tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Уверенность</th></tr>
+    <tr><td>По описанию: online_no_license</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>По описанию: recurring_revenue</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>По описанию: no_balance_sheet_risk</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>По описанию: not_trading_or_gov</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>BooksCo: $900M</td>
+      <td><a href="https://news.example.com/deal" target="_blank">news.example.com, 2024</a></td>
+      <td>2024</td><td>✓ calculation</td><td>0.8</td></tr><tr><td>живые сообщества</td>
+      <td>—</td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>платят картой сами</td>
+      <td>—</td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>нужны банковские интеграции</td>
+      <td>—</td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>спрос сезонный</td>
+      <td>—</td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>локальные игроки слабые</td>
+      <td>—</td>
+      <td>2026</td><td>≈ model_judgment</td><td>0.7</td></tr><tr><td>Налоговые правила различаются в каждой стране ЕС</td>
+      <td><a href="https://tax.example.com" target="_blank">tax.example.com, 2026</a></td>
+      <td>2026</td><td>✓ primary</td><td>0.8</td></tr><tr><td>Фрилансеры уходят после налогового сезона</td>
+      <td><a href="https://survey.example.com" target="_blank">survey.example.com, 2026</a></td>
+      <td>2026</td><td>? needs_human</td><td>0.6</td></tr>
+    </table></details>
+</article>
+
+<article class="card" id="demo-3">
+  <div class="head">
+    <h3><span class="rank">#3 из 3 ·</span> FleetQuote</h3>
+    <div class="note">AI-расчёт тарифов для грузоперевозчиков</div>
+    <div class="verdict"><span class="v v-skip">▶ Не брать</span>
+      · первая оплата через 11–19 недель · шанс низкий</div>
+  </div>
+  <div class="row"><div class="k">Идея</div><div>Модель считает ставку на рейс по истории рынка за секунды вместо звонков диспетчеру.</div></div>
+  <div class="row"><div class="k">Заплатят</div><div>Средние перевозчики: ошибка в ставке съедает маржу рейса.</div></div>
+  <div class="row"><div class="k">Деньги</div><div>Подписка от $300/мес<br>
+    Аналог: FreightAI ~$320 млн <a class="src" href="https://news.example.com/deal" target="_blank" title="метод: calculation · уверенность: 0.8 · дата: 2024">news.example.com, 2024 ✓</a> — продавал крупным брокерам</div></div>
+  <div class="row"><div class="k">Путь к оплате</div><div>Перевозчики США, 20–100 грузовиков · LinkedIn + отраслевые выставки<br>
+    <span class="stages">11–19 нед.:
+    данные и модель 6–8 → продажа 6–10</span></div></div>
+  <div class="row"><div class="k">Оценка</div><div class="factors">
+    <span class="f-✖" title="клиентов легко найти">✖ сложно выйти онлайн</span><span class="f-✖" title="быстрая продажа">✖ годовые контракты</span><span class="f-✖" title="тест собирается быстро">✖ нужны закрытые данные</span><span class="f-✔" title="спрос подтверждён">✔ аналоги продаются</span><span class="f-●" title="есть место новичку">● есть ниша среднего сегмента</span></div></div>
+  <div class="row"><div class="k">Риски<br>(проверены<br>независимо)</div><div>
+    <div class="risk"><span class="lvl">▲ Критично</span> · подтверждено — Перевозчики заключают контракты на год вперёд <a class="src" href="https://logistics.example.com" target="_blank" title="метод: primary · уверенность: 0.8 · дата: 2026">logistics.example.com, 2026 ✓</a>
+      <div class="so">→ продажа только к сезону контрактов</div></div><div class="risk"><span class="lvl">▲ Критично</span> · не подтвердилось — Нужны данные о ставках, которых нет в открытом доступе <span class="src" title="метод: model_judgment · уверенность: 0.4 · дата: 2026">оценка модели ≈</span>
+      <div class="so">→ без данных теста не будет</div></div></div></div>
+  <div class="row"><div class="k">Первые шаги</div><div><ul class="steps">
+    <li>20 интервью с диспетчерами → ≥5 подтвердят боль</li></ul></div></div>
+  <details><summary>Источники и проверка (12: 10 ✓ · 2 ≈ · 0 ?)</summary>
+    <table><tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Уверенность</th></tr>
+    <tr><td>По описанию: online_no_license</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>По описанию: recurring_revenue</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>По описанию: no_balance_sheet_risk</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>По описанию: not_trading_or_gov</td>
+      <td><a href="https://example.com/yc" target="_blank">example.com, 2026</a></td>
+      <td>2026-11</td><td>✓ primary</td><td>0.8</td></tr><tr><td>FreightAI: $320M</td>
+      <td><a href="https://news.example.com/deal" target="_blank">news.example.com, 2024</a></td>
+      <td>2024</td><td>✓ calculation</td><td>0.8</td></tr><tr><td>сложно выйти онлайн</td>
+      <td>—</td>
+      <td>2026</td><td>≈ model_judgment</td><td>0.7</td></tr><tr><td>годовые контракты</td>
+      <td>—</td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>нужны закрытые данные</td>
+      <td>—</td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>аналоги продаются</td>
+      <td>—</td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>есть ниша среднего сегмента</td>
+      <td>—</td>
+      <td>2026</td><td>✓ primary</td><td>0.7</td></tr><tr><td>Перевозчики заключают контракты на год вперёд</td>
+      <td><a href="https://logistics.example.com" target="_blank">logistics.example.com, 2026</a></td>
+      <td>2026</td><td>✓ primary</td><td>0.8</td></tr><tr><td>Нужны данные о ставках, которых нет в открытом доступе</td>
+      <td>—</td>
+      <td>2026</td><td>≈ model_judgment</td><td>0.4</td></tr>
+    </table></details>
+</article>
+
+</div>
+
+<h2>Отсеяно на отборе</h2>
+<table><tr><th>Модель</th><th>Сработавший критерий</th><th>Причина</th></tr>
+<tr><td>RoboJoint</td><td>Законно, онлайн, без лицензии</td><td>Product is physical hardware (robot joints).</td></tr><tr><td>PredictX</td><td>Не трейдинг и не госсервис</td><td>Prediction market is a form of trading.</td></tr>
+</table>
+
+
+
+<h2>Как считается</h2>
+<p class="note">Шанс складывается из пяти факторов, важность которых задана в настройках:
+клиентов легко найти 25%, быстрая продажа 25%, тест собирается быстро 20%, спрос подтверждён 15%, есть место новичку 15%.
+Риски, подтверждённые независимой проверкой, снижают шанс; опровергнутые — не влияют.
+Чем слабее источники, тем шире диапазон срока первой оплаты. Если меньше половины утверждений подкреплены источниками,
+вердикт — «сначала проверить вручную».
+Метки: ✓ первоисточник или расчёт · ≈ суждение модели · ? нужен человек. Наведите на метку, чтобы увидеть паспорт.</p>
+</main></body></html>

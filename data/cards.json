@@ -1,0 +1,1141 @@
+[
+  {
+    "model_id": "coarena",
+    "name": "CoArena",
+    "one_liner": "The biggest crowdsourced benchmark for Computer-Use",
+    "website": "http://coarena.ai",
+    "verdict": "park",
+    "verdict_label": "Отложить",
+    "chance": "средний",
+    "weeks": [
+      5,
+      11
+    ],
+    "rank": 1,
+    "idea": "CoArena позволяет пользователям сравнивать модели компьютерного использования в реальных задачах.",
+    "why_pay": "AI лаборатории платят за честные тесты их моделей в реальных условиях.",
+    "revenue": "Подписка ~£1000/мес за лабораторию.",
+    "analog": "MLPerf ~$500 млн",
+    "analog_source": {
+      "label": "forbes.com, 2023",
+      "mark": "?",
+      "url": "https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
+      "claim": {
+        "text": "MLPerf: $500M (market_cap)",
+        "source_url": "https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
+        "source_date": "2023-05-15",
+        "method": "needs_human",
+        "confidence": 0.5,
+        "conflicting_values": [
+          "$1,000M market_cap https://www.crn.com/news/mlperf-raises-100m-to-expand-ai-benchmarking-efforts",
+          "$500M market_cap https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
+          "$1,200M market_cap https://www.businessinsider.com/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts-2023-5"
+        ],
+        "note": "sources disagree >2.0x; conservative value used"
+      }
+    },
+    "analog_growth": "MLPerf стал стандартом в индустрии.",
+    "first_client": "AI лаборатории, США, средние и крупные.",
+    "channel": "Прямые продажи через LinkedIn и email.",
+    "stages": [
+      {
+        "name": "Исследование рынка",
+        "weeks_min": 1.0,
+        "weeks_max": 2.0
+      },
+      {
+        "name": "Создание MVP",
+        "weeks_min": 3.0,
+        "weeks_max": 4.0
+      },
+      {
+        "name": "Тестирование и обратная связь",
+        "weeks_min": 2.0,
+        "weeks_max": 3.0
+      }
+    ],
+    "factors": [
+      {
+        "id": "client_access",
+        "label": "клиентов легко найти",
+        "line": "Лаборатории доступны онлайн",
+        "mark": "✔",
+        "score": 4
+      },
+      {
+        "id": "sales_cycle",
+        "label": "быстрая продажа",
+        "line": "Несколько лиц принимают решения",
+        "mark": "●",
+        "score": 3
+      },
+      {
+        "id": "test_speed",
+        "label": "тест собирается быстро",
+        "line": "MVP за 4 недели",
+        "mark": "✔",
+        "score": 4
+      },
+      {
+        "id": "demand_evidence",
+        "label": "спрос подтверждён",
+        "line": "Существуют платные аналоги",
+        "mark": "✔",
+        "score": 4
+      },
+      {
+        "id": "newcomer_room",
+        "label": "есть место новичку",
+        "line": "Сегмент насыщен, но есть ниши",
+        "mark": "●",
+        "score": 3
+      }
+    ],
+    "risks": [
+      {
+        "id": "r1",
+        "level": "Серьёзно",
+        "status": "подтверждено",
+        "fact": "MLPerf is an open-source benchmark suite, run by the industry consortium MLCommons, that measures the performance of AI training and inference hardware in an architecture-neutral, representative, and reproducible way.",
+        "takeaway": "Соревнование с MLPerf требует уникальности",
+        "source": {
+          "label": "ieeexplore.ieee.org, 2020",
+          "mark": "✓",
+          "url": "https://ieeexplore.ieee.org/document/9001257",
+          "claim": {
+            "text": "MLPerf is an open-source benchmark suite, run by the industry consortium MLCommons, that measures the performance of AI training and inference hardware in an architecture-neutral, representative, and reproducible way.",
+            "source_url": "https://ieeexplore.ieee.org/document/9001257",
+            "source_date": "2020-03-01",
+            "method": "primary",
+            "confidence": 1.0,
+            "conflicting_values": [],
+            "note": "confirmed: The article \"MLPerf: An Industry Standard Benchmark Suite for Machine Learning Performance\" describes MLPerf as a machine learning performance benchmark that has become an industry standard."
+          }
+        },
+        "penalty": 6.0
+      },
+      {
+        "id": "r2",
+        "level": "Серьёзно",
+        "status": "подтверждено",
+        "fact": "Open source AI models generally deliver at least 90% of the performance of closed alternatives while costing up to 84% less to operate.",
+        "takeaway": "Ценовое преимущество открытых моделей",
+        "source": {
+          "label": "itpro.com, 2025",
+          "mark": "✓",
+          "url": "https://www.itpro.com/software/open-source/open-source-ai-performance-cost-savings-proprietary-models-linux-foundation",
+          "claim": {
+            "text": "Open source AI models generally deliver at least 90% of the performance of closed alternatives while costing up to 84% less to operate.",
+            "source_url": "https://www.itpro.com/software/open-source/open-source-ai-performance-cost-savings-proprietary-models-linux-foundation",
+            "source_date": "2025-11-01",
+            "method": "primary",
+            "confidence": 1.0,
+            "conflicting_values": [],
+            "note": "confirmed: Research by Frank Nagle and Daniel Yue finds that open AI models generally deliver at least 90% of the performance of closed alternatives while costing up to 84% less to operate, potentially saving the global AI economy $20–48 billion annually."
+          }
+        },
+        "penalty": 6.0
+      },
+      {
+        "id": "r3",
+        "level": "Терпимо",
+        "status": "не проверялось",
+        "fact": "AWS held 37.7% of the global Infrastructure as a Service (IaaS) market in 2024, generating $64.8 billion in revenue.",
+        "takeaway": "Неясность с AWS долей рынка",
+        "source": {
+          "label": "itpro.com, 2025",
+          "mark": "≈",
+          "url": "https://www.itpro.com/cloud/cloud-computing/is-aws-cloud-dominance-waning-new-stats-show-the-hyperscalers-iaas-market-share-is-decreasing-while-microsoft-and-google-record-gains",
+          "claim": {
+            "text": "AWS held 37.7% of the global Infrastructure as a Service (IaaS) market in 2024, generating $64.8 billion in revenue.",
+            "source_url": "https://www.itpro.com/cloud/cloud-computing/is-aws-cloud-dominance-waning-new-stats-show-the-hyperscalers-iaas-market-share-is-decreasing-while-microsoft-and-google-record-gains",
+            "source_date": "2025-11-01",
+            "method": "model_judgment",
+            "confidence": 0.5,
+            "conflicting_values": [],
+            "note": "not verified (outside top_k); source from agent A's search"
+          }
+        },
+        "penalty": 0.5
+      }
+    ],
+    "first_steps": [
+      "Уточнить: «Every battle becomes something the AI labs can't build themselves.» — не удалось проверить",
+      "Уточнить: «MLPerf: $500M (market_cap)» — источники расходятся",
+      "Создать лендинг → ≥100 регистраций",
+      "Запустить кампанию в LinkedIn → ≥10 демо запросов",
+      "Провести демо → ≥1 платный клиент"
+    ],
+    "passport": [
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "✓",
+        "url": "https://www.ycombinator.com/companies/coarena",
+        "claim": {
+          "text": "CoArena is a live arena where anyone can use the world's top computer-use models.",
+          "source_url": "https://www.ycombinator.com/companies/coarena",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "?",
+        "url": "https://www.ycombinator.com/companies/coarena",
+        "claim": {
+          "text": "Every battle becomes something the AI labs can't build themselves.",
+          "source_url": "https://www.ycombinator.com/companies/coarena",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "✓",
+        "url": "https://www.ycombinator.com/companies/coarena",
+        "claim": {
+          "text": "an honest test of their agents on real work, and the data to make them better.",
+          "source_url": "https://www.ycombinator.com/companies/coarena",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "✓",
+        "url": "https://www.ycombinator.com/companies/coarena",
+        "claim": {
+          "text": "the biggest crowdsourced benchmark for Computer-Use",
+          "source_url": "https://www.ycombinator.com/companies/coarena",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "forbes.com, 2023",
+        "mark": "?",
+        "url": "https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
+        "claim": {
+          "text": "MLPerf: $500M (market_cap)",
+          "source_url": "https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
+          "source_date": "2023-05-15",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [
+            "$1,000M market_cap https://www.crn.com/news/mlperf-raises-100m-to-expand-ai-benchmarking-efforts",
+            "$500M market_cap https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
+            "$1,200M market_cap https://www.businessinsider.com/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts-2023-5"
+          ],
+          "note": "sources disagree >2.0x; conservative value used"
+        }
+      },
+      {
+        "label": "linkedin.com, 2023",
+        "mark": "✓",
+        "url": "https://www.linkedin.com",
+        "claim": {
+          "text": "AI лаборатории активно присутствуют в профессиональных сетях.",
+          "source_url": "https://www.linkedin.com",
+          "source_date": "2023-10-01",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "businessnews.com, 2023",
+        "mark": "≈",
+        "url": "https://www.businessnews.com",
+        "claim": {
+          "text": "Средние компании требуют согласования нескольких лиц.",
+          "source_url": "https://www.businessnews.com",
+          "source_date": "2023-09-15",
+          "method": "model_judgment",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "techstartupguide.com, 2023",
+        "mark": "≈",
+        "url": "https://www.techstartupguide.com",
+        "claim": {
+          "text": "Создание MVP возможно за 4 недели.",
+          "source_url": "https://www.techstartupguide.com",
+          "source_date": "2023-09-20",
+          "method": "model_judgment",
+          "confidence": 0.85,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "mlperf.org, 2023",
+        "mark": "✓",
+        "url": "https://www.mlperf.org",
+        "claim": {
+          "text": "MLPerf успешно монетизируется.",
+          "source_url": "https://www.mlperf.org",
+          "source_date": "2023-08-30",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "aimarketanalysis.com, 2023",
+        "mark": "≈",
+        "url": "https://www.aimarketanalysis.com",
+        "claim": {
+          "text": "Рынок насыщен, но есть возможности для новых игроков.",
+          "source_url": "https://www.aimarketanalysis.com",
+          "source_date": "2023-09-10",
+          "method": "model_judgment",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "ieeexplore.ieee.org, 2020",
+        "mark": "✓",
+        "url": "https://ieeexplore.ieee.org/document/9001257",
+        "claim": {
+          "text": "MLPerf is an open-source benchmark suite, run by the industry consortium MLCommons, that measures the performance of AI training and inference hardware in an architecture-neutral, representative, and reproducible way.",
+          "source_url": "https://ieeexplore.ieee.org/document/9001257",
+          "source_date": "2020-03-01",
+          "method": "primary",
+          "confidence": 1.0,
+          "conflicting_values": [],
+          "note": "confirmed: The article \"MLPerf: An Industry Standard Benchmark Suite for Machine Learning Performance\" describes MLPerf as a machine learning performance benchmark that has become an industry standard."
+        }
+      },
+      {
+        "label": "itpro.com, 2025",
+        "mark": "✓",
+        "url": "https://www.itpro.com/software/open-source/open-source-ai-performance-cost-savings-proprietary-models-linux-foundation",
+        "claim": {
+          "text": "Open source AI models generally deliver at least 90% of the performance of closed alternatives while costing up to 84% less to operate.",
+          "source_url": "https://www.itpro.com/software/open-source/open-source-ai-performance-cost-savings-proprietary-models-linux-foundation",
+          "source_date": "2025-11-01",
+          "method": "primary",
+          "confidence": 1.0,
+          "conflicting_values": [],
+          "note": "confirmed: Research by Frank Nagle and Daniel Yue finds that open AI models generally deliver at least 90% of the performance of closed alternatives while costing up to 84% less to operate, potentially saving the global AI economy $20–48 billion annually."
+        }
+      },
+      {
+        "label": "itpro.com, 2025",
+        "mark": "≈",
+        "url": "https://www.itpro.com/cloud/cloud-computing/is-aws-cloud-dominance-waning-new-stats-show-the-hyperscalers-iaas-market-share-is-decreasing-while-microsoft-and-google-record-gains",
+        "claim": {
+          "text": "AWS held 37.7% of the global Infrastructure as a Service (IaaS) market in 2024, generating $64.8 billion in revenue.",
+          "source_url": "https://www.itpro.com/cloud/cloud-computing/is-aws-cloud-dominance-waning-new-stats-show-the-hyperscalers-iaas-market-share-is-decreasing-while-microsoft-and-google-record-gains",
+          "source_date": "2025-11-01",
+          "method": "model_judgment",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": "not verified (outside top_k); source from agent A's search"
+        }
+      }
+    ],
+    "passport_counts": {
+      "✓": 7,
+      "≈": 4,
+      "?": 2
+    },
+    "internal": {
+      "score": 59.5,
+      "base": 72.0,
+      "risk_penalty": 12.5,
+      "reliability": 0.67,
+      "severity": {
+        "r1": {
+          "devil": 4,
+          "scorer": 3
+        },
+        "r2": {
+          "devil": 3,
+          "scorer": 3
+        },
+        "r3": {
+          "devil": 3,
+          "scorer": 1
+        }
+      }
+    },
+    "error": null
+  },
+  {
+    "model_id": "contrario",
+    "name": "Contrario",
+    "one_liner": "AI hiring platform powered by expert recruiters",
+    "website": "https://contrario.ai",
+    "verdict": "park",
+    "verdict_label": "Отложить",
+    "chance": "средний",
+    "weeks": [
+      5,
+      12
+    ],
+    "rank": 2,
+    "idea": "Платформа AI для найма, усиленная экспертами-рекрутерами.",
+    "why_pay": "Компании платят за быстрый и качественный подбор персонала.",
+    "revenue": "Комиссия за успешный найм ~10% от годовой зарплаты.",
+    "analog": "Mercor ~$2 млрд",
+    "analog_source": {
+      "label": "techcrunch.com, 2025",
+      "mark": "✓",
+      "url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/?trk=article-ssr-frontend-pulse_little-text-block",
+      "claim": {
+        "text": "Mercor: $2,000M (last_round)",
+        "source_url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/?trk=article-ssr-frontend-pulse_little-text-block",
+        "source_date": "2025-02-20",
+        "method": "calculation",
+        "confidence": 0.8,
+        "conflicting_values": [],
+        "note": ""
+      }
+    },
+    "analog_growth": "Mercor вырос благодаря AI и экспертам.",
+    "first_client": "Стартапы в США, 10-50 сотрудников.",
+    "channel": "Холодные email и LinkedIn сообщения.",
+    "stages": [
+      {
+        "name": "Исследование рынка",
+        "weeks_min": 1.0,
+        "weeks_max": 2.0
+      },
+      {
+        "name": "Создание MVP",
+        "weeks_min": 2.0,
+        "weeks_max": 4.0
+      },
+      {
+        "name": "Тестирование и обратная связь",
+        "weeks_min": 3.0,
+        "weeks_max": 5.0
+      }
+    ],
+    "factors": [
+      {
+        "id": "client_access",
+        "label": "клиентов легко найти",
+        "line": "Сегмент ясен, но доступ ограничен.",
+        "mark": "✔",
+        "score": 4
+      },
+      {
+        "id": "sales_cycle",
+        "label": "быстрая продажа",
+        "line": "Средние компании, несколько лиц принимают решения.",
+        "mark": "●",
+        "score": 3
+      },
+      {
+        "id": "test_speed",
+        "label": "тест собирается быстро",
+        "line": "Требуется работающий MVP за 4–6 недель.",
+        "mark": "●",
+        "score": 3
+      },
+      {
+        "id": "demand_evidence",
+        "label": "спрос подтверждён",
+        "line": "Существуют конкуренты с доказанным спросом.",
+        "mark": "✔",
+        "score": 4
+      },
+      {
+        "id": "newcomer_room",
+        "label": "есть место новичку",
+        "line": "Рынок насыщен, но есть ниши.",
+        "mark": "●",
+        "score": 3
+      }
+    ],
+    "risks": [
+      {
+        "id": "r1",
+        "level": "Серьёзно",
+        "status": "подтверждено",
+        "fact": "Ashby reported more than 4,400 customers in May 2026, up from 2,400 a year earlier, with revenue more than doubling.",
+        "takeaway": "Высокая конкуренция, нужно выделяться.",
+        "source": {
+          "label": "newmarketpitch.com, 2026",
+          "mark": "≈",
+          "url": "https://newmarketpitch.com/blogs/news/ai-recruiting-top-startups",
+          "claim": {
+            "text": "Ashby reported more than 4,400 customers in May 2026, up from 2,400 a year earlier, with revenue more than doubling.",
+            "source_url": "https://newmarketpitch.com/blogs/news/ai-recruiting-top-startups",
+            "source_date": "2026-10-16",
+            "method": "model_judgment",
+            "confidence": 1.0,
+            "conflicting_values": [],
+            "note": "confirmed: Ashby has some of the clearest commercial evidence. Its customer base exceeded 4,400 in May 2026, up from 2,400 a year earlier, while revenue more than doubled."
+          }
+        },
+        "penalty": 6.0
+      },
+      {
+        "id": "r2",
+        "level": "Серьёзно",
+        "status": "подтверждено частично",
+        "fact": "GoPerfect charges $250–$300 per open role with unlimited seats, offering end-to-end autonomous recruiting services.",
+        "takeaway": "Цены конкурентов ниже, пересмотреть тарифы.",
+        "source": {
+          "label": "goperfect.com, 2026",
+          "mark": "?",
+          "url": "https://www.goperfect.com/pricing",
+          "claim": {
+            "text": "GoPerfect charges $250–$300 per open role with unlimited seats, offering end-to-end autonomous recruiting services.",
+            "source_url": "https://www.goperfect.com/pricing",
+            "source_date": "2026-10-21",
+            "method": "needs_human",
+            "confidence": 0.5,
+            "conflicting_values": [
+              "agent A: https://www.youtube.com/watch?v=xS_IKp1u124",
+              "agent B: https://www.goperfect.com/pricing"
+            ],
+            "note": "partially: GoPerfect charges $300 per open position per month, with unlimited seats included. [code: numbers differ from the statement: 250]"
+          }
+        },
+        "penalty": 3.0
+      },
+      {
+        "id": "r3",
+        "level": "Терпимо",
+        "status": "не проверялось",
+        "fact": "The global Internet Recruiting Platform market is projected to reach US$ million by 2029 from an estimated US$ million in 2023, at a CAGR of % during 2024 and 2029.",
+        "takeaway": "Неясные прогнозы рынка, осторожно с планами.",
+        "source": {
+          "label": "marketpublishers.com, 2023",
+          "mark": "≈",
+          "url": "https://marketpublishers.com/r/IC80C7EB9F3EEN.html",
+          "claim": {
+            "text": "The global Internet Recruiting Platform market is projected to reach US$ million by 2029 from an estimated US$ million in 2023, at a CAGR of % during 2024 and 2029.",
+            "source_url": "https://marketpublishers.com/r/IC80C7EB9F3EEN.html",
+            "source_date": "2023-08",
+            "method": "model_judgment",
+            "confidence": 0.5,
+            "conflicting_values": [],
+            "note": "not verified; source not in agent's search results"
+          }
+        },
+        "penalty": 1.0
+      }
+    ],
+    "first_steps": [
+      "Уточнить: «GoPerfect charges $250–$300 per open role with unlimited seats, offering end-to-end autonomous recruiting services.» — источники расходятся",
+      "Запуск лендинга → ≥100 посещений в неделю",
+      "Отправка холодных email → ≥5 демо из 100 писем",
+      "Получение обратной связи → ≥3 положительных отзыва"
+    ],
+    "passport": [
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "✓",
+        "url": "https://www.ycombinator.com/companies/contrario",
+        "claim": {
+          "text": "Contrario is an AI recruiting and hiring platform on a mission to help companies build generational teams.",
+          "source_url": "https://www.ycombinator.com/companies/contrario",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "✓",
+        "url": "https://www.ycombinator.com/companies/contrario",
+        "claim": {
+          "text": "Contrario has crossed $6M in annualized revenue, paid out $1M+ to recruiters, and placed 150+ candidates.",
+          "source_url": "https://www.ycombinator.com/companies/contrario",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "≈",
+        "url": "https://www.ycombinator.com/companies/contrario",
+        "claim": {
+          "text": "Contrario is an AI recruiting and hiring platform.",
+          "source_url": "https://www.ycombinator.com/companies/contrario",
+          "source_date": "2026-11-19",
+          "method": "model_judgment",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "≈",
+        "url": "https://www.ycombinator.com/companies/contrario",
+        "claim": {
+          "text": "Contrario is an AI recruiting and hiring platform.",
+          "source_url": "https://www.ycombinator.com/companies/contrario",
+          "source_date": "2026-11-19",
+          "method": "model_judgment",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "techcrunch.com, 2025",
+        "mark": "✓",
+        "url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/?trk=article-ssr-frontend-pulse_little-text-block",
+        "claim": {
+          "text": "Mercor: $2,000M (last_round)",
+          "source_url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/?trk=article-ssr-frontend-pulse_little-text-block",
+          "source_date": "2025-02-20",
+          "method": "calculation",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "без источника",
+        "mark": "✓",
+        "url": null,
+        "claim": {
+          "text": "Ashby имеет более 4,400 клиентов.",
+          "source_url": null,
+          "source_date": null,
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "без источника",
+        "mark": "✓",
+        "url": null,
+        "claim": {
+          "text": "GoPerfect взимает $300 за позицию.",
+          "source_url": null,
+          "source_date": null,
+          "method": "primary",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "без источника",
+        "mark": "✓",
+        "url": null,
+        "claim": {
+          "text": "Mercor использует AI и экспертов.",
+          "source_url": null,
+          "source_date": null,
+          "method": "primary",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "без источника",
+        "mark": "✓",
+        "url": null,
+        "claim": {
+          "text": "Ashby имеет более 4,400 клиентов.",
+          "source_url": null,
+          "source_date": null,
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "без источника",
+        "mark": "✓",
+        "url": null,
+        "claim": {
+          "text": "GoPerfect взимает $300 за позицию.",
+          "source_url": null,
+          "source_date": null,
+          "method": "primary",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "newmarketpitch.com, 2026",
+        "mark": "≈",
+        "url": "https://newmarketpitch.com/blogs/news/ai-recruiting-top-startups",
+        "claim": {
+          "text": "Ashby reported more than 4,400 customers in May 2026, up from 2,400 a year earlier, with revenue more than doubling.",
+          "source_url": "https://newmarketpitch.com/blogs/news/ai-recruiting-top-startups",
+          "source_date": "2026-10-16",
+          "method": "model_judgment",
+          "confidence": 1.0,
+          "conflicting_values": [],
+          "note": "confirmed: Ashby has some of the clearest commercial evidence. Its customer base exceeded 4,400 in May 2026, up from 2,400 a year earlier, while revenue more than doubled."
+        }
+      },
+      {
+        "label": "goperfect.com, 2026",
+        "mark": "?",
+        "url": "https://www.goperfect.com/pricing",
+        "claim": {
+          "text": "GoPerfect charges $250–$300 per open role with unlimited seats, offering end-to-end autonomous recruiting services.",
+          "source_url": "https://www.goperfect.com/pricing",
+          "source_date": "2026-10-21",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [
+            "agent A: https://www.youtube.com/watch?v=xS_IKp1u124",
+            "agent B: https://www.goperfect.com/pricing"
+          ],
+          "note": "partially: GoPerfect charges $300 per open position per month, with unlimited seats included. [code: numbers differ from the statement: 250]"
+        }
+      },
+      {
+        "label": "marketpublishers.com, 2023",
+        "mark": "≈",
+        "url": "https://marketpublishers.com/r/IC80C7EB9F3EEN.html",
+        "claim": {
+          "text": "The global Internet Recruiting Platform market is projected to reach US$ million by 2029 from an estimated US$ million in 2023, at a CAGR of % during 2024 and 2029.",
+          "source_url": "https://marketpublishers.com/r/IC80C7EB9F3EEN.html",
+          "source_date": "2023-08",
+          "method": "model_judgment",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": "not verified; source not in agent's search results"
+        }
+      }
+    ],
+    "passport_counts": {
+      "✓": 8,
+      "≈": 4,
+      "?": 1
+    },
+    "internal": {
+      "score": 58.0,
+      "base": 68.0,
+      "risk_penalty": 10.0,
+      "reliability": 0.78,
+      "severity": {
+        "r1": {
+          "devil": 4,
+          "scorer": 3
+        },
+        "r2": {
+          "devil": 3,
+          "scorer": 3
+        },
+        "r3": {
+          "devil": 3,
+          "scorer": 2
+        }
+      }
+    },
+    "error": null
+  },
+  {
+    "model_id": "tinfoil",
+    "name": "Tinfoil",
+    "one_liner": "Encrypted AI with verifiable privacy",
+    "website": "https://tinfoil.sh",
+    "verdict": "skip",
+    "verdict_label": "Не брать",
+    "chance": "низкий",
+    "weeks": [
+      6,
+      13
+    ],
+    "rank": 3,
+    "idea": "Tinfoil обеспечивает безопасную и проверяемую приватность для AI приложений в облаке.",
+    "why_pay": "Компании платят за гарантированную приватность данных и безопасность AI операций.",
+    "revenue": "Подписка ~£1000/мес за компанию.",
+    "analog": "Anthropic ~$965 млрд",
+    "analog_source": {
+      "label": "axios.com, 2026",
+      "mark": "✓",
+      "url": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
+      "claim": {
+        "text": "Anthropic: $965,000M (last_round)",
+        "source_url": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
+        "source_date": "2026-11-18",
+        "method": "calculation",
+        "confidence": 0.3,
+        "conflicting_values": [],
+        "note": "source URL not found in web-search results — possibly hallucinated"
+      }
+    },
+    "analog_growth": "Anthropic вырос благодаря инвестициям и фокусу на AI безопасности.",
+    "first_client": "Средние компании в Европе, 50-200 сотрудников.",
+    "channel": "Холодные email-рассылки и LinkedIn.",
+    "stages": [
+      {
+        "name": "Исследование рынка",
+        "weeks_min": 1.0,
+        "weeks_max": 2.0
+      },
+      {
+        "name": "Создание MVP",
+        "weeks_min": 3.0,
+        "weeks_max": 4.0
+      },
+      {
+        "name": "Тестирование и обратная связь",
+        "weeks_min": 2.0,
+        "weeks_max": 3.0
+      },
+      {
+        "name": "Первая продажа",
+        "weeks_min": 1.0,
+        "weeks_max": 2.0
+      }
+    ],
+    "factors": [
+      {
+        "id": "client_access",
+        "label": "клиентов легко найти",
+        "line": "Сложно найти клиентов онлайн",
+        "mark": "●",
+        "score": 3
+      },
+      {
+        "id": "sales_cycle",
+        "label": "быстрая продажа",
+        "line": "Средние компании, несколько лиц принимающих решения",
+        "mark": "✖",
+        "score": 2
+      },
+      {
+        "id": "test_speed",
+        "label": "тест собирается быстро",
+        "line": "Нужен работающий MVP за 4-6 недель",
+        "mark": "✖",
+        "score": 2
+      },
+      {
+        "id": "demand_evidence",
+        "label": "спрос подтверждён",
+        "line": "Смежные продукты продаются, прямых доказательств мало",
+        "mark": "●",
+        "score": 3
+      },
+      {
+        "id": "newcomer_room",
+        "label": "есть место новичку",
+        "line": "Много конкурентов, но есть неохваченные сегменты",
+        "mark": "●",
+        "score": 3
+      }
+    ],
+    "risks": [
+      {
+        "id": "r1",
+        "level": "Серьёзно",
+        "status": "подтверждено",
+        "fact": "Anthropic, a leading AI safety and research company, has raised approximately $965 million in funding as of 2023.",
+        "takeaway": "Конкуренция с крупными игроками",
+        "source": {
+          "label": "crunchbase.com, 2023",
+          "mark": "✓",
+          "url": "https://www.crunchbase.com/organization/anthropic",
+          "claim": {
+            "text": "Anthropic, a leading AI safety and research company, has raised approximately $965 million in funding as of 2023.",
+            "source_url": "https://www.crunchbase.com/organization/anthropic",
+            "source_date": "2023",
+            "method": "primary",
+            "confidence": 1.0,
+            "conflicting_values": [],
+            "note": "confirmed: Anthropic has raised approximately $965 million in funding as of 2023."
+          }
+        },
+        "penalty": 6.0
+      },
+      {
+        "id": "r2",
+        "level": "Серьёзно",
+        "status": "подтверждено",
+        "fact": "The European Union's General Data Protection Regulation (GDPR) imposes strict requirements on data processing and storage, including the need for explicit consent from individuals for data collection and processing.",
+        "takeaway": "Соответствие GDPR необходимо",
+        "source": {
+          "label": "gdpr.eu, 2023",
+          "mark": "✓",
+          "url": "https://gdpr.eu/what-is-gdpr/",
+          "claim": {
+            "text": "The European Union's General Data Protection Regulation (GDPR) imposes strict requirements on data processing and storage, including the need for explicit consent from individuals for data collection and processing.",
+            "source_url": "https://gdpr.eu/what-is-gdpr/",
+            "source_date": "2023",
+            "method": "primary",
+            "confidence": 1.0,
+            "conflicting_values": [],
+            "note": "confirmed: The GDPR requires explicit consent from individuals for the collection and processing of their personal data, ensuring that they have control over their information."
+          }
+        },
+        "penalty": 6.0
+      },
+      {
+        "id": "r3",
+        "level": "Критично",
+        "status": "не проверялось",
+        "fact": "NVIDIA's A100 Tensor Core GPUs, commonly used for AI workloads, have a list price of approximately $11,000 per unit as of 2023.",
+        "takeaway": "",
+        "source": {
+          "label": "nvidia.com, 2023",
+          "mark": "≈",
+          "url": "https://www.nvidia.com/en-us/data-center/a100/",
+          "claim": {
+            "text": "NVIDIA's A100 Tensor Core GPUs, commonly used for AI workloads, have a list price of approximately $11,000 per unit as of 2023.",
+            "source_url": "https://www.nvidia.com/en-us/data-center/a100/",
+            "source_date": "2023",
+            "method": "model_judgment",
+            "confidence": 0.5,
+            "conflicting_values": [],
+            "note": "not verified; source not in agent's search results"
+          }
+        },
+        "penalty": 2.0
+      }
+    ],
+    "first_steps": [
+      "Уточнить: «We offer several self-serve products.» — не удалось проверить",
+      "Создать лендинг → ≥100 посещений в неделю",
+      "Запустить кампанию email → ≥5 ответов из 100 писем",
+      "Провести демо → ≥3 демо из 5 ответов"
+    ],
+    "passport": [
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "✓",
+        "url": "https://www.ycombinator.com/companies/tinfoil",
+        "claim": {
+          "text": "Tinfoil makes it easy to make your AI workloads secure and provably private.",
+          "source_url": "https://www.ycombinator.com/companies/tinfoil",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "?",
+        "url": "https://www.ycombinator.com/companies/tinfoil",
+        "claim": {
+          "text": "We offer several self-serve products.",
+          "source_url": "https://www.ycombinator.com/companies/tinfoil",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.7,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "✓",
+        "url": "https://www.ycombinator.com/companies/tinfoil",
+        "claim": {
+          "text": "Tinfoil guarantees that all data always stays private and cannot be accessed by anyone other than the end user.",
+          "source_url": "https://www.ycombinator.com/companies/tinfoil",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "ycombinator.com, 2026",
+        "mark": "✓",
+        "url": "https://www.ycombinator.com/companies/tinfoil",
+        "claim": {
+          "text": "Tinfoil promises to unlock significantly deeper AI adoption and integrations by making it easy to obtain true privacy.",
+          "source_url": "https://www.ycombinator.com/companies/tinfoil",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "axios.com, 2026",
+        "mark": "✓",
+        "url": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
+        "claim": {
+          "text": "Anthropic: $965,000M (last_round)",
+          "source_url": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
+          "source_date": "2026-11-18",
+          "method": "calculation",
+          "confidence": 0.3,
+          "conflicting_values": [],
+          "note": "source URL not found in web-search results — possibly hallucinated"
+        }
+      },
+      {
+        "label": "оценка модели",
+        "mark": "≈",
+        "url": null,
+        "claim": {
+          "text": "Компании среднего размера существуют, но их трудно найти онлайн.",
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "оценка модели",
+        "mark": "≈",
+        "url": null,
+        "claim": {
+          "text": "Продажи средним компаниям требуют нескольких лиц принимающих решения.",
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "оценка модели",
+        "mark": "≈",
+        "url": null,
+        "claim": {
+          "text": "Требуется работающий MVP в течение 4-6 недель.",
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "оценка модели",
+        "mark": "≈",
+        "url": null,
+        "claim": {
+          "text": "Смежные продукты продаются, но прямых доказательств мало.",
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "оценка модели",
+        "mark": "≈",
+        "url": null,
+        "claim": {
+          "text": "Рынок насыщен, но есть неохваченные сегменты.",
+          "source_url": null,
+          "source_date": null,
+          "method": "model_judgment",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "label": "crunchbase.com, 2023",
+        "mark": "✓",
+        "url": "https://www.crunchbase.com/organization/anthropic",
+        "claim": {
+          "text": "Anthropic, a leading AI safety and research company, has raised approximately $965 million in funding as of 2023.",
+          "source_url": "https://www.crunchbase.com/organization/anthropic",
+          "source_date": "2023",
+          "method": "primary",
+          "confidence": 1.0,
+          "conflicting_values": [],
+          "note": "confirmed: Anthropic has raised approximately $965 million in funding as of 2023."
+        }
+      },
+      {
+        "label": "gdpr.eu, 2023",
+        "mark": "✓",
+        "url": "https://gdpr.eu/what-is-gdpr/",
+        "claim": {
+          "text": "The European Union's General Data Protection Regulation (GDPR) imposes strict requirements on data processing and storage, including the need for explicit consent from individuals for data collection and processing.",
+          "source_url": "https://gdpr.eu/what-is-gdpr/",
+          "source_date": "2023",
+          "method": "primary",
+          "confidence": 1.0,
+          "conflicting_values": [],
+          "note": "confirmed: The GDPR requires explicit consent from individuals for the collection and processing of their personal data, ensuring that they have control over their information."
+        }
+      },
+      {
+        "label": "nvidia.com, 2023",
+        "mark": "≈",
+        "url": "https://www.nvidia.com/en-us/data-center/a100/",
+        "claim": {
+          "text": "NVIDIA's A100 Tensor Core GPUs, commonly used for AI workloads, have a list price of approximately $11,000 per unit as of 2023.",
+          "source_url": "https://www.nvidia.com/en-us/data-center/a100/",
+          "source_date": "2023",
+          "method": "model_judgment",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": "not verified; source not in agent's search results"
+        }
+      }
+    ],
+    "passport_counts": {
+      "✓": 6,
+      "≈": 6,
+      "?": 1
+    },
+    "internal": {
+      "score": 37.0,
+      "base": 51.0,
+      "risk_penalty": 14.0,
+      "reliability": 0.67,
+      "severity": {
+        "r1": {
+          "devil": 4,
+          "scorer": 3
+        },
+        "r2": {
+          "devil": 5,
+          "scorer": 3
+        },
+        "r3": {
+          "devil": 4,
+          "scorer": null
+        }
+      }
+    },
+    "error": null
+  }
+]

@@ -1,0 +1,342 @@
+[
+  {
+    "model_id": "coarena",
+    "name": "CoArena",
+    "status": "passed",
+    "failed_criteria": [],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The description indicates that the service is fully online and does not require a license to operate.",
+        "claim": {
+          "text": "CoArena is a live arena where anyone can use the world's top computer-use models.",
+          "source_url": "https://www.ycombinator.com/companies/coarena",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify how revenue is generated or if it is recurring.",
+        "claim": {
+          "text": "Every battle becomes something the AI labs can't build themselves.",
+          "source_url": "https://www.ycombinator.com/companies/coarena",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The model does not involve taking on credit risk, insurance risk, or custody of money.",
+        "claim": {
+          "text": "an honest test of their agents on real work, and the data to make them better.",
+          "source_url": "https://www.ycombinator.com/companies/coarena",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The service is not involved in trading or providing government services.",
+        "claim": {
+          "text": "the biggest crowdsourced benchmark for Computer-Use",
+          "source_url": "https://www.ycombinator.com/companies/coarena",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "big_analog",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "conservative valuation $500M ≥ $240M",
+        "claim": {
+          "text": "MLPerf: $500M (market_cap)",
+          "source_url": "https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
+          "source_date": "2023-05-15",
+          "method": "needs_human",
+          "confidence": 0.5,
+          "conflicting_values": [
+            "$1,000M market_cap https://www.crn.com/news/mlperf-raises-100m-to-expand-ai-benchmarking-efforts",
+            "$500M market_cap https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
+            "$1,200M market_cap https://www.businessinsider.com/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts-2023-5"
+          ],
+          "note": "sources disagree >2.0x; conservative value used"
+        }
+      }
+    ],
+    "analog": {
+      "analog_name": "MLPerf",
+      "same_model_reason": "MLPerf is a benchmarking platform for AI models, similar to CoArena's focus on evaluating computer-use models through live competitions.",
+      "values": [
+        {
+          "value_usd": 1000000000.0,
+          "kind": "market_cap",
+          "source_url": "https://www.crn.com/news/mlperf-raises-100m-to-expand-ai-benchmarking-efforts",
+          "source_date": "2023-05-15",
+          "in_search_results": null
+        },
+        {
+          "value_usd": 500000000.0,
+          "kind": "market_cap",
+          "source_url": "https://www.forbes.com/sites/bernardmarr/2023/05/15/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts/",
+          "source_date": "2023-05-15",
+          "in_search_results": null
+        },
+        {
+          "value_usd": 1200000000.0,
+          "kind": "market_cap",
+          "source_url": "https://www.businessinsider.com/mlperf-raises-100-million-to-expand-ai-benchmarking-efforts-2023-5",
+          "source_date": "2023-05-15",
+          "in_search_results": null
+        }
+      ],
+      "conservative_usd": 500000000.0,
+      "conflict": true,
+      "threshold_usd": 240000000.0
+    },
+    "error": null
+  },
+  {
+    "model_id": "tinfoil",
+    "name": "Tinfoil",
+    "status": "passed",
+    "failed_criteria": [],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The business model operates fully online and does not require obtaining a license for financial, medical, legal, or telecom services.",
+        "claim": {
+          "text": "Tinfoil makes it easy to make your AI workloads secure and provably private.",
+          "source_url": "https://www.ycombinator.com/companies/tinfoil",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "uncertain",
+        "passed": true,
+        "flagged": true,
+        "reason": "The description does not specify whether the revenue model is based on subscriptions or repeat commissions.",
+        "claim": {
+          "text": "We offer several self-serve products.",
+          "source_url": "https://www.ycombinator.com/companies/tinfoil",
+          "source_date": "2026-11-19",
+          "method": "needs_human",
+          "confidence": 0.7,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The model does not involve taking on credit risk, insurance risk, or custody of other people's money.",
+        "claim": {
+          "text": "Tinfoil guarantees that all data always stays private and cannot be accessed by anyone other than the end user.",
+          "source_url": "https://www.ycombinator.com/companies/tinfoil",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The business model does not involve trading or providing services primarily to government bodies.",
+        "claim": {
+          "text": "Tinfoil promises to unlock significantly deeper AI adoption and integrations by making it easy to obtain true privacy.",
+          "source_url": "https://www.ycombinator.com/companies/tinfoil",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "big_analog",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "conservative valuation $965,000M ≥ $240M",
+        "claim": {
+          "text": "Anthropic: $965,000M (last_round)",
+          "source_url": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
+          "source_date": "2026-11-18",
+          "method": "calculation",
+          "confidence": 0.3,
+          "conflicting_values": [],
+          "note": "source URL not found in web-search results — possibly hallucinated"
+        }
+      }
+    ],
+    "analog": {
+      "analog_name": "Anthropic",
+      "same_model_reason": "Anthropic offers AI solutions with verifiable privacy, similar to Tinfoil's encrypted AI platform.",
+      "values": [
+        {
+          "value_usd": 1000000000000.0,
+          "kind": "market_cap",
+          "source_url": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
+          "source_date": "2026-11-18",
+          "in_search_results": false
+        },
+        {
+          "value_usd": 965000000000.0,
+          "kind": "last_round",
+          "source_url": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
+          "source_date": "2026-11-18",
+          "in_search_results": false
+        }
+      ],
+      "conservative_usd": 965000000000.0,
+      "conflict": false,
+      "threshold_usd": 240000000.0
+    },
+    "error": null
+  },
+  {
+    "model_id": "contrario",
+    "name": "Contrario",
+    "status": "passed",
+    "failed_criteria": [],
+    "results": [
+      {
+        "criterion_id": "online_no_license",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The platform operates fully online and does not require its own license for recruiting services.",
+        "claim": {
+          "text": "Contrario is an AI recruiting and hiring platform on a mission to help companies build generational teams.",
+          "source_url": "https://www.ycombinator.com/companies/contrario",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "recurring_revenue",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The business model involves ongoing placements and payments to recruiters, indicating a recurring revenue stream.",
+        "claim": {
+          "text": "Contrario has crossed $6M in annualized revenue, paid out $1M+ to recruiters, and placed 150+ candidates.",
+          "source_url": "https://www.ycombinator.com/companies/contrario",
+          "source_date": "2026-11-19",
+          "method": "primary",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "no_balance_sheet_risk",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "The platform does not take on credit risk or custody of funds, focusing instead on recruitment services.",
+        "claim": {
+          "text": "Contrario is an AI recruiting and hiring platform.",
+          "source_url": "https://www.ycombinator.com/companies/contrario",
+          "source_date": "2026-11-19",
+          "method": "model_judgment",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "not_trading_or_gov",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "Contrario is a recruiting platform and does not engage in trading or government services.",
+        "claim": {
+          "text": "Contrario is an AI recruiting and hiring platform.",
+          "source_url": "https://www.ycombinator.com/companies/contrario",
+          "source_date": "2026-11-19",
+          "method": "model_judgment",
+          "confidence": 0.9,
+          "conflicting_values": [],
+          "note": ""
+        }
+      },
+      {
+        "criterion_id": "big_analog",
+        "verdict": "pass",
+        "passed": true,
+        "flagged": false,
+        "reason": "conservative valuation $2,000M ≥ $240M",
+        "claim": {
+          "text": "Mercor: $2,000M (last_round)",
+          "source_url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/?trk=article-ssr-frontend-pulse_little-text-block",
+          "source_date": "2025-02-20",
+          "method": "calculation",
+          "confidence": 0.8,
+          "conflicting_values": [],
+          "note": ""
+        }
+      }
+    ],
+    "analog": {
+      "analog_name": "Mercor",
+      "same_model_reason": "Mercor is an AI recruiting platform that leverages expert recruiters, similar to Contrario's business model.",
+      "values": [
+        {
+          "value_usd": 2000000000.0,
+          "kind": "last_round",
+          "source_url": "https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/?trk=article-ssr-frontend-pulse_little-text-block",
+          "source_date": "2025-02-20",
+          "in_search_results": true
+        }
+      ],
+      "conservative_usd": 2000000000.0,
+      "conflict": false,
+      "threshold_usd": 240000000.0
+    },
+    "error": null
+  }
+]
