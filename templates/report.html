@@ -72,6 +72,8 @@
 {% macro src(tag) %}{% if tag %}{% if tag.url %}<a class="src" href="{{ tag.url }}" target="_blank" title="{{ tag|tip }}">{{ tag.label }} {{ tag.mark }}</a>{% else %}<span class="src" title="{{ tag|tip }}">{{ tag.label }} {{ tag.mark }}</span>{% endif %}{% endif %}{% endmacro %}
 
 <h2>Карточки</h2>
+<p class="note">У каждого факта метка источника: ✓ — есть первоисточник или расчёт, ≈ — оценка модели без источника,
+? — источники расходятся или не удалось проверить, нужен человек. Наведите на метку, чтобы увидеть подробности.</p>
 <div class="grid">
 {% for c in ranked_weak_first|reverse %}
 <article class="card" id="{{ c.model_id }}">
@@ -95,7 +97,8 @@
       {% if r.takeaway %}<div class="so">→ {{ r.takeaway }}</div>{% endif %}</div>{% endfor %}</div></div>
   <div class="row"><div class="k">Первые шаги</div><div><ul class="steps">
     {% for s in c.first_steps %}<li>{{ s|ru }}</li>{% endfor %}</ul></div></div>
-  <details><summary>Источники и проверка ({{ c.passport|length }}: {{ c.passport_counts['✓'] }} ✓ · {{ c.passport_counts['≈'] }} ≈ · {{ c.passport_counts['?'] }} ?)</summary>
+  {% set pc = c.passport_counts %}<details><summary>Источники и проверка: {{ c.passport|length }} утверждений —
+    {{ pc['✓'] }} подтверждены источником, {{ pc['≈'] }} — оценка модели без источника{% if pc['?'] %}, {{ pc['?'] }} — нужно проверить человеку{% endif %}</summary>
     <div class="scroll"><table class="passport"><colgroup><col style="width:38%"><col style="width:19%"><col style="width:13%"><col style="width:21%"><col style="width:9%"></colgroup>
     <tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Ув.</th></tr>
     {% for p in c.passport %}<tr><td>{{ p.claim.text|ru }}{% if p.claim.note %}<div class="note">{{ p.claim.note|ru }}</div>{% endif %}</td>
