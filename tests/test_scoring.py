@@ -93,6 +93,6 @@ def test_penalty_uses_scorer_severity_not_devil():
 
 def test_needs_ru():
     from pipeline.translate import needs_ru
-    assert needs_ru("Major cloud providers offer confidential computing")
+    assert needs_ru("Major cloud providers offer confidential computing") and needs_ru("conservative valuation $80M < $240M")
     assert not needs_ru("Подписка ~$30/мес за преподавателя") and not needs_ru("https://a.com/x") and not needs_ru("Keiki")
     assert needs_ru("Уточнить: «The one who remembers everything, plans effortlessly» — не удалось проверить")

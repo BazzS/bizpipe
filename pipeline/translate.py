@@ -33,12 +33,12 @@ class Translation(BaseModel):
 
 
 def needs_ru(text: str | None) -> bool:
-    """Латинских слов больше, чем кириллических, и это не просто название/ссылка."""
+    """Латинских слов (от двух) больше, чем кириллических, и это не ссылка."""
     if not text or text.startswith("http"):
         return False
     latin = len(re.findall(r"\b[A-Za-z]{3,}\b", text))
     cyr = len(re.findall(r"[А-Яа-яЁё]{3,}", text))
-    return latin >= 3 and latin > cyr
+    return latin >= 2 and latin > cyr
 
 
 def translate_all(texts: list[str]) -> dict[str, str]:
