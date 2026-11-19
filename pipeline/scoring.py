@@ -22,7 +22,7 @@ from .config import ROOT, load_config
 from .filter import FilterResult
 from .llm import LLMUnavailable, call_json
 from .logger import log_event
-from .schemas import BusinessModel, Claim, Method
+from .schemas import BusinessModel, Claim, Method, fmt_usd
 
 
 # ------------------------------------------------------------ что пишет LLM
@@ -139,14 +139,6 @@ def source_tag(c: Claim) -> SourceTag:
     return SourceTag(label=label, mark=mark, url=c.source_url, claim=c)
 
 
-def fmt_usd(v: float | None) -> str:
-    if not v:
-        return "—"
-    if v >= 1e9:
-        return f"${v / 1e9:.1f} млрд".replace(".", ",").replace(",0 ", " ")
-    return f"${v / 1e6:,.0f} млн".replace(",", " ")
-
-
 def base_score(factors: list[FactorScore], cfg: dict) -> float:
     by_id = {f.id: f.score for f in factors}
     total = sum(spec["weight"] * by_id.get(fid, 1) for fid, spec in cfg["factors"].items())
@@ -179,6 +171,8 @@ def decide(score: float, rel: float, weeks: tuple[int, int], cfg: dict) -> tuple
     chance = "высокий" if score >= lv["high"] else "средний" if score >= lv["medium"] else "низкий"
     if weeks[0] > cfg["max_weeks"]:              # даже в лучшем случае не успеваем за 3 месяца
         chance = "низкий"
+    elif weeks[1] > cfg["max_weeks"]:            # в худшем случае не успеваем → на ступень ниже
+        chance = {"высокий": "средний", "средний": "низкий"}.get(chance, chance)
     v = cfg["verdicts"]
     verdict = "launch" if score >= v["launch"] else "park" if score >= v["park"] else "skip"
     if verdict != "skip" and rel < cfg["min_reliability"]:
@@ -240,7 +234,10 @@ def build_card(m: BusinessModel, f: FilterResult, a: AgentsResult) -> Card:
             id=k.id, level=cfg["severity_labels"][sev], status=STATUS_LABELS[status],
             fact=k.fact, takeaway=t.takeaway if t else "", source=source_tag(k.final),
             penalty=round(risk_penalty(sev, status, cfg), 1)))
-    penalty = min(sum(x.penalty for x in card_risks), cfg["risk_penalty"]["max_total"])
+    expected = full["agents"]["devil"]["max_risks"]
+    missing = max(0, expected - len(card_risks))
+    penalty = min(sum(x.penalty for x in card_risks) + missing * cfg["risk_penalty"]["missing_risk_penalty"],
+                  cfg["risk_penalty"]["max_total"])
     card_risks.sort(key=lambda x: (-x.penalty, x.id))
 
     # --- все утверждения карточки → паспорт и надёжность
@@ -277,7 +274,8 @@ def build_card(m: BusinessModel, f: FilterResult, a: AgentsResult) -> Card:
         passport=passport,
         passport_counts={m_: sum(1 for p in passport if p.mark == m_) for m_ in ("✓", "≈", "?")},
         internal={"score": round(score, 1), "base": round(base_score(s.factors, cfg), 1),
-                  "risk_penalty": round(penalty, 1), "reliability": round(rel, 2), "severity": severities},
+                  "risk_penalty": round(penalty, 1), "missing_risks": missing, "reliability": round(rel, 2),
+                  "severity": severities},
     )
     log_event("score", subject_id=m.id, **card.internal, verdict=verdict, weeks=weeks)
     return card

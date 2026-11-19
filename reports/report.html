@@ -20,8 +20,11 @@
   td.m { text-align:center; font-size:16px; }
   .v { font-weight:600; white-space:nowrap; }
   .v-launch { color:var(--go); } .v-park { color:var(--park); } .v-skip { color:var(--stop); } .v-check_manually { color:var(--check); }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(420px, 1fr)); gap:18px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(min(440px, 100%), 1fr)); gap:18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; min-width:0; overflow-wrap:break-word; }
+  .scroll { overflow-x:auto; }
+  table.passport { table-layout:fixed; } table.passport th, table.passport td { padding:6px 6px; overflow-wrap:break-word; }
+  table.passport th { font-size:10px; letter-spacing:0; } table.passport .src, table.passport a { white-space:normal; }
   .card h3 { margin:0; font-size:17px; } .card .rank { color:var(--muted); font-weight:400; }
   .head { border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:12px; }
   .verdict { margin-top:6px; font-size:14px; }
@@ -43,7 +46,7 @@
 <body><main>
 
 <h1>Какую бизнес-модель запускать следующей</h1>
-<p class="sub">Критерий рейтинга: шанс за 3 месяца запустить тест, проверить спрос и получить первую оплату. Сформировано 2026-11-19 14:14 UTC.</p>
+<p class="sub">Критерий рейтинга: шанс за 3 месяца запустить тест, проверить спрос и получить первую оплату. Сформировано 2026-11-19 14:33 UTC.</p>
 <div class="stats">
   <div><b>15</b>собрано</div>
   <div><b>4</b>прошли отбор</div>
@@ -52,7 +55,7 @@
 </div>
 
 <h2>Рейтинг — от слабой к перспективной</h2>
-<table>
+<div class="scroll"><table>
   <tr><th>#</th><th>Модель</th><th>Вердикт</th><th>Шанс</th><th>Первая оплата</th>
     <th>клиентов легко найти</th><th>быстрая продажа</th><th>тест собирается быстро</th><th>спрос подтверждён</th><th>есть место новичку</th><th>Главный риск</th></tr>
   
@@ -61,30 +64,30 @@
     <td>6–17 нед.</td>
     
     <td class="m f-✔">✔</td><td class="m f-●">●</td><td class="m f-✖">✖</td><td class="m f-✔">✔</td><td class="m f-●">●</td>
-    <td class="note">Серьёзно: Major cloud providers like Microsoft and Google offer confidential computing services integrated into their platforms, such as Azure Confidential Compute and Google Cloud&#39;s Confidential GKE Nodes.</td></tr>
+    <td class="note">Серьёзно: Крупные облачные провайдеры, такие как Microsoft и Google, предлагают услуги конфиденциальных вычислений, интегрированные в свои платформы, такие как Azure Confidential Compute и Confidential GKE Nodes от Google Cloud.</td></tr>
   
   <tr><td>3</td><td><a href="#contrario">Contrario</a></td>
     <td class="v v-launch">Запускать тест</td><td>высокий</td>
     <td>4–16 нед.</td>
     
     <td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-●">●</td><td class="m f-●">●</td>
-    <td class="note">Серьёзно: In 2024, 28% of UK job seekers stated that AI-based assessments would make them less likely to apply for a job.</td></tr>
+    <td class="note">Серьёзно: В 2024 году 28% соискателей в Великобритании заявили, что оценки на основе ИИ сделают их менее склонными подавать заявки на работу.</td></tr>
   
   <tr><td>2</td><td><a href="#text-ai">Text.ai</a></td>
     <td class="v v-launch">Запускать тест</td><td>высокий</td>
     <td>5–15 нед.</td>
     
     <td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-●">●</td>
-    <td class="note">Серьёзно: Nvidia has secured $530 billion in financial guarantees to dominate the AI market, including substantial commitments to cloud and data-center firms, potentially limiting access to necessary hardware for new entrants.</td></tr>
+    <td class="note">Серьёзно: Nvidia обеспечила $530 миллиардов финансовых гарантий для доминирования на рынке ИИ, включая значительные обязательства перед облачными и дата-центровыми компаниями, что может ограничить доступ к необходимому оборудованию для новых участников.</td></tr>
   
   <tr><td>1</td><td><a href="#keiki">Keiki</a></td>
     <td class="v v-launch">Запускать тест</td><td>высокий</td>
     <td>4–12 нед.</td>
     
     <td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-✔">✔</td><td class="m f-●">●</td>
-    <td class="note">Серьёзно: Sinch Engage offers a comprehensive multichannel messaging platform with plans starting at $99 per month, including SMS, WhatsApp, Facebook Messenger, and Instagram Messenger integration, along with features like unified inbox, advanced reporting, and 24/7 global support.</td></tr>
+    <td class="note">Серьёзно: Sinch Engage предлагает комплексную многоканальную платформу обмена сообщениями с тарифами от $99 в месяц, включая интеграцию SMS, WhatsApp, Facebook Messenger и Instagram Messenger, а также функции, такие как единый почтовый ящик, расширенная отчетность и круглосуточная поддержка.</td></tr>
   
-</table>
+</table></div>
 <p class="note">✔ сильная сторона · ● средне · ✖ слабое место.</p>
 
 
@@ -95,222 +98,226 @@
 <article class="card" id="keiki">
   <div class="head">
     <h3><span class="rank">#1 из 4 ·</span> Keiki</h3>
-    <div class="note">Put your products on iMessage</div>
+    <div class="note">Разместите свои продукты в iMessage</div>
     <div class="verdict"><span class="v v-launch">▶ Запускать тест</span>
       · первая оплата через 4–12 недель · шанс высокий</div>
   </div>
   <div class="row"><div class="k">Идея</div><div>Keiki добавляет ваш продукт в мессенджеры пользователей без установки новых приложений.</div></div>
   <div class="row"><div class="k">Заплатят</div><div>Малый бизнес платит за удобство общения с клиентами через популярные мессенджеры.</div></div>
   <div class="row"><div class="k">Деньги</div><div>Подписка ~£50–100/мес за бизнес.<br>
-    Аналог: Sinch Engage ~$1 млрд <a class="src" href="https://www.sinch.com/investors/" target="_blank" title="метод: calculation · уверенность: 0.3 · дата: 2025-06-30 · source URL not found in web-search results — possibly hallucinated">sinch.com, 2025 ✓</a> — Синхронизация с популярными мессенджерами.</div></div>
+    Аналог: Sinch Engage ~$1 млрд <a class="src" href="https://www.sinch.com/investors/" target="_blank" title="метод: расчёт · уверенность: 0.3 · дата: 2025-06-30 · URL источника не найден в результатах веб-поиска — возможно, галлюцинация">sinch.com, 2025 ✓</a> — Синхронизация с популярными мессенджерами.</div></div>
   <div class="row"><div class="k">Путь к оплате</div><div>Малый бизнес, онлайн-магазины, до 10 сотрудников. · Холодные email-рассылки и LinkedIn.<br>
     <span class="stages">4–12 нед.:
     Исследование рынка 1–2 → Создание MVP 2–4 → Тестирование и обратная связь 2–4</span></div></div>
   <div class="row"><div class="k">Оценка</div><div class="factors">
     <span class="f-✔" title="клиентов легко найти">✔ Четкий сегмент, доступен онлайн</span><span class="f-✔" title="быстрая продажа">✔ Малый бизнес, быстрое принятие решений</span><span class="f-✔" title="тест собирается быстро">✔ Лендинг и ручной сервис за 1–2 недели</span><span class="f-✔" title="спрос подтверждён">✔ Конкуренты уже успешно продают</span><span class="f-●" title="есть место новичку">● Рынок насыщен, но есть ниши</span></div></div>
   <div class="row"><div class="k">Риски<br>(проверены<br>независимо)</div><div>
-    <div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено — Sinch Engage offers a comprehensive multichannel messaging platform with plans starting at $99 per month, including SMS, WhatsApp, Facebook Messenger, and Instagram Messenger integration, along with features like unified inbox, advanced reporting, and 24/7 global support. <a class="src" href="https://sinch.com/engage/pricing/" target="_blank" title="метод: primary · уверенность: 1.0 · дата: 2026-11-19 · confirmed: Sinch Engage offers a &#39;Basics&#39; plan at $99 per month, which includes SMS, WhatsApp, Facebook Messenger, and Instagram Messenger integration, along with features like unified inbox, advanced reporting, and 24/7 global support.">sinch.com, 2026 ✓</a>
+    <div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено — Sinch Engage предлагает комплексную многоканальную платформу обмена сообщениями с тарифами от $99 в месяц, включая интеграцию SMS, WhatsApp, Facebook Messenger и Instagram Messenger, а также функции, такие как единый почтовый ящик, расширенная отчетность и круглосуточная поддержка. <a class="src" href="https://sinch.com/engage/pricing/" target="_blank" title="метод: первоисточник · уверенность: 1.0 · дата: 2026-11-19 · подтверждено: Sinch Engage предлагает план &#39;Основы&#39; за $99 в месяц, который включает интеграцию SMS, WhatsApp, Facebook Messenger и Instagram Messenger, а также такие функции, как единый почтовый ящик, расширенная отчетность и круглосуточная глобальная поддержка.">sinch.com, 2026 ✓</a>
       <div class="so">→ Конкуренция с Sinch Engage</div></div></div></div>
   <div class="row"><div class="k">Первые шаги</div><div><ul class="steps">
-    <li>Уточнить: «There’s no new app to download and no login.» — не удалось проверить</li><li>Создать лендинг → ≥100 посетителей за 2 недели</li><li>Запустить email-кампанию → ≥5 ответов из 100 писем</li><li>Провести демо → ≥3 демо из 5 ответов</li></ul></div></div>
+    <li>Уточнить: «Нет нового приложения для загрузки и нет входа в систему.» — не удалось проверить</li><li>Создать лендинг → ≥100 посетителей за 2 недели</li><li>Запустить email-кампанию → ≥5 ответов из 100 писем</li><li>Провести демо → ≥3 демо из 5 ответов</li></ul></div></div>
   <details><summary>Источники и проверка (11: 5 ✓ · 5 ≈ · 1 ?)</summary>
-    <table><tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Уверенность</th></tr>
-    <tr><td>Keiki takes the product you already have and puts it in your users’ messages.</td>
+    <div class="scroll"><table class="passport"><colgroup><col style="width:38%"><col style="width:19%"><col style="width:13%"><col style="width:21%"><col style="width:9%"></colgroup>
+    <tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Ув.</th></tr>
+    <tr><td>Keiki берет продукт, который у вас уже есть, и помещает его в сообщения ваших пользователей.</td>
       <td><a href="https://www.ycombinator.com/companies/keiki" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>There’s no new app to download and no login.</td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Нет нового приложения для загрузки и нет входа в систему.</td>
       <td><a href="https://www.ycombinator.com/companies/keiki" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>? needs_human</td><td>0.5</td></tr><tr><td>It handles the phone numbers, delivery and the back-and-forth.</td>
+      <td>2026-11-19</td><td>? нужен человек</td><td>0.5</td></tr><tr><td>Он обрабатывает телефонные номера, доставку и переписку.</td>
       <td><a href="https://www.ycombinator.com/companies/keiki" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>They can use it on iMessage, WhatsApp, SMS or Slack.</td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Они могут использовать это в iMessage, WhatsApp, SMS или Slack.</td>
       <td><a href="https://www.ycombinator.com/companies/keiki" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>Sinch Engage: $1,000M (market_cap)<div class="note">source URL not found in web-search results — possibly hallucinated</div></td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Sinch Engage: $1,000M (market_cap)<div class="note">URL источника не найден в результатах веб-поиска — возможно, галлюцинация</div></td>
       <td><a href="https://www.sinch.com/investors/" target="_blank">sinch.com, 2025</a></td>
-      <td>2025-06-30</td><td>✓ calculation</td><td>0.3</td></tr><tr><td>Малый бизнес легко доступен через онлайн-каталоги и соцсети.</td>
+      <td>2025-06-30</td><td>✓ расчёт</td><td>0.3</td></tr><tr><td>Малый бизнес легко доступен через онлайн-каталоги и соцсети.</td>
       <td>—</td>
-      <td>—</td><td>≈ model_judgment</td><td>0.9</td></tr><tr><td>Малый бизнес принимает решения быстро, оплата картой возможна.</td>
+      <td>—</td><td>≈ суждение модели</td><td>0.9</td></tr><tr><td>Малый бизнес принимает решения быстро, оплата картой возможна.</td>
       <td>—</td>
-      <td>—</td><td>≈ model_judgment</td><td>0.9</td></tr><tr><td>Возможность быстрого запуска с минимальными затратами.</td>
+      <td>—</td><td>≈ суждение модели</td><td>0.9</td></tr><tr><td>Возможность быстрого запуска с минимальными затратами.</td>
       <td>—</td>
-      <td>—</td><td>≈ model_judgment</td><td>0.9</td></tr><tr><td>Существуют конкуренты, которые уже успешно продают подобные услуги.</td>
+      <td>—</td><td>≈ суждение модели</td><td>0.9</td></tr><tr><td>Существуют конкуренты, которые уже успешно продают подобные услуги.</td>
       <td>—</td>
-      <td>—</td><td>≈ model_judgment</td><td>0.9</td></tr><tr><td>Рынок насыщен, но есть возможности для новых игроков.</td>
+      <td>—</td><td>≈ суждение модели</td><td>0.9</td></tr><tr><td>Рынок насыщен, но есть возможности для новых игроков.</td>
       <td>—</td>
-      <td>—</td><td>≈ model_judgment</td><td>0.8</td></tr><tr><td>Sinch Engage offers a comprehensive multichannel messaging platform with plans starting at $99 per month, including SMS, WhatsApp, Facebook Messenger, and Instagram Messenger integration, along with features like unified inbox, advanced reporting, and 24/7 global support.<div class="note">confirmed: Sinch Engage offers a &#39;Basics&#39; plan at $99 per month, which includes SMS, WhatsApp, Facebook Messenger, and Instagram Messenger integration, along with features like unified inbox, advanced reporting, and 24/7 global support.</div></td>
+      <td>—</td><td>≈ суждение модели</td><td>0.8</td></tr><tr><td>Sinch Engage предлагает комплексную многоканальную платформу обмена сообщениями с тарифами от $99 в месяц, включая интеграцию SMS, WhatsApp, Facebook Messenger и Instagram Messenger, а также функции, такие как единый почтовый ящик, расширенная отчетность и круглосуточная поддержка.<div class="note">подтверждено: Sinch Engage предлагает план &#39;Основы&#39; за $99 в месяц, который включает интеграцию SMS, WhatsApp, Facebook Messenger и Instagram Messenger, а также такие функции, как единый почтовый ящик, расширенная отчетность и круглосуточная глобальная поддержка.</div></td>
       <td><a href="https://sinch.com/engage/pricing/" target="_blank">sinch.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>1.0</td></tr>
-    </table></details>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>1.0</td></tr>
+    </table></div></details>
 </article>
 
 <article class="card" id="text-ai">
   <div class="head">
     <h3><span class="rank">#2 из 4 ·</span> Text.ai</h3>
-    <div class="note">Alfi - your group chat with social skills to bring friends closer</div>
+    <div class="note">Alfi - ваш групповой чат с социальными навыками для сближения друзей</div>
     <div class="verdict"><span class="v v-launch">▶ Запускать тест</span>
       · первая оплата через 5–15 недель · шанс высокий</div>
   </div>
   <div class="row"><div class="k">Идея</div><div>Alfi — групповой чат с социальными навыками для сближения друзей.</div></div>
   <div class="row"><div class="k">Заплатят</div><div>Молодежные группы платят за улучшение общения и планирования.</div></div>
   <div class="row"><div class="k">Деньги</div><div>Подписка ~£10–20/мес за группу.<br>
-    Аналог: xAI ~$250 млрд <a class="src" href="https://finance.yahoo.com/news/musks-xai-talks-raise-4-134414489.html" target="_blank" title="метод: calculation · уверенность: 0.8 · дата: 2025-06-17">finance.yahoo.com, 2025 ✓</a> — xAI вырос благодаря уникальным социальным функциям.</div></div>
+    Аналог: xAI ~$250 млрд <a class="src" href="https://finance.yahoo.com/news/musks-xai-talks-raise-4-134414489.html" target="_blank" title="метод: расчёт · уверенность: 0.8 · дата: 2025-06-17">finance.yahoo.com, 2025 ✓</a> — xAI вырос благодаря уникальным социальным функциям.</div></div>
   <div class="row"><div class="k">Путь к оплате</div><div>Молодежные группы в США, 3-10 человек. · Социальные сети и таргетированная реклама.<br>
     <span class="stages">5–15 нед.:
     Исследование рынка 1–2 → Создание MVP 2–4 → Тестирование и обратная связь 2–4 → Первый платеж 1–3</span></div></div>
   <div class="row"><div class="k">Оценка</div><div class="factors">
     <span class="f-✔" title="клиентов легко найти">✔ Четкий сегмент, доступный онлайн</span><span class="f-✔" title="быстрая продажа">✔ Платят по карте быстро</span><span class="f-✔" title="тест собирается быстро">✔ Нужен работающий MVP</span><span class="f-✔" title="спрос подтверждён">✔ Существуют конкуренты с платными услугами</span><span class="f-●" title="есть место новичку">● Рынок насыщен, но есть ниши</span></div></div>
   <div class="row"><div class="k">Риски<br>(проверены<br>независимо)</div><div>
-    <div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено — Nvidia has secured $530 billion in financial guarantees to dominate the AI market, including substantial commitments to cloud and data-center firms, potentially limiting access to necessary hardware for new entrants. <a class="src" href="https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-amassed-usd530-billion-in-financial-guarantees-to-corner-the-ai-market-supply-commitments-rose-by-nearly-a-quarter-of-a-trillion-dollars-in-a-single-quarter" target="_blank" title="метод: primary · уверенность: 1.0 · дата: 2026-11-16 · confirmed: Nvidia&#39;s financial commitments have increased to $530 billion, up from $184 billion a quarter earlier, with $366 billion in future commitments, including $279 billion in supply and capacity commitments, mainly for memory and manufacturing.">tomshardware.com, 2026 ✓</a>
-      <div class="so">→ Ограниченный доступ к оборудованию</div></div><div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено частично — Anthropic&#39;s IPO valued the company at $1.5 trillion, with Amazon and Google together owning nearly 30% of the shares, providing substantial infrastructure support. <a class="src" href="https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c" target="_blank" title="метод: needs_human · уверенность: 0.5 · дата: 2026-11-19 · partially: Anthropic priced its IPO at $83 per share, valuing the Claude maker at $1.5 trillion and raising $81 billion—making it the largest public offering ever, ahead of SpaceX’s June IPO. [code: numbers differ from the statement: 30] · версии: agent A: https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c | agent B: https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c">apnews.com, 2026 ?</a>
-      <div class="so">→ Конкуренция с крупными игроками</div></div><div class="risk"><span class="lvl">▲ Терпимо</span> · не проверялось — The Federal Trade Commission has previously flagged Big Tech’s relationships with Anthropic and OpenAI, raising concerns about competition and market dominance. <a class="src" href="https://www.axios.com/2026/11/19/anthropics-ipo-signals-a-new-old-tech-era" target="_blank" title="метод: model_judgment · уверенность: 0.5 · дата: 2026-11-19 · not verified; source not in agent&#39;s search results">axios.com, 2026 ≈</a>
+    <div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено — Nvidia обеспечила $530 миллиардов финансовых гарантий для доминирования на рынке ИИ, включая значительные обязательства перед облачными и дата-центровыми компаниями, что может ограничить доступ к необходимому оборудованию для новых участников. <a class="src" href="https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-amassed-usd530-billion-in-financial-guarantees-to-corner-the-ai-market-supply-commitments-rose-by-nearly-a-quarter-of-a-trillion-dollars-in-a-single-quarter" target="_blank" title="метод: первоисточник · уверенность: 1.0 · дата: 2026-11-16 · подтверждено: Финансовые обязательства Nvidia увеличились до $530 миллиардов, по сравнению с $184 миллиардами кварталом ранее, с $366 миллиардами в будущих обязательствах, включая $279 миллиардов в обязательствах по поставкам и мощностям, в основном для памяти и производства.">tomshardware.com, 2026 ✓</a>
+      <div class="so">→ Ограниченный доступ к оборудованию</div></div><div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено частично — IPO Anthropic оценило компанию в $1.5 триллиона, при этом Amazon и Google вместе владеют почти 30% акций, предоставляя значительную инфраструктурную поддержку. <a class="src" href="https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c" target="_blank" title="метод: нужен человек · уверенность: 0.5 · дата: 2026-11-19 · частично: Anthropic оценил свое IPO в $83 за акцию, оценив производителя Claude в $1.5 триллиона и собрав $81 миллиард — это крупнейшее публичное размещение в истории, опередив IPO SpaceX в июне. · версии: agent A: https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c | agent B: https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c">apnews.com, 2026 ?</a>
+      <div class="so">→ Конкуренция с крупными игроками</div></div><div class="risk"><span class="lvl">▲ Терпимо</span> · не проверялось — Федеральная торговая комиссия ранее отмечала отношения крупных технологий с Anthropic и OpenAI, вызывая опасения по поводу конкуренции и доминирования на рынке. <a class="src" href="https://www.axios.com/2026/11/19/anthropics-ipo-signals-a-new-old-tech-era" target="_blank" title="метод: суждение модели · уверенность: 0.5 · дата: 2026-11-19 · не подтверждено; источник не в результатах поиска агента">axios.com, 2026 ≈</a>
       <div class="so">→ Регуляторные риски не подтверждены</div></div></div></div>
   <div class="row"><div class="k">Первые шаги</div><div><ul class="steps">
-    <li>Уточнить: «The one who remembers everything, plans effortlessly, and keeps the crew together.» — не удалось проверить</li><li>Уточнить: «Anthropic&#39;s IPO valued the company at $1.5 trillion, with Amazon and Google together owning nearly 30% of the shares, providing substantial infrastructure support.» — источники расходятся</li><li>Создать лендинг → ≥100 регистраций на сайте</li><li>Запустить рекламу → ≥50 кликов в день</li><li>Провести демо → ≥5 демо из 20 встреч</li></ul></div></div>
+    <li>Уточнить: «Тот, кто помнит все, планирует без усилий и держит команду вместе.» — не удалось проверить</li><li>Уточнить: «IPO Anthropic оценило компанию в $1.5 триллиона, при этом Amazon и Google вместе владеют почти 30% акций, предоставляя значительную инфраструктурную поддержку.» — источники расходятся</li><li>Создать лендинг → ≥100 регистраций на сайте</li><li>Запустить рекламу → ≥50 кликов в день</li><li>Провести демо → ≥5 демо из 20 встреч</li></ul></div></div>
   <details><summary>Источники и проверка (13: 9 ✓ · 2 ≈ · 2 ?)</summary>
-    <table><tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Уверенность</th></tr>
-    <tr><td>We&#39;re building the first group chat with social skills.</td>
+    <div class="scroll"><table class="passport"><colgroup><col style="width:38%"><col style="width:19%"><col style="width:13%"><col style="width:21%"><col style="width:9%"></colgroup>
+    <tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Ув.</th></tr>
+    <tr><td>Мы создаем первый групповой чат с социальными навыками.</td>
       <td><a href="https://www.ycombinator.com/companies/text-ai" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>The one who remembers everything, plans effortlessly, and keeps the crew together.</td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Тот, кто все помнит, планирует без усилий и держит команду вместе.</td>
       <td><a href="https://www.ycombinator.com/companies/text-ai" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>? needs_human</td><td>0.5</td></tr><tr><td>Alfi reads the room, understands each person, and creates custom intelligence for every group chat.</td>
+      <td>2026-11-19</td><td>? нужен человек</td><td>0.5</td></tr><tr><td>Alfi считывает атмосферу, понимает каждого человека и создает индивидуальный интеллект для каждого группового чата.</td>
       <td><a href="https://www.ycombinator.com/companies/text-ai" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>We believe the group chat is the real social network.</td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Мы считаем, что групповая беседа — это настоящая социальная сеть.</td>
       <td><a href="https://www.ycombinator.com/companies/text-ai" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>xAI: $250,000M (market_cap)</td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>xAI: $250,000M (market_cap)</td>
       <td><a href="https://finance.yahoo.com/news/musks-xai-talks-raise-4-134414489.html" target="_blank">finance.yahoo.com, 2025</a></td>
-      <td>2025-06-17</td><td>✓ calculation</td><td>0.8</td></tr><tr><td>Молодежные группы активно используют социальные сети и мессенджеры.</td>
+      <td>2025-06-17</td><td>✓ расчёт</td><td>0.8</td></tr><tr><td>Молодежные группы активно используют социальные сети и мессенджеры.</td>
       <td><a href="https://www.pewresearch.org/internet/2021/04/07/social-media-use-in-2021/" target="_blank">pewresearch.org, 2021</a></td>
-      <td>2021-04-07</td><td>✓ primary</td><td>0.9</td></tr><tr><td>Молодежь предпочитает быстрые и простые платежи онлайн.</td>
+      <td>2021-04-07</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Молодежь предпочитает быстрые и простые платежи онлайн.</td>
       <td><a href="https://www.statista.com/statistics/1234567/online-payment-preferences/" target="_blank">statista.com, 2022</a></td>
-      <td>2022-05-01</td><td>✓ primary</td><td>0.8</td></tr><tr><td>Разработка MVP занимает 4-6 недель.</td>
+      <td>2022-05-01</td><td>✓ первоисточник</td><td>0.8</td></tr><tr><td>Разработка MVP занимает 4-6 недель.</td>
       <td><a href="https://www.techcrunch.com/2023/01/15/mvp-development-timeline/" target="_blank">techcrunch.com, 2023</a></td>
-      <td>2023-01-15</td><td>≈ model_judgment</td><td>0.7</td></tr><tr><td>Существуют успешные аналоги с платными функциями.</td>
+      <td>2023-01-15</td><td>≈ суждение модели</td><td>0.7</td></tr><tr><td>Существуют успешные аналоги с платными функциями.</td>
       <td><a href="https://www.forbes.com/sites/forbestechcouncil/2023/02/10/ai-chat-apps-market-growth/" target="_blank">forbes.com, 2023</a></td>
-      <td>2023-02-10</td><td>✓ primary</td><td>0.8</td></tr><tr><td>Рынок AI-чатов насыщен, но есть ниши для новых игроков.</td>
+      <td>2023-02-10</td><td>✓ первоисточник</td><td>0.8</td></tr><tr><td>Рынок AI-чатов насыщен, но есть ниши для новых игроков.</td>
       <td><a href="https://www.gartner.com/en/newsroom/press-releases/2023-03-20-ai-chat-market-trends" target="_blank">gartner.com, 2023</a></td>
-      <td>2023-03-20</td><td>✓ primary</td><td>0.8</td></tr><tr><td>Anthropic&#39;s IPO valued the company at $1.5 trillion, with Amazon and Google together owning nearly 30% of the shares, providing substantial infrastructure support.<div class="note">partially: Anthropic priced its IPO at $83 per share, valuing the Claude maker at $1.5 trillion and raising $81 billion—making it the largest public offering ever, ahead of SpaceX’s June IPO. [code: numbers differ from the statement: 30]</div></td>
+      <td>2023-03-20</td><td>✓ первоисточник</td><td>0.8</td></tr><tr><td>IPO Anthropic оценило компанию в $1.5 триллиона, при этом Amazon и Google вместе владеют почти 30% акций, предоставляя значительную инфраструктурную поддержку.<div class="note">частично: Anthropic оценил свое IPO в $83 за акцию, оценив производителя Claude в $1.5 триллиона и собрав $81 миллиард — это крупнейшее публичное размещение в истории, опередив IPO SpaceX в июне.</div></td>
       <td><a href="https://apnews.com/article/70b660ddf900d90bbf484ecdf1fb441c" target="_blank">apnews.com, 2026</a></td>
-      <td>2026-11-19</td><td>? needs_human</td><td>0.5</td></tr><tr><td>Nvidia has secured $530 billion in financial guarantees to dominate the AI market, including substantial commitments to cloud and data-center firms, potentially limiting access to necessary hardware for new entrants.<div class="note">confirmed: Nvidia&#39;s financial commitments have increased to $530 billion, up from $184 billion a quarter earlier, with $366 billion in future commitments, including $279 billion in supply and capacity commitments, mainly for memory and manufacturing.</div></td>
+      <td>2026-11-19</td><td>? нужен человек</td><td>0.5</td></tr><tr><td>Nvidia обеспечила $530 миллиардов финансовых гарантий для доминирования на рынке ИИ, включая значительные обязательства перед облачными и дата-центровыми компаниями, что может ограничить доступ к необходимому оборудованию для новых участников.<div class="note">подтверждено: Финансовые обязательства Nvidia увеличились до $530 миллиардов, по сравнению с $184 миллиардами кварталом ранее, с $366 миллиардами в будущих обязательствах, включая $279 миллиардов в обязательствах по поставкам и мощностям, в основном для памяти и производства.</div></td>
       <td><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-amassed-usd530-billion-in-financial-guarantees-to-corner-the-ai-market-supply-commitments-rose-by-nearly-a-quarter-of-a-trillion-dollars-in-a-single-quarter" target="_blank">tomshardware.com, 2026</a></td>
-      <td>2026-11-16</td><td>✓ primary</td><td>1.0</td></tr><tr><td>The Federal Trade Commission has previously flagged Big Tech’s relationships with Anthropic and OpenAI, raising concerns about competition and market dominance.<div class="note">not verified; source not in agent&#39;s search results</div></td>
+      <td>2026-11-16</td><td>✓ первоисточник</td><td>1.0</td></tr><tr><td>Федеральная торговая комиссия ранее отмечала отношения крупных технологий с Anthropic и OpenAI, вызывая опасения по поводу конкуренции и доминирования на рынке.<div class="note">не подтверждено; источник не в результатах поиска агента</div></td>
       <td><a href="https://www.axios.com/2026/11/19/anthropics-ipo-signals-a-new-old-tech-era" target="_blank">axios.com, 2026</a></td>
-      <td>2026-11-19</td><td>≈ model_judgment</td><td>0.5</td></tr>
-    </table></details>
+      <td>2026-11-19</td><td>≈ суждение модели</td><td>0.5</td></tr>
+    </table></div></details>
 </article>
 
 <article class="card" id="contrario">
   <div class="head">
     <h3><span class="rank">#3 из 4 ·</span> Contrario</h3>
-    <div class="note">AI hiring platform powered by expert recruiters</div>
+    <div class="note">Платформа найма на основе ИИ, управляемая экспертами по подбору кадров</div>
     <div class="verdict"><span class="v v-launch">▶ Запускать тест</span>
       · первая оплата через 4–16 недель · шанс высокий</div>
   </div>
   <div class="row"><div class="k">Идея</div><div>Платформа AI для найма, усиленная экспертами-рекрутерами.</div></div>
   <div class="row"><div class="k">Заплатят</div><div>Компании платят за быстрый и качественный подбор сотрудников.</div></div>
   <div class="row"><div class="k">Деньги</div><div>Подписка ~£500–1000/мес за компанию.<br>
-    Аналог: Mercor ~$2 млрд <a class="src" href="https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/" target="_blank" title="метод: calculation · уверенность: 0.8 · дата: 2025-02-20">techcrunch.com, 2025 ✓</a> — Mercor вырос за счёт AI и рекрутеров.</div></div>
+    Аналог: Mercor ~$2 млрд <a class="src" href="https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/" target="_blank" title="метод: расчёт · уверенность: 0.8 · дата: 2025-02-20">techcrunch.com, 2025 ✓</a> — Mercor вырос за счёт AI и рекрутеров.</div></div>
   <div class="row"><div class="k">Путь к оплате</div><div>Стартапы в США, 10–50 сотрудников. · Холодные email и LinkedIn сообщения.<br>
     <span class="stages">4–16 нед.:
     Исследование рынка 1–2 → Создание MVP 2–4 → Тестирование и обратная связь 2–4 → Первая продажа 1–3</span></div></div>
   <div class="row"><div class="k">Оценка</div><div class="factors">
     <span class="f-✔" title="клиентов легко найти">✔ Чёткий сегмент, доступен онлайн.</span><span class="f-✔" title="быстрая продажа">✔ Малый бизнес, одно лицо принимает решение.</span><span class="f-✔" title="тест собирается быстро">✔ Нужен работающий MVP за 4–6 недель.</span><span class="f-●" title="спрос подтверждён">● Смежные продукты продаются, прямых данных мало.</span><span class="f-●" title="есть место новичку">● Рынок насыщен, но есть незанятые ниши.</span></div></div>
   <div class="row"><div class="k">Риски<br>(проверены<br>независимо)</div><div>
-    <div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено — In 2024, 28% of UK job seekers stated that AI-based assessments would make them less likely to apply for a job. <a class="src" href="https://www.techradar.com/pro/over-half-of-firms-are-still-holding-off-using-ai-for-recruitment-as-human-fears-persist" target="_blank" title="метод: primary · уверенность: 1.0 · дата: 2026-09-29 · confirmed: More than a quarter (28%) of UK jobseekers say AI-based assessments would make them less likely to apply for a job.">techradar.com, 2026 ✓</a>
-      <div class="so">→ Учитывать опасения соискателей.</div></div><div class="risk"><span class="lvl">▲ Серьёзно</span> · не проверялось — In 2024, the global AI recruitment market was valued at $734 million and is projected to reach $709.8 million by 2030, indicating a decline. <a class="src" href="https://www.globenewswire.com/news-release/2024/07/29/2920058/0/en/Global-Artificial-Intelligence-AI-Market-in-Recruitment-Strategic-Research-Report-2023-2030-Regulatory-Compliance-and-AI-Navigating-Through-Recruitment-s-Legal-Landscape.html" target="_blank" title="метод: model_judgment · уверенность: 0.5 · дата: 2024-07-29 · not verified (outside top_k); source from agent A&#39;s search">globenewswire.com, 2024 ≈</a>
-      <div class="so">→ Рынок может сократиться.</div></div><div class="risk"><span class="lvl">▲ Терпимо</span> · опровергнуто — Mercer International Inc. (MERC) is a competitor in the AI recruitment market, with a market capitalization of approximately $14.14 billion. <a class="src" href="https://finance.yahoo.com/quote/MERC" target="_blank" title="метод: needs_human · уверенность: 0.0 · дата: 2026-11-19 · contradicted: Mercer International Inc. (MERC) has a market capitalization of approximately $14.14 million, not $14.14 billion. · версии: agent A: https://finance.yahoo.com/quote/MERC | agent B: https://finance.yahoo.com/quote/MERC">finance.yahoo.com, 2026 ?</a>
+    <div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено — В 2024 году 28% соискателей в Великобритании заявили, что оценки на основе ИИ сделают их менее склонными подавать заявки на работу. <a class="src" href="https://www.techradar.com/pro/over-half-of-firms-are-still-holding-off-using-ai-for-recruitment-as-human-fears-persist" target="_blank" title="метод: первоисточник · уверенность: 1.0 · дата: 2026-09-29 · подтверждено: Более четверти (28%) соискателей в Великобритании говорят, что оценки на основе AI сделают их менее склонными подавать заявки на работу.">techradar.com, 2026 ✓</a>
+      <div class="so">→ Учитывать опасения соискателей.</div></div><div class="risk"><span class="lvl">▲ Серьёзно</span> · не проверялось — В 2024 году глобальный рынок рекрутинга на основе ИИ был оценен в $734 миллиона и, по прогнозам, достигнет $709.8 миллиона к 2030 году, что указывает на снижение. <a class="src" href="https://www.globenewswire.com/news-release/2024/07/29/2920058/0/en/Global-Artificial-Intelligence-AI-Market-in-Recruitment-Strategic-Research-Report-2023-2030-Regulatory-Compliance-and-AI-Navigating-Through-Recruitment-s-Legal-Landscape.html" target="_blank" title="метод: суждение модели · уверенность: 0.5 · дата: 2024-07-29 · не подтверждено (вне top_k); источник из поиска агента A">globenewswire.com, 2024 ≈</a>
+      <div class="so">→ Рынок может сократиться.</div></div><div class="risk"><span class="lvl">▲ Терпимо</span> · опровергнуто — Mercer International Inc. (MERC) является конкурентом на рынке рекрутинга на основе ИИ с рыночной капитализацией примерно $14.14 миллиардов. <a class="src" href="https://finance.yahoo.com/quote/MERC" target="_blank" title="метод: нужен человек · уверенность: 0.0 · дата: 2026-11-19 · опровергнуто: Рыночная капитализация Mercer International Inc. (MERC) составляет примерно $14.14 миллиона, а не $14.14 миллиарда. · версии: agent A: https://finance.yahoo.com/quote/MERC | agent B: https://finance.yahoo.com/quote/MERC">finance.yahoo.com, 2026 ?</a>
       <div class="so">→ Конкуренция меньше, чем казалось.</div></div></div></div>
   <div class="row"><div class="k">Первые шаги</div><div><ul class="steps">
-    <li>Уточнить: «Mercer International Inc. (MERC) is a competitor in the AI recruitment market, with a market capitalization of approximately $14.14 billion.» — источники расходятся</li><li>Отправить 100 писем → ≥5 демо из 100 писем</li><li>Провести демо → ≥3 положительных отзыва</li><li>Заключить контракт → ≥1 платёж от клиента</li></ul></div></div>
+    <li>Уточнить: «Mercer International Inc. (MERC) является конкурентом на рынке AI-рекрутинга, с рыночной капитализацией примерно $14.14 миллиарда.» — источники расходятся</li><li>Отправить 100 писем → ≥5 демо из 100 писем</li><li>Провести демо → ≥3 положительных отзыва</li><li>Заключить контракт → ≥1 платёж от клиента</li></ul></div></div>
   <details><summary>Источники и проверка (13: 5 ✓ · 7 ≈ · 1 ?)</summary>
-    <table><tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Уверенность</th></tr>
-    <tr><td>Contrario is an AI recruiting and hiring platform.</td>
+    <div class="scroll"><table class="passport"><colgroup><col style="width:38%"><col style="width:19%"><col style="width:13%"><col style="width:21%"><col style="width:9%"></colgroup>
+    <tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Ув.</th></tr>
+    <tr><td>Contrario - это платформа для рекрутинга и найма на основе ИИ.</td>
       <td><a href="https://www.ycombinator.com/companies/contrario" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>In under six months, Contrario has crossed $6M in annualized revenue.</td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Менее чем за шесть месяцев Contrario преодолел $6M годового дохода.</td>
       <td><a href="https://www.ycombinator.com/companies/contrario" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>paid out $1M+ to recruiters</td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>выплачено более $1M рекрутерам</td>
       <td><a href="https://www.ycombinator.com/companies/contrario" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>≈ model_judgment</td><td>0.8</td></tr><tr><td>Contrario is an AI recruiting and hiring platform.</td>
+      <td>2026-11-19</td><td>≈ суждение модели</td><td>0.8</td></tr><tr><td>Contrario - это платформа для рекрутинга и найма на основе ИИ.</td>
       <td><a href="https://www.ycombinator.com/companies/contrario" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>Mercor: $2,000M (last_round)</td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Mercor: $2,000M (last_round)</td>
       <td><a href="https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/" target="_blank">techcrunch.com, 2025</a></td>
-      <td>2025-02-20</td><td>✓ calculation</td><td>0.8</td></tr><tr><td>Стартапы легко найти через онлайн-каталоги и сообщества.</td>
+      <td>2025-02-20</td><td>✓ расчёт</td><td>0.8</td></tr><tr><td>Стартапы легко найти через онлайн-каталоги и сообщества.</td>
       <td><a href="https://example.com" target="_blank">example.com, 2023</a></td>
-      <td>2023-10-01</td><td>≈ model_judgment</td><td>0.9</td></tr><tr><td>Стартапы быстро принимают решения о найме.</td>
+      <td>2023-10-01</td><td>≈ суждение модели</td><td>0.9</td></tr><tr><td>Стартапы быстро принимают решения о найме.</td>
       <td><a href="https://example.com" target="_blank">example.com, 2023</a></td>
-      <td>2023-10-01</td><td>≈ model_judgment</td><td>0.9</td></tr><tr><td>Создание MVP возможно за 4–6 недель.</td>
+      <td>2023-10-01</td><td>≈ суждение модели</td><td>0.9</td></tr><tr><td>Создание MVP возможно за 4–6 недель.</td>
       <td><a href="https://example.com" target="_blank">example.com, 2023</a></td>
-      <td>2023-10-01</td><td>≈ model_judgment</td><td>0.8</td></tr><tr><td>AI платформы для найма уже существуют на рынке.</td>
+      <td>2023-10-01</td><td>≈ суждение модели</td><td>0.8</td></tr><tr><td>AI платформы для найма уже существуют на рынке.</td>
       <td><a href="https://example.com" target="_blank">example.com, 2023</a></td>
-      <td>2023-10-01</td><td>≈ model_judgment</td><td>0.7</td></tr><tr><td>Существуют незанятые ниши для AI найма.</td>
+      <td>2023-10-01</td><td>≈ суждение модели</td><td>0.7</td></tr><tr><td>Существуют незанятые ниши для AI найма.</td>
       <td><a href="https://example.com" target="_blank">example.com, 2023</a></td>
-      <td>2023-10-01</td><td>≈ model_judgment</td><td>0.7</td></tr><tr><td>In 2024, 28% of UK job seekers stated that AI-based assessments would make them less likely to apply for a job.<div class="note">confirmed: More than a quarter (28%) of UK jobseekers say AI-based assessments would make them less likely to apply for a job.</div></td>
+      <td>2023-10-01</td><td>≈ суждение модели</td><td>0.7</td></tr><tr><td>В 2024 году 28% соискателей в Великобритании заявили, что оценки на основе ИИ сделают их менее склонными подавать заявки на работу.<div class="note">подтверждено: Более четверти (28%) соискателей в Великобритании говорят, что оценки на основе AI сделают их менее склонными подавать заявки на работу.</div></td>
       <td><a href="https://www.techradar.com/pro/over-half-of-firms-are-still-holding-off-using-ai-for-recruitment-as-human-fears-persist" target="_blank">techradar.com, 2026</a></td>
-      <td>2026-09-29</td><td>✓ primary</td><td>1.0</td></tr><tr><td>Mercer International Inc. (MERC) is a competitor in the AI recruitment market, with a market capitalization of approximately $14.14 billion.<div class="note">contradicted: Mercer International Inc. (MERC) has a market capitalization of approximately $14.14 million, not $14.14 billion.</div></td>
+      <td>2026-09-29</td><td>✓ первоисточник</td><td>1.0</td></tr><tr><td>Mercer International Inc. (MERC) является конкурентом на рынке рекрутинга на основе ИИ с рыночной капитализацией примерно $14.14 миллиардов.<div class="note">опровергнуто: Рыночная капитализация Mercer International Inc. (MERC) составляет примерно $14.14 миллиона, а не $14.14 миллиарда.</div></td>
       <td><a href="https://finance.yahoo.com/quote/MERC" target="_blank">finance.yahoo.com, 2026</a></td>
-      <td>2026-11-19</td><td>? needs_human</td><td>0.0</td></tr><tr><td>In 2024, the global AI recruitment market was valued at $734 million and is projected to reach $709.8 million by 2030, indicating a decline.<div class="note">not verified (outside top_k); source from agent A&#39;s search</div></td>
+      <td>2026-11-19</td><td>? нужен человек</td><td>0.0</td></tr><tr><td>В 2024 году глобальный рынок рекрутинга на основе ИИ был оценен в $734 миллиона и, по прогнозам, достигнет $709.8 миллиона к 2030 году, что указывает на снижение.<div class="note">не подтверждено (вне top_k); источник из поиска агента A</div></td>
       <td><a href="https://www.globenewswire.com/news-release/2024/07/29/2920058/0/en/Global-Artificial-Intelligence-AI-Market-in-Recruitment-Strategic-Research-Report-2023-2030-Regulatory-Compliance-and-AI-Navigating-Through-Recruitment-s-Legal-Landscape.html" target="_blank">globenewswire.com, 2024</a></td>
-      <td>2024-07-29</td><td>≈ model_judgment</td><td>0.5</td></tr>
-    </table></details>
+      <td>2024-07-29</td><td>≈ суждение модели</td><td>0.5</td></tr>
+    </table></div></details>
 </article>
 
 <article class="card" id="tinfoil">
   <div class="head">
     <h3><span class="rank">#4 из 4 ·</span> Tinfoil</h3>
-    <div class="note">Encrypted AI with verifiable privacy</div>
+    <div class="note">Зашифрованный ИИ с проверяемой конфиденциальностью</div>
     <div class="verdict"><span class="v v-park">▶ Отложить</span>
       · первая оплата через 6–17 недель · шанс средний</div>
   </div>
   <div class="row"><div class="k">Идея</div><div>Tinfoil обеспечивает безопасную и проверяемую конфиденциальность для AI приложений в облаке.</div></div>
   <div class="row"><div class="k">Заплатят</div><div>Компании платят за гарантированную конфиденциальность данных при использовании AI.</div></div>
   <div class="row"><div class="k">Деньги</div><div>Подписка ~£1000/мес за компанию.<br>
-    Аналог: Anthropic ~$965 млрд <a class="src" href="https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion" target="_blank" title="метод: calculation · уверенность: 0.3 · дата: 2026-11-18 · source URL not found in web-search results — possibly hallucinated">axios.com, 2026 ✓</a> — Фокус на безопасности и конфиденциальности.</div></div>
+    Аналог: Anthropic ~$965 млрд <a class="src" href="https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion" target="_blank" title="метод: расчёт · уверенность: 0.3 · дата: 2026-11-18 · URL источника не найден в результатах веб-поиска — возможно, галлюцинация">axios.com, 2026 ✓</a> — Фокус на безопасности и конфиденциальности.</div></div>
   <div class="row"><div class="k">Путь к оплате</div><div>Средние технологические компании в США, 50-200 сотрудников. · Холодные email-рассылки и вебинары.<br>
     <span class="stages">6–17 нед.:
     Исследование рынка 2–4 → Создание MVP 4–6 → Тестирование и обратная связь 2–4</span></div></div>
   <div class="row"><div class="k">Оценка</div><div class="factors">
     <span class="f-✔" title="клиентов легко найти">✔ Сегмент ясен, но доступ ограничен</span><span class="f-●" title="быстрая продажа">● Несколько лиц принимают решения</span><span class="f-✖" title="тест собирается быстро">✖ Требуется работающий MVP</span><span class="f-✔" title="спрос подтверждён">✔ Существуют конкуренты с платными решениями</span><span class="f-●" title="есть место новичку">● Рынок конкурентный, но быстро растет</span></div></div>
   <div class="row"><div class="k">Риски<br>(проверены<br>независимо)</div><div>
-    <div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено — Major cloud providers like Microsoft and Google offer confidential computing services integrated into their platforms, such as Azure Confidential Compute and Google Cloud&#39;s Confidential GKE Nodes. <a class="src" href="https://www.emergenresearch.com/industry-report/confidential-computing-market" target="_blank" title="метод: primary · уверенность: 1.0 · дата: 2026-10-12 · confirmed: The global confidential computing market size was USD 4.82 Billion in 2025 and is expected to register a revenue CAGR of 38.2% during the forecast period.">emergenresearch.com, 2026 ✓</a>
-      <div class="so">→ Конкуренция с крупными облачными провайдерами</div></div><div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено — The confidential computing market is projected to reach $48.3 billion by 2035, growing at a CAGR of 30.0% from 2025 to 2035, indicating a highly competitive and rapidly evolving market. <a class="src" href="https://www.market-reports.com/reports/confidential-computing" target="_blank" title="метод: primary · уверенность: 1.0 · дата: 2026-10-12 · confirmed: The Confidential Computing market is estimated at $3.5 billion in 2025 and is forecast to reach $48.3 billion in 2035, growing at a CAGR of 30.0% from 2025 to 2035.">market-reports.com, 2026 ✓</a>
-      <div class="so">→ Высокая конкуренция и быстрый рост рынка</div></div><div class="risk"><span class="lvl">▲ Серьёзно</span> · не проверялось — Implementing confidential computing solutions often requires significant integration efforts, including software refactoring for memory and threading constraints, adding 4-12 weeks of engineering time. <a class="src" href="https://www.datainsightsreports.com/reports/confidential-computing-market-15223" target="_blank" title="метод: model_judgment · уверенность: 0.5 · дата: 2026-06-15 · not verified (outside top_k); source from agent A&#39;s search">datainsightsreports.com, 2026 ≈</a>
+    <div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено — Крупные облачные провайдеры, такие как Microsoft и Google, предлагают услуги конфиденциальных вычислений, интегрированные в свои платформы, такие как Azure Confidential Compute и Confidential GKE Nodes от Google Cloud. <a class="src" href="https://www.emergenresearch.com/industry-report/confidential-computing-market" target="_blank" title="метод: первоисточник · уверенность: 1.0 · дата: 2026-10-12 · подтверждено: Размер глобального рынка конфиденциальных вычислений составил 4.82 миллиарда долларов США в 2025 году и ожидается, что он зарегистрирует CAGR доходов 38.2% в течение прогнозируемого периода.">emergenresearch.com, 2026 ✓</a>
+      <div class="so">→ Конкуренция с крупными облачными провайдерами</div></div><div class="risk"><span class="lvl">▲ Серьёзно</span> · подтверждено — Ожидается, что рынок конфиденциальных вычислений достигнет $48.3 миллиарда к 2035 году, растя с CAGR 30.0% с 2025 по 2035 год, что указывает на высококонкурентный и быстро развивающийся рынок. <a class="src" href="https://www.market-reports.com/reports/confidential-computing" target="_blank" title="метод: первоисточник · уверенность: 1.0 · дата: 2026-10-12 · подтверждено: Рынок конфиденциальных вычислений оценивается в $3.5 миллиарда в 2025 году и прогнозируется, что он достигнет $48.3 миллиарда в 2035 году, с CAGR 30.0% с 2025 по 2035 год.">market-reports.com, 2026 ✓</a>
+      <div class="so">→ Высокая конкуренция и быстрый рост рынка</div></div><div class="risk"><span class="lvl">▲ Серьёзно</span> · не проверялось — Реализация решений конфиденциальных вычислений часто требует значительных усилий по интеграции, включая рефакторинг программного обеспечения для ограничений памяти и потоков, добавляя 4-12 недель инженерного времени. <a class="src" href="https://www.datainsightsreports.com/reports/confidential-computing-market-15223" target="_blank" title="метод: суждение модели · уверенность: 0.5 · дата: 2026-06-15 · не подтверждено (вне top_k); источник из поиска агента A">datainsightsreports.com, 2026 ≈</a>
       <div class="so">→ Необходима значительная интеграция</div></div></div></div>
   <div class="row"><div class="k">Первые шаги</div><div><ul class="steps">
-    <li>Уточнить: «We offer several self-serve products.» — не удалось проверить</li><li>Создать лендинг и собрать заявки → ≥10 заявок за 2 недели</li><li>Провести демо и собрать отзывы → ≥5 положительных отзывов</li><li>Заключить первые контракты → ≥1 контракт в 3 месяца</li></ul></div></div>
+    <li>Уточнить: «Мы предлагаем несколько продуктов самообслуживания.» — не удалось проверить</li><li>Создать лендинг и собрать заявки → ≥10 заявок за 2 недели</li><li>Провести демо и собрать отзывы → ≥5 положительных отзывов</li><li>Заключить первые контракты → ≥1 контракт в 3 месяца</li></ul></div></div>
   <details><summary>Источники и проверка (13: 6 ✓ · 6 ≈ · 1 ?)</summary>
-    <table><tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Уверенность</th></tr>
-    <tr><td>Tinfoil makes it easy to make your AI workloads secure and provably private.</td>
+    <div class="scroll"><table class="passport"><colgroup><col style="width:38%"><col style="width:19%"><col style="width:13%"><col style="width:21%"><col style="width:9%"></colgroup>
+    <tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Ув.</th></tr>
+    <tr><td>Tinfoil упрощает обеспечение безопасности и доказательной конфиденциальности ваших AI-работ.</td>
       <td><a href="https://www.ycombinator.com/companies/tinfoil" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>We offer several self-serve products.</td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Мы предлагаем несколько продуктов самообслуживания.</td>
       <td><a href="https://www.ycombinator.com/companies/tinfoil" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>? needs_human</td><td>0.7</td></tr><tr><td>Tinfoil guarantees that all data always stays private and cannot be accessed by anyone other than the end user.</td>
+      <td>2026-11-19</td><td>? нужен человек</td><td>0.7</td></tr><tr><td>Tinfoil гарантирует, что все данные всегда остаются конфиденциальными и не могут быть доступны никому, кроме конечного пользователя.</td>
       <td><a href="https://www.ycombinator.com/companies/tinfoil" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>Tinfoil promises to unlock significantly deeper AI adoption and integrations by making it easy to obtain true privacy.</td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Tinfoil обещает значительно углубить принятие AI и интеграции, упрощая получение истинной конфиденциальности.</td>
       <td><a href="https://www.ycombinator.com/companies/tinfoil" target="_blank">ycombinator.com, 2026</a></td>
-      <td>2026-11-19</td><td>✓ primary</td><td>0.9</td></tr><tr><td>Anthropic: $965,000M (last_round)<div class="note">source URL not found in web-search results — possibly hallucinated</div></td>
+      <td>2026-11-19</td><td>✓ первоисточник</td><td>0.9</td></tr><tr><td>Anthropic: $965,000M (last_round)<div class="note">URL источника не найден в результатах веб-поиска — возможно, галлюцинация</div></td>
       <td><a href="https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion" target="_blank">axios.com, 2026</a></td>
-      <td>2026-11-18</td><td>✓ calculation</td><td>0.3</td></tr><tr><td>Компании среднего размера в США заинтересованы в конфиденциальности AI.</td>
+      <td>2026-11-18</td><td>✓ расчёт</td><td>0.3</td></tr><tr><td>Компании среднего размера в США заинтересованы в конфиденциальности AI.</td>
       <td>—</td>
-      <td>—</td><td>≈ model_judgment</td><td>0.8</td></tr><tr><td>Средние компании требуют согласования нескольких лиц.</td>
+      <td>—</td><td>≈ суждение модели</td><td>0.8</td></tr><tr><td>Средние компании требуют согласования нескольких лиц.</td>
       <td>—</td>
-      <td>—</td><td>≈ model_judgment</td><td>0.7</td></tr><tr><td>Необходима интеграция с существующими системами.</td>
+      <td>—</td><td>≈ суждение модели</td><td>0.7</td></tr><tr><td>Необходима интеграция с существующими системами.</td>
       <td>—</td>
-      <td>—</td><td>≈ model_judgment</td><td>0.7</td></tr><tr><td>Рынок конфиденциальных вычислений активно растет.</td>
+      <td>—</td><td>≈ суждение модели</td><td>0.7</td></tr><tr><td>Рынок конфиденциальных вычислений активно растет.</td>
       <td>—</td>
-      <td>—</td><td>≈ model_judgment</td><td>0.9</td></tr><tr><td>Рынок конфиденциальных вычислений ожидает значительный рост.</td>
+      <td>—</td><td>≈ суждение модели</td><td>0.9</td></tr><tr><td>Рынок конфиденциальных вычислений ожидает значительный рост.</td>
       <td>—</td>
-      <td>—</td><td>≈ model_judgment</td><td>0.8</td></tr><tr><td>Major cloud providers like Microsoft and Google offer confidential computing services integrated into their platforms, such as Azure Confidential Compute and Google Cloud&#39;s Confidential GKE Nodes.<div class="note">confirmed: The global confidential computing market size was USD 4.82 Billion in 2025 and is expected to register a revenue CAGR of 38.2% during the forecast period.</div></td>
+      <td>—</td><td>≈ суждение модели</td><td>0.8</td></tr><tr><td>Крупные облачные провайдеры, такие как Microsoft и Google, предлагают услуги конфиденциальных вычислений, интегрированные в свои платформы, такие как Azure Confidential Compute и Confidential GKE Nodes от Google Cloud.<div class="note">подтверждено: Размер глобального рынка конфиденциальных вычислений составил 4.82 миллиарда долларов США в 2025 году и ожидается, что он зарегистрирует CAGR доходов 38.2% в течение прогнозируемого периода.</div></td>
       <td><a href="https://www.emergenresearch.com/industry-report/confidential-computing-market" target="_blank">emergenresearch.com, 2026</a></td>
-      <td>2026-10-12</td><td>✓ primary</td><td>1.0</td></tr><tr><td>The confidential computing market is projected to reach $48.3 billion by 2035, growing at a CAGR of 30.0% from 2025 to 2035, indicating a highly competitive and rapidly evolving market.<div class="note">confirmed: The Confidential Computing market is estimated at $3.5 billion in 2025 and is forecast to reach $48.3 billion in 2035, growing at a CAGR of 30.0% from 2025 to 2035.</div></td>
+      <td>2026-10-12</td><td>✓ первоисточник</td><td>1.0</td></tr><tr><td>Ожидается, что рынок конфиденциальных вычислений достигнет $48.3 миллиарда к 2035 году, растя с CAGR 30.0% с 2025 по 2035 год, что указывает на высококонкурентный и быстро развивающийся рынок.<div class="note">подтверждено: Рынок конфиденциальных вычислений оценивается в $3.5 миллиарда в 2025 году и прогнозируется, что он достигнет $48.3 миллиарда в 2035 году, с CAGR 30.0% с 2025 по 2035 год.</div></td>
       <td><a href="https://www.market-reports.com/reports/confidential-computing" target="_blank">market-reports.com, 2026</a></td>
-      <td>2026-10-12</td><td>✓ primary</td><td>1.0</td></tr><tr><td>Implementing confidential computing solutions often requires significant integration efforts, including software refactoring for memory and threading constraints, adding 4-12 weeks of engineering time.<div class="note">not verified (outside top_k); source from agent A&#39;s search</div></td>
+      <td>2026-10-12</td><td>✓ первоисточник</td><td>1.0</td></tr><tr><td>Реализация решений конфиденциальных вычислений часто требует значительных усилий по интеграции, включая рефакторинг программного обеспечения для ограничений памяти и потоков, добавляя 4-12 недель инженерного времени.<div class="note">не подтверждено (вне top_k); источник из поиска агента A</div></td>
       <td><a href="https://www.datainsightsreports.com/reports/confidential-computing-market-15223" target="_blank">datainsightsreports.com, 2026</a></td>
-      <td>2026-06-15</td><td>≈ model_judgment</td><td>0.5</td></tr>
-    </table></details>
+      <td>2026-06-15</td><td>≈ суждение модели</td><td>0.5</td></tr>
+    </table></div></details>
 </article>
 
 </div>
 
 <h2>Отсеяно на отборе</h2>
 <table><tr><th>Модель</th><th>Сработавший критерий</th><th>Причина</th></tr>
-<tr><td>CoArena</td><td>Есть аналог от $300 млн</td><td>conservative valuation $100M &lt; $240M</td></tr><tr><td>Cranston AI</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег</div></td><td>The business involves tax preparation and bookkeeping, which typically requires licenses for financial services.</td></tr><tr><td>Vulcan Technologies</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег, Не трейдинг и не госсервис</div></td><td>The business model involves providing services to government entities, which typically require specific licenses.</td></tr><tr><td>Foresight</td><td>Есть аналог от $300 млн</td><td>no analog with a valuation found</td></tr><tr><td>Quippy</td><td>Есть аналог от $300 млн</td><td>no analog with a valuation found</td></tr><tr><td>Vassar Robotics</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег</div></td><td>The business involves physical hardware and robotics, which typically requires licenses for manufacturing and safety compliance.</td></tr><tr><td>Oasive</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег, Не трейдинг и не госсервис</div></td><td>The business model involves analyzing municipal bonds, which typically requires regulatory compliance and licensing.</td></tr><tr><td>ValCtrl</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег, Не трейдинг и не госсервис</div></td><td>The business model involves trading in prediction markets, which typically requires regulatory licenses.</td></tr><tr><td>Edexia</td><td>Есть аналог от $300 млн</td><td>conservative valuation $80M &lt; $240M</td></tr><tr><td>Toothy AI</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег</div></td><td>The business model involves handling insurance verification, which typically requires compliance with regulations and potentially obtaining licenses.</td></tr><tr><td>Waypoint Transit</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег, Не трейдинг и не госсервис</div></td><td>The business model involves providing services to government entities, which typically requires specific licenses or compliance with regulations.</td></tr>
+<tr><td>CoArena</td><td>Есть аналог от $300 млн</td><td>conservative valuation $100M &lt; $240M</td></tr><tr><td>Cranston AI</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег</div></td><td>Бизнес включает подготовку налогов и бухгалтерский учет, что обычно требует лицензий на финансовые услуги.</td></tr><tr><td>Vulcan Technologies</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег, Не трейдинг и не госсервис</div></td><td>Бизнес-модель включает предоставление услуг государственным учреждениям, что обычно требует специальных лицензий.</td></tr><tr><td>Foresight</td><td>Есть аналог от $300 млн</td><td>аналог с оценкой не найден</td></tr><tr><td>Quippy</td><td>Есть аналог от $300 млн</td><td>аналог с оценкой не найден</td></tr><tr><td>Vassar Robotics</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег</div></td><td>Бизнес включает физическое оборудование и робототехнику, что обычно требует лицензий на производство и соблюдение стандартов безопасности.</td></tr><tr><td>Oasive</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег, Не трейдинг и не госсервис</div></td><td>Бизнес-модель включает анализ муниципальных облигаций, что обычно требует соблюдения нормативных требований и лицензирования.</td></tr><tr><td>ValCtrl</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег, Не трейдинг и не госсервис</div></td><td>Бизнес-модель включает торговлю на рынках прогнозов, что обычно требует регуляторных лицензий.</td></tr><tr><td>Edexia</td><td>Есть аналог от $300 млн</td><td>conservative valuation $80M &lt; $240M</td></tr><tr><td>Toothy AI</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег</div></td><td>Бизнес-модель включает обработку проверки страхования, что обычно требует соблюдения нормативных требований и потенциального получения лицензий.</td></tr><tr><td>Waypoint Transit</td><td>Законно, онлайн, без лицензии<div class="note">также: Без кредита, страховки и чужих денег, Не трейдинг и не госсервис</div></td><td>Бизнес-модель включает предоставление услуг государственным учреждениям, что обычно требует специальных лицензий или соблюдения нормативных требований.</td></tr>
 </table>
 
 

@@ -41,6 +41,7 @@ def test_low_reliability_forces_manual_check():
     assert sc.decide(80, 0.3, (6, 10), CFG)[0] == "check_manually"
     assert sc.decide(30, 0.3, (6, 10), CFG)[0] == "skip"          # слабую не отправляем «на проверку»
     assert sc.decide(80, 0.9, (14, 20), CFG)[1] == "низкий"       # не успеваем за 3 месяца
+    assert sc.decide(80, 0.9, (5, 15), CFG)[1] == "средний"       # в худшем случае не успеваем — ступенью ниже
 
 
 def test_source_tag():
@@ -83,3 +84,15 @@ def test_penalty_uses_scorer_severity_not_devil():
     pen = {r.id: r.penalty for r in card.risks}
     assert pen == {"r1": sc.risk_penalty(2, "confirmed", CFG), "r2": sc.risk_penalty(3, "confirmed", CFG)}
     assert card.internal["severity"]["r1"] == {"devil": 5, "scorer": 2}
+    # просили 5 рисков, нашлось 2 → 3 недостающих штрафуются
+    expected = load_config()["agents"]["devil"]["max_risks"] - 2
+    assert card.internal["missing_risks"] == expected
+    assert card.internal["risk_penalty"] == min(sum(pen.values()) + expected * CFG["risk_penalty"]["missing_risk_penalty"],
+                                                CFG["risk_penalty"]["max_total"])
+
+
+def test_needs_ru():
+    from pipeline.translate import needs_ru
+    assert needs_ru("Major cloud providers offer confidential computing")
+    assert not needs_ru("Подписка ~$30/мес за преподавателя") and not needs_ru("https://a.com/x") and not needs_ru("Keiki")
+    assert needs_ru("Уточнить: «The one who remembers everything, plans effortlessly» — не удалось проверить")

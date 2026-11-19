@@ -7,7 +7,9 @@ For EACH criterion return a verdict:
 - "uncertain": the description does not give enough information
 
 Rules:
-- reason: one sentence, concrete, in English.
+- Judge EACH criterion on its own. Failing one criterion says nothing about the others: a hardware startup fails
+  "online" but usually passes "no credit/insurance risk". Do not copy one problem into every criterion.
+- reason: one sentence, concrete, in Russian.
 - evidence.text: the fact from the description your verdict rests on.
 - evidence.method: "primary" if you quote the description, "model_judgment" if you infer.
 - evidence.source_url: the source URL given below. evidence.source_date: the fetch date given below.

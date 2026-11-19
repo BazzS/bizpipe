@@ -70,22 +70,24 @@ filter:
   short_circuit: true            # провалила 1–4 → поиск аналога не запускаем (экономия)
   on_uncertain: pass_flagged
   criteria:
+    # Порядок важен: в отчёт идёт первый сработавший критерий, поэтому конкретные (госзаказчик, трейдинг,
+    # чужие деньги) стоят раньше общего «нужна лицензия».
+    - id: not_trading_or_gov
+      label: "Не трейдинг и не госсервис"
+      check: llm
+      text: "Not trading (incl. prediction markets, investing, crypto exchange) and not a government service (the main customer is not a government body or city). Selling to private companies that work WITH governments is fine."
+    - id: no_balance_sheet_risk
+      label: "Без кредита, страховки и чужих денег"
+      check: llm
+      text: "We do not lend money, do not underwrite insurance, and do not hold or move clients' money. Software that ANALYSES credit, insurance or payments for others passes. Fail only if WE carry the credit/insurance risk or custody."
     - id: online_no_license
       label: "Законно, онлайн, без лицензии"
       check: llm
-      text: "Legal and fully online; we can reach the first paying client without obtaining our own license (financial, medical, legal, telecom etc.). Physical hardware, offline operations or logistics = fail."
+      text: "Legal and fully online; we can reach the first paying client without obtaining OUR OWN license (financial, medical, legal, telecom etc.). Software sold TO licensed professionals (accountants, clinics, lawyers, investors) passes: they hold the license, we sell a tool. Fail only if WE must be licensed to deliver it (we give investment/medical/legal advice to end users, we file taxes ourselves). Physical hardware, offline operations or logistics = fail."
     - id: recurring_revenue
       label: "Повторяющиеся деньги"
       check: llm
       text: "Revenue is recurring: a subscription, or a commission on operations that customers repeat regularly (marketplace commissions count)."
-    - id: no_balance_sheet_risk
-      label: "Без кредита, страховки и чужих денег"
-      check: llm
-      text: "We do not take on credit risk, insurance risk, or custody of other people's money."
-    - id: not_trading_or_gov
-      label: "Не трейдинг и не госсервис"
-      check: llm
-      text: "Not trading (incl. prediction markets, investing, crypto exchange) and not a government service (the main customer is not a government body)."
     - id: big_analog
       label: "Есть аналог от $300 млн"
       check: web_search
@@ -147,6 +149,10 @@ scoring:
     per_severity: 2
     max_total: 20               # риски не могут обнулить модель: потолок штрафа
     fallback_severity_cap: 3    # если оценщик не оценил риск, берём тяжесть агента А, но не выше этого
+    # Отсутствие найденного риска — не доказательство, что его нет. Если после удаления повторов рисков
+    # меньше, чем просили у агента А (agents.devil.max_risks), каждый недостающий штрафуется как
+    # «средний частично подтверждённый» риск: 3 × per_severity × 0.5 = 3 балла.
+    missing_risk_penalty: 3
     status_factor: {confirmed: 1.0, partially: 0.5, not_confirmed: 0.25, source_unavailable: 0.25, unverified: 0.25, contradicted: 0.0}
 
   # Надёжность = средний «вес» метода по всем утверждениям карточки
@@ -156,6 +162,8 @@ scoring:
   max_weeks: 13                 # горизонт заказчика — 3 месяца
 
   chance_levels: {high: 70, medium: 50}       # оценка ≥70 → высокий, ≥50 → средний, иначе низкий
+  # Если верхняя граница срока за горизонтом (max_weeks), шанс понижается на одну ступень:
+  # «высокий» при сроке 5–15 недель вводит в заблуждение.
   verdicts: {launch: 70, park: 50}            # ≥70 запускать, ≥50 отложить, иначе не брать
   severity_labels: {5: "Критично", 4: "Критично", 3: "Серьёзно", 2: "Терпимо", 1: "Терпимо"}
   max_risks_on_card: 3

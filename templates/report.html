@@ -20,8 +20,11 @@
   td.m { text-align:center; font-size:16px; }
   .v { font-weight:600; white-space:nowrap; }
   .v-launch { color:var(--go); } .v-park { color:var(--park); } .v-skip { color:var(--stop); } .v-check_manually { color:var(--check); }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(420px, 1fr)); gap:18px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(min(440px, 100%), 1fr)); gap:18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; min-width:0; overflow-wrap:break-word; }
+  .scroll { overflow-x:auto; }
+  table.passport { table-layout:fixed; } table.passport th, table.passport td { padding:6px 6px; overflow-wrap:break-word; }
+  table.passport th { font-size:10px; letter-spacing:0; } table.passport .src, table.passport a { white-space:normal; }
   .card h3 { margin:0; font-size:17px; } .card .rank { color:var(--muted); font-weight:400; }
   .head { border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:12px; }
   .verdict { margin-top:6px; font-size:14px; }
@@ -52,7 +55,7 @@
 </div>
 
 <h2>Рейтинг — от слабой к перспективной</h2>
-<table>
+<div class="scroll"><table>
   <tr><th>#</th><th>Модель</th><th>Вердикт</th><th>Шанс</th><th>Первая оплата</th>
     {% for fid, f in factors.items() %}<th>{{ f.label }}</th>{% endfor %}<th>Главный риск</th></tr>
   {% for c in ranked_weak_first %}
@@ -61,9 +64,9 @@
     <td>{% if c.weeks %}{{ c.weeks[0] }}–{{ c.weeks[1] }} нед.{% endif %}</td>
     {% set fm = {} %}{% for x in c.factors %}{% set _ = fm.update({x.id: x.mark}) %}{% endfor %}
     {% for fid in factors %}<td class="m f-{{ fm.get(fid, '') }}">{{ fm.get(fid, '—') }}</td>{% endfor %}
-    <td class="note">{% if c.risks %}{{ c.risks[0].level }}: {{ c.risks[0].fact }}{% endif %}</td></tr>
+    <td class="note">{% if c.risks %}{{ c.risks[0].level }}: {{ c.risks[0].fact|ru }}{% endif %}</td></tr>
   {% endfor %}
-</table>
+</table></div>
 <p class="note">✔ сильная сторона · ● средне · ✖ слабое место.</p>
 
 {% macro src(tag) %}{% if tag %}{% if tag.url %}<a class="src" href="{{ tag.url }}" target="_blank" title="{{ tag|tip }}">{{ tag.label }} {{ tag.mark }}</a>{% else %}<span class="src" title="{{ tag|tip }}">{{ tag.label }} {{ tag.mark }}</span>{% endif %}{% endif %}{% endmacro %}
@@ -74,7 +77,7 @@
 <article class="card" id="{{ c.model_id }}">
   <div class="head">
     <h3><span class="rank">#{{ c.rank }} из {{ ranked_weak_first|length }} ·</span> {{ c.name }}</h3>
-    <div class="note">{{ c.one_liner }}</div>
+    <div class="note">{{ c.one_liner|ru }}</div>
     <div class="verdict"><span class="v v-{{ c.verdict }}">▶ {{ c.verdict_label }}</span>
       · первая оплата через {{ c.weeks[0] }}–{{ c.weeks[1] }} недель · шанс {{ c.chance }}</div>
   </div>
@@ -88,23 +91,24 @@
   <div class="row"><div class="k">Оценка</div><div class="factors">
     {% for f in c.factors %}<span class="f-{{ f.mark }}" title="{{ f.label }}">{{ f.mark }} {{ f.line }}</span>{% endfor %}</div></div>
   <div class="row"><div class="k">Риски<br>(проверены<br>независимо)</div><div>
-    {% for r in c.risks %}<div class="risk"><span class="lvl">▲ {{ r.level }}</span> · {{ r.status }} — {{ r.fact }} {{ src(r.source) }}
+    {% for r in c.risks %}<div class="risk"><span class="lvl">▲ {{ r.level }}</span> · {{ r.status }} — {{ r.fact|ru }} {{ src(r.source) }}
       {% if r.takeaway %}<div class="so">→ {{ r.takeaway }}</div>{% endif %}</div>{% endfor %}</div></div>
   <div class="row"><div class="k">Первые шаги</div><div><ul class="steps">
-    {% for s in c.first_steps %}<li>{{ s }}</li>{% endfor %}</ul></div></div>
+    {% for s in c.first_steps %}<li>{{ s|ru }}</li>{% endfor %}</ul></div></div>
   <details><summary>Источники и проверка ({{ c.passport|length }}: {{ c.passport_counts['✓'] }} ✓ · {{ c.passport_counts['≈'] }} ≈ · {{ c.passport_counts['?'] }} ?)</summary>
-    <table><tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Уверенность</th></tr>
-    {% for p in c.passport %}<tr><td>{{ p.claim.text }}{% if p.claim.note %}<div class="note">{{ p.claim.note }}</div>{% endif %}</td>
+    <div class="scroll"><table class="passport"><colgroup><col style="width:38%"><col style="width:19%"><col style="width:13%"><col style="width:21%"><col style="width:9%"></colgroup>
+    <tr><th>Утверждение</th><th>Источник</th><th>Дата</th><th>Метод</th><th>Ув.</th></tr>
+    {% for p in c.passport %}<tr><td>{{ p.claim.text|ru }}{% if p.claim.note %}<div class="note">{{ p.claim.note|ru }}</div>{% endif %}</td>
       <td>{% if p.url %}<a href="{{ p.url }}" target="_blank">{{ p.label }}</a>{% else %}—{% endif %}</td>
-      <td>{{ p.claim.source_date or '—' }}</td><td>{{ p.mark }} {{ p.claim.method.value }}</td><td>{{ '%.1f'|format(p.claim.confidence) }}</td></tr>{% endfor %}
-    </table></details>
+      <td>{{ p.claim.source_date or '—' }}</td><td>{{ p.mark }} {{ p.claim.method|method }}</td><td>{{ '%.1f'|format(p.claim.confidence) }}</td></tr>{% endfor %}
+    </table></div></details>
 </article>
 {% endfor %}
 </div>
 
 <h2>Отсеяно на отборе</h2>
 <table><tr><th>Модель</th><th>Сработавший критерий</th><th>Причина</th></tr>
-{% for r in rejected %}<tr><td>{{ r.name }}</td><td>{{ r.criterion }}{% if r.all|length > 1 %}<div class="note">также: {{ r.all[1:]|join(', ') }}</div>{% endif %}</td><td>{{ r.reason }}</td></tr>{% endfor %}
+{% for r in rejected %}<tr><td>{{ r.name }}</td><td>{{ r.criterion }}{% if r.all|length > 1 %}<div class="note">также: {{ r.all[1:]|join(', ') }}</div>{% endif %}</td><td>{{ r.reason|ru }}</td></tr>{% endfor %}
 </table>
 
 {% if not_verified %}<h2>Не проверено (сбой LLM-провайдера)</h2>

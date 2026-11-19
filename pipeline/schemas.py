@@ -72,3 +72,15 @@ def strip_citations(text: str) -> tuple[str, list[str]]:
     cleaned = re.sub(r"\(\s*\)", "", cleaned)
     cleaned = re.sub(r"\s+([.,;:])", r"\1", cleaned)
     return re.sub(r"\s{2,}", " ", cleaned).strip(), urls
+
+
+def fmt_usd(v: float | None) -> str:
+    if not v:
+        return "—"
+    if v >= 1e9:
+        return f"${v / 1e9:.1f} млрд".replace(".", ",").replace(",0 ", " ")
+    return f"${v / 1e6:,.0f} млн".replace(",", " ")
+
+
+VALUE_KIND_RU = {"market_cap": "капитализация", "last_round": "оценка в последнем раунде",
+                 "press_estimate": "оценка в прессе"}

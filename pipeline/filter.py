@@ -19,7 +19,7 @@ from pydantic import BaseModel
 from .config import ROOT, load_config
 from .llm import LLMUnavailable, call_json
 from .logger import log_event
-from .schemas import BusinessModel, Claim, Method, clean_url
+from .schemas import VALUE_KIND_RU, BusinessModel, Claim, Method, clean_url, fmt_usd
 
 Verdict = Literal["pass", "fail", "uncertain"]
 
@@ -101,9 +101,9 @@ def judge_analog(out: AnalogOutput, citations: list[dict], cfg: dict) -> tuple[V
 
     info = {"analog_name": out.analog_name, "same_model_reason": out.same_model_reason, "values": points}
     if not out.analog_name or not points:
-        claim = Claim(text="No comparable company with a valuation figure found",
+        claim = Claim(text="Не найдено компании с той же моделью и известной оценкой",
                       method=Method.model_judgment, confidence=0.3)
-        return "uncertain", "no analog with a valuation found", claim, info
+        return "uncertain", "не найден аналог с той же моделью и известной оценкой", claim, info
 
     # противоречивые данные: берём консервативное (минимальное) значение, все версии сохраняем
     trusted = [p for p in points if p["in_search_results"] is not False] or points
@@ -123,16 +123,17 @@ def judge_analog(out: AnalogOutput, citations: list[dict], cfg: dict) -> tuple[V
         note.append(f"sources disagree >{cfg['conflict_ratio']}x; conservative value used")
 
     claim = Claim(
-        text=f"{out.analog_name}: ${lo['value_usd'] / 1e6:,.0f}M ({lo['kind']})",
+        text=f"{out.analog_name}: {fmt_usd(lo['value_usd'])} ({VALUE_KIND_RU.get(lo['kind'], lo['kind'])})",
         source_url=lo["source_url"], source_date=lo["source_date"],
         method=Method.needs_human if conflict else Method.calculation,
         confidence=conf,
-        conflicting_values=[f"${p['value_usd'] / 1e6:,.0f}M {p['kind']} {p['source_url']}" for p in points] if conflict else [],
+        conflicting_values=[f"{fmt_usd(p['value_usd'])} {VALUE_KIND_RU.get(p['kind'], p['kind'])} {p['source_url']}" for p in points] if conflict else [],
         note="; ".join(note),
     )
     info.update(conservative_usd=lo["value_usd"], conflict=conflict, threshold_usd=threshold)
     verdict: Verdict = "pass" if passed else "fail"
-    reason = f"conservative valuation ${lo['value_usd'] / 1e6:,.0f}M {'≥' if passed else '<'} ${threshold / 1e6:,.0f}M"
+    reason = (f"аналог {out.analog_name}: {fmt_usd(lo['value_usd'])} {'≥' if passed else '<'} порога {fmt_usd(threshold)}"
+              + (" (консервативная из расходящихся оценок)" if conflict else ""))
     return verdict, reason, claim, info
 
 
@@ -163,7 +164,7 @@ def screen_model(m: BusinessModel) -> FilterResult:
         for c in llm_crit:
             v = got.get(c["id"])
             if v is None:  # LLM пропустила критерий — не угадываем, считаем «не уверена»
-                v = LLMCriterionVerdict(criterion_id=c["id"], verdict="uncertain", reason="missing in LLM output",
+                v = LLMCriterionVerdict(criterion_id=c["id"], verdict="uncertain", reason="LLM не ответила по этому критерию",
                                         evidence=Claim(text="-", method=Method.needs_human, confidence=0))
             passed, flagged = _apply_policy(v.verdict, c, fcfg["on_uncertain"])
             if flagged:
